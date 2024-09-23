@@ -17,7 +17,6 @@ import {
   CalendarIcon,
   DocumentDuplicateIcon,
   ChartPieIcon,
-  Cog6ToothIcon,
   ChevronDownIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useLocation } from "react-router-dom";
@@ -27,15 +26,15 @@ import DotsIcon from "../Icons/DotsIcon";
 
 const navigation = [
   { name: "Dashboard", path: "/Dashboard", icon: HomeIcon },
-  { name: "Organization", path: "/team", icon: UsersIcon },
-  { name: "Membership", path: "/projects", icon: FolderIcon },
-  { name: "Financials", path: "/calendar", icon: CalendarIcon },
-  { name: "Chapters", path: "/documents", icon: DocumentDuplicateIcon },
-  { name: "Committees", path: "/reports", icon: ChartPieIcon },
-  { name: "Education", path: "/reports", icon: ChartPieIcon },
-  { name: "Events", path: "/reports", icon: ChartPieIcon },
+  { name: "Organization", path: "/organization", icon: UsersIcon },
+  { name: "Membership", path: "/membership", icon: FolderIcon },
+  { name: "Financials", path: "/financials", icon: CalendarIcon },
+  { name: "Chapters", path: "/chapters", icon: DocumentDuplicateIcon },
+  { name: "Committees", path: "/committees", icon: ChartPieIcon },
+  { name: "Education", path: "/education", icon: ChartPieIcon },
+  { name: "Events", path: "/events", icon: ChartPieIcon },
   { name: "Reports", path: "/reports", icon: ChartPieIcon },
-  { name: "Settigns", path: "/reports", icon: ChartPieIcon },
+  { name: "Settigns", path: "/settigns", icon: ChartPieIcon },
 ];
 
 const userNavigation = [
@@ -220,8 +219,8 @@ console.log(children)
             </nav>
           </div>
         </div>
-        <main className="py-10 w-4/5 h-[93vh] bg-blue-500 relative left-80 ">
-          <div className="p-4">{children} </div>
+        <main className="py-10 w-4/5 h-[93vh] relative left-80 bg-gray-100">
+          <div className="p-8">{children} </div>
         </main>
       </div>
     </div>

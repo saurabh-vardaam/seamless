@@ -1,8 +1,8 @@
 import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 
-const Team = () => {
+const Organization = () => {
   return <PrimaryContainer>sdfsdfsdfsdfsdfsdfsdfsdfsdf</PrimaryContainer>;
 };
 
-export default Team;
+export default Organization;

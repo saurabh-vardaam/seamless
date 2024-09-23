@@ -10,7 +10,6 @@ const DotsIcon = () => {
       width="20px"
       height="20px"
       viewBox="0 0 276.167 276.167"
-      xml:space="preserve"
     >
       <g>
         <g>
