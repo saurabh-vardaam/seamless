@@ -1,16 +1,11 @@
-// import { MailIcon, PhoneIcon, GlobeAltIcon, PencilIcon } from '@heroicons/react/outline';
-import { GlobeAltIcon, PencilIcon, PhoneIcon } from '@heroicons/react/24/outline';
-import PrimaryContainer from '../Components/PrimaryContainer';
-import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import Member from "../Images/Member.png"
+import React from "react";
+import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import "react-tabs/style/react-tabs.css";
+import { GlobeAltIcon, PhoneIcon, MailIcon } from "@heroicons/react/solid"; // Import heroicons
 
-
-const Financials = () => {
+const MembershipUI = () => {
   return (
-    <PrimaryContainer>
-    
-      {/* Profile Header */}
-     
+    <div className="min-h-screen p-6 bg-gray-50">
       {/* Tabs Navigation */}
       <Tabs>
         <TabList className="flex pb-3 space-x-8 border-b border-gray-300">
@@ -37,10 +32,10 @@ const Financials = () => {
               <div className="relative">
                 <img
                   className="w-24 h-24 rounded-full"
-                  src={Member}
+                  src="https://via.placeholder.com/100"
                   alt="Profile"
                 />
-                <span className="absolute px-2 py-1 text-xs text-purple-700 bg-purple-100 rounded-full left-20 top-8">
+                <span className="absolute top-0 right-0 px-2 py-1 text-xs text-purple-700 bg-purple-100 rounded-full">
                   Invited
                 </span>
               </div>
@@ -58,7 +53,7 @@ const Financials = () => {
                   href="#"
                   className="flex items-center space-x-1 text-blue-500 hover:underline"
                 >
-                  <PhoneIcon className="w-5 h-5" />
+                  <GlobeAltIcon className="w-5 h-5" />
                   <span>www.NACC/TusconArizona</span>
                 </a>
                 <p className="flex items-center space-x-1 text-gray-500">
@@ -66,7 +61,7 @@ const Financials = () => {
                   <span>1.301.433.9928</span>
                 </p>
                 <p className="flex items-center space-x-1 text-gray-500">
-                  <PhoneIcon className="w-5 h-5" />
+                  <MailIcon className="w-5 h-5" />
                   <span>vlopez@NACC.com</span>
                 </p>
               </div>
@@ -162,8 +157,8 @@ const Financials = () => {
           <p>History Content</p>
         </TabPanel>
       </Tabs>
-    </PrimaryContainer>
+    </div>
   );
 };
 
-export default Financials;
+export default MembershipUI;
