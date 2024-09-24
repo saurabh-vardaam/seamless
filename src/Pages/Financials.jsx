@@ -2,7 +2,7 @@
 import { GlobeAltIcon, PencilIcon, PhoneIcon } from '@heroicons/react/24/outline';
 import PrimaryContainer from '../Components/PrimaryContainer';
 import { Tab, Tabs, TabList, TabPanel } from 'react-tabs';
-import Member from "../Images/Member.png"
+import User from "../Images/User.png"
 
 
 const Financials = () => {
@@ -37,7 +37,7 @@ const Financials = () => {
               <div className="relative">
                 <img
                   className="w-24 h-24 rounded-full"
-                  src={Member}
+                  src={User}
                   alt="Profile"
                 />
                 <span className="absolute px-2 py-1 text-xs text-purple-700 bg-purple-100 rounded-full left-20 top-8">
