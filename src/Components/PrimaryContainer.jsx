@@ -137,9 +137,9 @@ export default function PrimaryContainer({ children }) {
 
             <div className="flex items-center ml-auto space-x-5">
               <div className="inline-flex items-center gap-4">
-                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#F9F9F9] py-2 px-4">
-                  <div className="flex items-center gap-2">
-                    <input className="w-[13.25rem] bg-[#F9F9F9] text-sm leading-normal text-[#B6B6B6] focus:outline-none focus:ring-0" />
+                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec] py-2 px-4 ">
+                  <div className="flex items-center gap-2 ">
+                    <input className=" bg-[#ebecec] text-sm  text-gray-900 focus:outline-none focus:ring-0 max-w-56 w-full" />
                     <MagnifyingGlassIcon className="text-[#B6B6B6] w-5 h-5"/>
                   </div>
                 </div>
@@ -156,7 +156,7 @@ export default function PrimaryContainer({ children }) {
                     <span className="hidden lg:flex lg:items-center">
                       <span
                         aria-hidden="true"
-                        className="ml-4 text-sm font-semibold leading-6 text-gray-900"
+                        className="ml-4 text-base font-semibold text-[#282728] "
                       >
                         Justin Watson
                       </span>
@@ -226,7 +226,7 @@ export default function PrimaryContainer({ children }) {
               </nav>
             </div>
           </div>
-          <main className="w-5/6 h-full bg-[#edeeee]">
+          <main className="w-5/6 h-full bg-[#ebecec]">
             <div className="w-full h-full px-12 py-10">{children} </div>
           </main>
         </div>

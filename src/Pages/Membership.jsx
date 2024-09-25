@@ -9,7 +9,7 @@ import {
 import Checkbox from "../Components/CheckBox";
 import BraIcon from "../Icons/BraIcon";
 import Member from "../Images/Member.png";
-import { Tab, Tabs, TabList, TabPanel } from "react-tabs";
+import { Tab } from "@headlessui/react";
 
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -17,10 +17,12 @@ const Membership = () => {
   const handleRowClick = (index) => {
     setSelectedRow(index);
   };
-
+  const classNames = (...classes) => classes.filter(Boolean).join(" ");
   const members = [
     {
-      profile: <img src={Member} className="w-8 h-8 rounded-full cursor-none" />,
+      profile: (
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
+      ),
       name: "Vanessa Lopez",
       status: "Invited",
       role: "Admin",
@@ -29,11 +31,11 @@ const Membership = () => {
       subscription: "Chapter Gold",
       dues: "NA",
     },
-    
+
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Active",
       role: "Admin",
@@ -46,7 +48,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Inactive",
       role: "Admin",
@@ -58,7 +60,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Invited",
       role: "Admin",
@@ -70,7 +72,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Active",
       role: "Admin",
@@ -83,7 +85,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Inactive",
       role: "Admin",
@@ -95,7 +97,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Invited",
       role: "Admin",
@@ -108,7 +110,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Active",
       role: "Admin",
@@ -121,7 +123,7 @@ const Membership = () => {
     {
       name: "Vanessa Lopez",
       profile: (
-        <img src={Member}  className="w-8 h-8 rounded-full cursor-none" />
+        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
       ),
       status: "Inactive",
       role: "Admin",
@@ -134,108 +136,164 @@ const Membership = () => {
 
   return (
     <PrimaryContainer>
-      <h2 className="text-xl font-semibold text-[#283275] mb-9">MemberShip</h2>
+      <h2 className="text-2xl font-semibold text-[#283275] mb-9">MemberShip</h2>
 
-      <Tabs>
-        <TabList className="flex flex-wrap space-x-4 border-b border-gray-300">
-          {['Member Details', 'Member Roles', 'Subscriptions', 'Registration'].map(tab => (
-            <Tab
-              key={tab}
-              className="flex-1 pb-3 text-center text-gray-600 cursor-pointer focus:outline-none sm:flex-none"
-              selectedClassName="text-blue-600 border-b-2 border-blue-600 font-semibold"
-            >
-              {tab}
-            </Tab>
-          ))}
-        </TabList>
-        <TabPanel>
-          <div className="mb-6"></div>
-          <div>
-            <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
-              <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto">
-                <div className="flex items-center gap-2">
-                  <input className="w-full bg-[#cdd5d4] text-sm leading-normal text-gray-500 focus:outline-none focus:ring-0 md:w-40" placeholder="Search..." />
-                  <MagnifyingGlassIcon className="text-[#676b6a] w-5 h-5" />
+      <Tab.Group>
+        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
+          {["Member", "Member Roles", "Subscriptions", "Registration"].map(
+            (tab) => (
+              <Tab
+                key={tab}
+                className={({ selected }) =>
+                  classNames(
+                    " text-base font-semibold leading-[60px] ",
+                    selected
+                      ? "border-b-2 border-blue-900 font-semibold text-[#283275]"
+                      : "font-semibold text-[#282728]"
+                  )
+                }
+              >
+                {tab}
+              </Tab>
+            )
+          )}
+        </Tab.List>
+
+        <Tab.Panels>
+          <Tab.Panel>
+            <div className="mb-6"></div>
+            <div>
+              <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
+                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto">
+                  <div className="flex items-center gap-2">
+                    <input
+                      className="w-full max-w-56 bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 md:w-40"
+                      placeholder="Search..."
+                    />
+                    <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
+                  </div>
+                </div>
+
+                <div className="flex items-center gap-10 mt-4 md:mt-0">
+                  <button className="flex pr-2 space-x-4 item leading-[60px]">
+                    <span className="text-base font-medium text-[#282728]">
+                      Filter
+                    </span>
+                    <AdjustmentsHorizontalIcon className="w-6 h-6 text-[#282728]" />
+                  </button>
+                  <button className="flex items-center gap-4 pr-2 leading-[60px]">
+                    <span className="text-base font-medium text-[#282728]">
+                      Export List
+                    </span>
+                    <ArrowUpTrayIcon className="w-6 h-6 text-[#282728]" />
+                  </button>
+                  <button className="px-10 py-2 text-[#edefef] bg-[#283275] rounded-3xl font-semibold text-sm ">
+                    ADD MEMBER
+                  </button>
                 </div>
               </div>
-
-              <div className="flex items-center gap-10 mt-4 md:mt-0">
-                <button className="flex pr-2 space-x-4 item text-latisSecondary-800">
-                  <span className="text-sm font-medium text-[#010101]">Filter</span>
-                  <AdjustmentsHorizontalIcon className="w-5 h-5 text-[#010101]" />
-                </button>
-                <button className="flex items-center gap-4 pr-2 text-latisSecondary-800">
-                  <span className="text-sm font-medium text-[#010101]">Export List</span>
-                  <ArrowUpTrayIcon className="w-5 h-5 text-[#010101]" />
-                </button>
-                <button className="px-8 py-1 text-white bg-[#283275] rounded-full">ADD MEMBER</button>
+              <div className="border border-[#6b6a6b] rounded-2xl">
+                <table className="min-w-full table-auto">
+                  <thead className="text-left text-[#283275] text-sm font-semibold ">
+                    <tr className="border-b border-gray-300">
+                      <th className="px-4 py-3 ">
+                        <Checkbox />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Member Name
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Status
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Role
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Chapter
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Committee
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Subscription
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold">
+                        Dues
+                        <BraIcon className="inline-block ml-3" />
+                      </th>
+                      <th className="px-4 py-3 text-sm font-semibold"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    {members.map((member, index) => (
+                      <tr
+                        key={index}
+                        className={`border-t border-gray-300 cursor-pointer ${
+                          selectedRow === index ? "bg-[#ffffff]" : ""
+                        }`}
+                        onClick={() => handleRowClick(index)}
+                      >
+                        <td className="px-4 py-2 text-sm font-semibold">
+                          <Checkbox />
+                        </td>
+                        <td className="px-4 py-2 text-[#283275] text-sm font-semibold flex items-center gap-3 ">
+                          {member.profile}
+                          {member.name}
+                        </td>
+                        <td className="px-4 py-3">
+                          <span
+                            className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
+                              member.status === "Active"
+                                ? "bg-[#c2e0b3] text-[#282728]"
+                                : member.status === "Invited"
+                                ? "bg-[#cdd5d4] text-[#282728]"
+                                : member.status === "Inactive"
+                                ?"bg-[#e0b3c9] text-[#282728]"
+                                :""
+                            }`}
+                          >
+                            {member.status}
+                          </span>
+                        </td>
+                        <td className="px-4 py-2 text-[#282728] text-sm">
+                          {member.role}
+                        </td>
+                        <td className="px-4 py-2 text-[#282728] text-sm">
+                          {member.chapter}
+                        </td>
+                        <td className="px-4 py-2 text-[#282728] text-sm flex items-center">
+                          {member.committee}
+                          {member.extraCommittee && (
+                            <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
+                              +{member.extraCommittee}
+                            </span>
+                          )}
+                        </td>
+                        <td className="px-4 py-2 text-[#282728] text-sm font-normal">
+                          {member.subscription}
+                        </td>
+                        <td className="px-4 py-2 text-[#282728] text-sm font-normal">
+                          {member.dues}
+                        </td>
+                        <td className="px-4 py-2 text-right text-[#6c7171] font-normal text-sm">
+                          <EllipsisHorizontalCircleIcon className="m-2 w-7 h-7 " />
+                        </td>
+                      </tr>
+                    ))}
+                  </tbody>
+                </table>
               </div>
             </div>
-            <div className="mt-6 mb-6 border border-[#6b6a6b] rounded-2xl p-1">
-              <table className="min-w-full table-auto bg-[#edeeee]">
-                <thead className="text-left">
-                  <tr className="border-b border-gray-300">
-                    <th className="px-4 py-3 text-sm font-medium">
-                      <Checkbox />
-                    </th>
-                    <th className="px-4 text-[#283275] py-3">Member Name<BraIcon className="inline-block ml-3 text-[#283275]" /></th>
-                    <th className="px-4 text-[#283275] py-3">Status<BraIcon className="inline-block ml-3 text-latisSecondary-700" /></th>
-                    <th className="px-4 text-[#283275] py-3">Role<BraIcon className="inline-block ml-3 text-latisSecondary-700" /></th>
-                    <th className="px-4 text-[#283275] py-3">Chapter<BraIcon className="inline-block ml-3 text-latisSecondary-700" /></th>
-                    <th className="px-4 text-[#283275] py-3">Committee<BraIcon className="inline-block ml-3 text-latisSecondary-700" /></th>
-                    <th className="px-4 text-[#283275] py-3">Subscription<BraIcon className="inline-block ml-3 text-latisSecondary-700" /></th>
-                    <th className="px-4 text-[#283275] py-3">Dues<BraIcon className="inline-block ml-3 text-latisSecondary-700" /></th>
-                    <th className="px-4 text-[#283275] py-3"></th>
-                  </tr>
-                </thead>
-                <tbody className="text-gray-600">
-                  {members.map((member, index) => (
-                    <tr
-                      key={index}
-                      className={`border-t border-gray-300 cursor-pointer ${selectedRow === index ? "bg-white" : ""}`}
-                      onClick={() => handleRowClick(index)}
-                    >
-                      <td className="px-4 py-2 text-sm font-medium">
-                        <Checkbox />
-                      </td>
-                      <td className="px-4 py-2 text-[#283275] text-sm font-medium flex items-center gap-3">
-                        {member.profile}
-                        {member.name}
-                      </td>
-                      <td className="px-4 py-3">
-                        <span className={`px-4 py-1.5 rounded-3xl text-sm ${member.status === "Active" ? "bg-[#c2e0b3] text-[#586154]" : member.status === "Invited" ? "bg-[#cdd5d4] text-[#586154]" : "bg-[#e0b3c9] text-[#586154]"}`}>
-                          {member.status}
-                        </span>
-                      </td>
-                      <td className="px-4 py-2 text-[#414041] text-sm">{member.role}</td>
-                      <td className="px-4 py-2 text-[#414041] text-sm">{member.chapter}</td>
-                      <td className="px-4 py-2 text-[#414041] text-sm flex items-center">
-                        {member.committee}
-                        {member.extraCommittee && <span className="px-2 py-1 ml-2 text-xs bg-[#c2e0b3] text-[#586154] rounded-full">+{member.extraCommittee}</span>}
-                      </td>
-                      <td className="px-4 py-2 text-[#414041] text-sm">{member.subscription}</td>
-                      <td className="px-4 py-2 text-[#414041] text-sm">{member.dues}</td>
-                      <td className="px-4 py-2 text-right">
-                        <EllipsisHorizontalCircleIcon className="w-6 h-6 m-2 text-[#6c7171]" />
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-        </TabPanel>
-        {/* Additional Tabs Panels */}
-        <TabPanel>
-          <p>Events Content</p>
-        </TabPanel>
-        <TabPanel>
-          <p>Education Content</p>
-        </TabPanel>
-        <TabPanel>
-          <p>Committees Content</p>
-        </TabPanel>
-      </Tabs>
+          </Tab.Panel>
+          <Tab.Panel></Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </PrimaryContainer>
   );
 };

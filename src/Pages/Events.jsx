@@ -76,79 +76,80 @@ const Events = () => {
       registration: "NACC Open Registration",
       type: "On-Site",
     },
-    
   ];
-
 
   return (
     <PrimaryContainer>
       <div className="mb-6">
-        <h2 className="text-xl font-semibold text-[#283275] mb-9">Events</h2>
-        <div className="flex border-b-2 border-[#d4d5d5]">
-          <span className="text-[#283275] text-base relative pb-4 font-medium">
+        <h2 className="text-2xl font-extrabold text-[#283275] mb-9">Events</h2>
+        <div className="flex border-b-2 border-gray-300">
+          <span className="text-[#283275] text-base relative pb-4 font-semibold">
             Events
             <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#b222fb] via-[#8a54f4] to-[#2dc7e5]" />
           </span>
         </div>
       </div>
       <div className="">
-        <div className="flex items-center justify-between">
-          <div className="inline-flex items-center gap-4">
-            <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4">
-              <div className="flex items-center gap-2">
-                <input className="w-[10rem] bg-[#cdd5d4] text-sm leading-normal text-gray-500 focus:outline-none focus:ring-0" />
-                <MagnifyingGlassIcon className="text-[#a8adad] w-5 h-5" />
-              </div>
+        <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
+          <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto">
+            <div className="flex items-center gap-2">
+              <input
+                className="w-full max-w-56 bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 md:w-40"
+                placeholder="Search..."
+              />
+              <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
             </div>
           </div>
 
-          <div className="flex items-center gap-10">
-            <button className="flex pr-2 space-x-4 item text-latisSecondary-800">
-              <span className="text-sm font-medium text-[#010101]">Filter</span>
-              <AdjustmentsHorizontalIcon className="w-5 h-5 text-[#010101]" />
+          <div className="flex items-center gap-10 mt-4 md:mt-0">
+            <button className="flex pr-2 space-x-4 item leading-[60px]">
+              <span className="text-base font-medium text-[#282728]">
+                Filter
+              </span>
+              <AdjustmentsHorizontalIcon className="w-6 h-6 text-[#282728]" />
             </button>
-            <button className="flex items-center gap-4 pr-2 text-latisSecondary-800">
-              <span className="text-sm font-medium text-[#010101]">
+            <button className="flex items-center gap-4 pr-2 leading-[60px]">
+              <span className="text-base font-medium text-[#282728]">
                 Export List
               </span>
-              <ArrowUpTrayIcon className="w-5 h-5 text-[#010101]" />
+              <ArrowUpTrayIcon className="w-6 h-6 text-[#282728]" />
             </button>
-            <button className="px-7 py-1.5 text-white bg-[#283275] rounded-full">
+            <button className="px-10 py-2 text-[#edefef] bg-[#283275] rounded-3xl font-semibold text-sm ">
               ADD A NEW EVENT
             </button>
           </div>
         </div>
-        <div className="p-1 mt-6 mb-6 border border-[#6b6a6b] rounded-2xl">
+        <div className=" mt-6 mb-6 border border-[#6b6a6b] rounded-2xl">
           <table className="min-w-full table-auto">
-            <thead className="text-left">
+            <thead className="text-left text-[#283275]">
               <tr className="border-b border-gray-300">
                 <th className="px-4 py-3 text-sm font-medium">
                   <Checkbox />
                 </th>
-                <th className="px-4 text-[#283275] py-3">
-                  Event Name{" "}
-                  <BraIcon className="inline-block ml-3 text-[#283275]" />
+                <th className="py-3 text-sm font-semibold">
+                  Event Name
+                  <BraIcon className="inline-block ml-3 " />
                 </th>
-                <th className="px-4 text-[#283275] py-3">
-                  Status{" "}
-                  <BraIcon className="inline-block ml-3 text-latisSecondary-700" />
+                <th className="py-3 text-sm font-semibold ">
+                  Status
+                  <BraIcon className="inline-block ml-3 " />
                 </th>
-                <th className="px-4 text-[#283275] py-3">
-                  Dates{" "}
-                  <BraIcon className="inline-block ml-3 text-latisSecondary-700" />
+                <th className="px-4 py-3 text-sm font-semibold">
+                  Dates
+                  <BraIcon className="inline-block ml-3" />
                 </th>
-                <th className="px-4 text-[#283275] py-3">
-                  Registration{" "}
-                  <BraIcon className="inline-block ml-3 text-latisSecondary-700" />
+                <th className="px-4 py-3 text-sm font-semibold">
+                  Registration
+                  <BraIcon className="inline-block ml-3 " />
                 </th>
-                <th className="px-4 text-[#283275] py-3">
-                  Type{" "}
-                  <BraIcon className="inline-block ml-3 text-latisSecondary-700" />
+                <th className="px-4 py-3 text-sm font-semibold">
+                  Type
+                  <BraIcon className="inline-block ml-3 " />
                 </th>
-                <th className="px-4 text-[#283275] py-3"></th>
+                <th className="px-4 py-3"></th>
               </tr>
             </thead>
-            <tbody className="text-gray-600">
+            <tbody className="">
               {eventsData.map((event, index) => (
                 <tr
                   key={index}
@@ -160,35 +161,35 @@ const Events = () => {
                   <td className="px-4 py-2 text-sm font-medium">
                     <Checkbox />
                   </td>
-                  <td className="px-4 py-2 text-[#283275] text-sm font-medium">
+                  <td className="py-2 text-[#283275] text-sm font-medium">
                     {event.name}
                   </td>
-                  <td className="px-4 py-3">
+                  <td className="py-3">
                     <span
-                      className={`px-4 py-1.5 rounded-3xl text-sm ${
+                      className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
                         event.status === "Live"
-                          ? "bg-[#c2e0b3] text-[#586154]"
+                          ? "bg-[#c2e0b3] text-[#282728]"
                           : event.status === "Pause"
-                          ? "bg-[#cdd5d4] text-[#586154]"
+                          ? "bg-[#cdd5d4] text-[#282728]"
                           : event.status === "Inactive"
-                          ? "bg-[#e0b3c9] text-[#3f393c]"
+                          ? "bg-[#e0b3c9] text-[#282728]"
                           : ""
                       }`}
                     >
                       {event.status}
                     </span>
                   </td>
-                  <td className="px-4 py-2 text-[#414041] text-sm">
+                  <td className="px-4 py-2 text-[#282728] text-sm font-normal">
                     {event.dates}
                   </td>
-                  <td className="px-4 py-2 text-[#414041] text-sm">
+                  <td className="px-4 py-2 text-[#282728] text-sm font-normal">
                     {event.registration}
                   </td>
-                  <td className="px-4 py-2 text-[#414041] text-sm">
+                  <td className="px-4 py-2 text-[#282728] text-sm font-normal">
                     {event.type}
                   </td>
-                  <td className="px-4 py-2 text-right">
-                    <EllipsisHorizontalCircleIcon className="w-6 h-6 m-2 text-[#6c7171]" />
+                  <td className="px-4 py-2 text-left">
+                    <EllipsisHorizontalCircleIcon className="w-7 h-7 m-2 text-[#6c7171]" />
                   </td>
                 </tr>
               ))}

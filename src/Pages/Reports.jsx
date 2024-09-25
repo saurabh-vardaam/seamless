@@ -2,7 +2,8 @@ import React from 'react'
 import PrimaryContainer from '../Components/PrimaryContainer';
 
 const Reports = () => {
-    return <PrimaryContainer>sdfsdfsdfsdfsdfsdfsdfsdfsdf</PrimaryContainer>;
+    return <PrimaryContainer> jhdbhcbhcvfdjscvbj
+       </PrimaryContainer>;
 
 }
 
