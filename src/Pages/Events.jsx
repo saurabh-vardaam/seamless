@@ -1,21 +1,17 @@
-import React from "react";
+import React, { useState } from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 import {
   AdjustmentsHorizontalIcon,
-  ArrowDownTrayIcon,
   ArrowUpTrayIcon,
-  ArrowUturnLeftIcon,
-  Bars3BottomRightIcon,
-  EllipsisHorizontalCircleIcon,
   MagnifyingGlassIcon,
-  ViewColumnsIcon,
+  EllipsisHorizontalCircleIcon,
 } from "@heroicons/react/24/outline";
 import Checkbox from "../Components/CheckBox";
-import DotsIcon from "../Icons/DotsIcon";
-import DotIcons from "../Icons/DotIcon";
 import BraIcon from "../Icons/BraIcon";
 
 const Events = () => {
+  const [selectedRow, setSelectedRow] = useState(null);
+
   const eventsData = [
     {
       name: "Fall NACC Mini Conference",
@@ -83,12 +79,13 @@ const Events = () => {
     
   ];
 
+
   return (
     <PrimaryContainer>
       <div className="mb-6">
         <h2 className="text-xl font-semibold text-[#283275] mb-9">Events</h2>
         <div className="flex border-b-2 border-[#d4d5d5]">
-          <span className=" text-[#283275] text-base relative pb-4 font-medium">
+          <span className="text-[#283275] text-base relative pb-4 font-medium">
             Events
             <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#b222fb] via-[#8a54f4] to-[#2dc7e5]" />
           </span>
@@ -121,7 +118,7 @@ const Events = () => {
             </button>
           </div>
         </div>
-        <div className="p-1.5 mt-6 mb-6 border border-[#6b6a6b] rounded-2xl">
+        <div className="p-1 mt-6 mb-6 border border-[#6b6a6b] rounded-2xl">
           <table className="min-w-full table-auto">
             <thead className="text-left">
               <tr className="border-b border-gray-300">
@@ -153,7 +150,13 @@ const Events = () => {
             </thead>
             <tbody className="text-gray-600">
               {eventsData.map((event, index) => (
-                <tr key={index} className="border-t border-gray-300">
+                <tr
+                  key={index}
+                  className={`border-t border-gray-300 ${
+                    selectedRow === index ? "bg-white" : ""
+                  }`}
+                  onClick={() => setSelectedRow(index)}
+                >
                   <td className="px-4 py-2 text-sm font-medium">
                     <Checkbox />
                   </td>
