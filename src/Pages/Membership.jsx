@@ -136,7 +136,9 @@ const Membership = () => {
 
   return (
     <PrimaryContainer>
-      <h2 className="text-2xl font-semibold text-[#283275] mb-9">MemberShip</h2>
+      <h2 className="text-2xl font-extrabold text-[#283275] mb-9">
+        Membership
+      </h2>
 
       <Tab.Group>
         <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
@@ -161,42 +163,37 @@ const Membership = () => {
 
         <Tab.Panels>
           <Tab.Panel>
-            <div className="mb-6"></div>
             <div>
-              <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
-                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto">
-                  <div className="flex items-center gap-2">
-                    <input
-                      className="w-full max-w-56 bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 md:w-40"
-                      placeholder="Search..."
-                    />
-                    <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
-                  </div>
+              <div className="flex flex-col items-center justify-between mt-6 mb-6 space-y-4 md:flex-row md:space-y-0">
+                <div className="flex items-center w-full md:w-auto space-x-4 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4">
+                  <input
+                    className="w-full bg-[#cdd5d4] text-sm text-gray-900 focus:outline-none"
+                    placeholder="Search..."
+                  />
+                  <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
                 </div>
 
-                <div className="flex items-center gap-10 mt-4 md:mt-0">
-                  <button className="flex pr-2 space-x-4 item leading-[60px]">
-                    <span className="text-base font-medium text-[#282728]">
-                      Filter
-                    </span>
-                    <AdjustmentsHorizontalIcon className="w-6 h-6 text-[#282728]" />
+                <div className="flex items-center space-x-4">
+                  <button className="flex items-center space-x-2 text-base font-medium text-[#282728]">
+                    <span>Filter</span>
+                    <AdjustmentsHorizontalIcon className="w-6 h-6" />
                   </button>
-                  <button className="flex items-center gap-4 pr-2 leading-[60px]">
-                    <span className="text-base font-medium text-[#282728]">
-                      Export List
-                    </span>
-                    <ArrowUpTrayIcon className="w-6 h-6 text-[#282728]" />
+                  <button className="flex items-center space-x-2 text-base font-medium text-[#282728]">
+                    <span>Export List</span>
+                    <ArrowUpTrayIcon className="w-6 h-6" />
                   </button>
-                  <button className="px-10 py-2 text-[#edefef] bg-[#283275] rounded-3xl font-semibold text-sm ">
+                  <button className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm">
                     ADD MEMBER
                   </button>
                 </div>
               </div>
-              <div className="border border-[#6b6a6b] rounded-2xl">
+
+              {/* Responsive table */}
+              <div className="border border-[#6b6a6b] rounded-2xl overflow-x-auto">
                 <table className="min-w-full table-auto">
-                  <thead className="text-left text-[#283275] text-sm font-semibold ">
+                  <thead className="text-left text-[#283275] text-sm font-semibold">
                     <tr className="border-b border-gray-300">
-                      <th className="px-4 py-3 ">
+                      <th className="px-4 py-3">
                         <Checkbox />
                       </th>
                       <th className="px-4 py-3 text-sm font-semibold">
@@ -227,7 +224,7 @@ const Membership = () => {
                         Dues
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold"></th>
+                      <th className="px-4 py-3"></th>
                     </tr>
                   </thead>
                   <tbody>
@@ -239,10 +236,10 @@ const Membership = () => {
                         }`}
                         onClick={() => handleRowClick(index)}
                       >
-                        <td className="px-4 py-2 text-sm font-semibold">
+                        <td className="px-4 py-2">
                           <Checkbox />
                         </td>
-                        <td className="px-4 py-2 text-[#283275] text-sm font-semibold flex items-center gap-3 ">
+                        <td className="flex items-center gap-3 px-4 py-2">
                           {member.profile}
                           {member.name}
                         </td>
@@ -254,20 +251,16 @@ const Membership = () => {
                                 : member.status === "Invited"
                                 ? "bg-[#cdd5d4] text-[#282728]"
                                 : member.status === "Inactive"
-                                ?"bg-[#e0b3c9] text-[#282728]"
-                                :""
+                                ? "bg-[#e0b3c9] text-[#282728]"
+                                : ""
                             }`}
                           >
                             {member.status}
                           </span>
                         </td>
-                        <td className="px-4 py-2 text-[#282728] text-sm">
-                          {member.role}
-                        </td>
-                        <td className="px-4 py-2 text-[#282728] text-sm">
-                          {member.chapter}
-                        </td>
-                        <td className="px-4 py-2 text-[#282728] text-sm flex items-center">
+                        <td className="px-4 py-2">{member.role}</td>
+                        <td className="px-4 py-2">{member.chapter}</td>
+                        <td className="flex items-center px-4 py-2">
                           {member.committee}
                           {member.extraCommittee && (
                             <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
@@ -275,14 +268,10 @@ const Membership = () => {
                             </span>
                           )}
                         </td>
-                        <td className="px-4 py-2 text-[#282728] text-sm font-normal">
-                          {member.subscription}
-                        </td>
-                        <td className="px-4 py-2 text-[#282728] text-sm font-normal">
-                          {member.dues}
-                        </td>
-                        <td className="px-4 py-2 text-right text-[#6c7171] font-normal text-sm">
-                          <EllipsisHorizontalCircleIcon className="m-2 w-7 h-7 " />
+                        <td className="px-4 py-2">{member.subscription}</td>
+                        <td className="px-4 py-2">{member.dues}</td>
+                        <td className="px-4 py-2 text-right">
+                          <EllipsisHorizontalCircleIcon className="w-7 h-7" />
                         </td>
                       </tr>
                     ))}

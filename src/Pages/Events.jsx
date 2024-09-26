@@ -62,20 +62,7 @@ const Events = () => {
       registration: "NACC Open Registration",
       type: "On-Site",
     },
-    {
-      name: "The 2024 North American Conservation",
-      status: "Live",
-      dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
-      type: "On-Site",
-    },
-    {
-      name: "Fall NACC Mini Conference",
-      status: "Inactive",
-      dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
-      type: "On-Site",
-    },
+  
   ];
 
   return (
@@ -161,7 +148,7 @@ const Events = () => {
                   <td className="px-4 py-2 text-sm font-medium">
                     <Checkbox />
                   </td>
-                  <td className="py-2 text-[#283275] text-sm font-medium">
+                  <td className="py-2 text-[#283275] text-sm font-semibold">
                     {event.name}
                   </td>
                   <td className="py-3">

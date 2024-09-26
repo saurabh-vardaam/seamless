@@ -1,40 +1,57 @@
-import React from 'react'
-import PrimaryContainer from '../Components/PrimaryContainer';
-import { Tab } from '@headlessui/react';
-import { CheckCircleIcon, PencilIcon } from '@heroicons/react/24/outline';
-
+import React from "react";
+import PrimaryContainer from "../Components/PrimaryContainer";
+import { Tab } from "@headlessui/react";
+import {
+  CheckCircleIcon,
+  ChevronDownIcon,
+  PencilIcon,
+} from "@heroicons/react/24/outline";
 
 const Committees = () => {
-    const tabs = [
-        'Event Details',
-        'Registration',
-        'Schedule',
-        'Pricing',
-        'CEU\'s',
-        'Speakers',
-        'Exhibitors',
-        'Sponsors',
-      ];
-    return <PrimaryContainer>
-         <div className="min-h-screen p-6 bg-gray-100">
-      {/* Header Section */}
-      <div className="flex items-center justify-between mb-4">
-        <h1 className="text-2xl font-semibold text-gray-800">Fall NACC Mini Conference</h1>
-        <button className="px-3 py-1 text-sm font-semibold text-green-700 bg-green-100 rounded-full">
+  const classNames = (...classes) => classes.filter(Boolean).join(" ");
+
+  const tabs = [
+    "Event Details",
+    "Registration",
+    "Schedule",
+    "Pricing",
+    "CEU's",
+    "Speakers",
+    "Exhibitors",
+    "Sponsors",
+  ];
+  return (
+    <PrimaryContainer>
+      <div className="flex items-center gap-4 mb-4">
+        <h1 className="text-2xl font-extrabold text-[#283275]">
+          Fall NACC Mini Conference
+        </h1>
+        <button className="px-3 py-1 text-sm font-normal text-[#282728] bg-[#c2e0b3] rounded-full">
           Active
         </button>
       </div>
 
-      {/* Tabs */}
       <Tab.Group>
-        <Tab.List className="flex mb-6 space-x-4 border-b border-gray-300">
-          {tabs.map((tab, idx) => (
+        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
+          {[
+            "Event Details",
+            "Registration",
+            "Schedule",
+            "Pricing",
+            "CEU's",
+            "Speakers",
+            "Exhibitors",
+            "Sponsors",
+          ].map((tab) => (
             <Tab
-              key={idx}
+              key={tab}
               className={({ selected }) =>
-                selected
-                  ? 'text-purple-600 border-b-2 border-purple-600 pb-2 font-semibold'
-                  : 'text-gray-500 pb-2 hover:text-purple-600'
+                classNames(
+                  " text-base font-semibold leading-[60px] ",
+                  selected
+                    ? "border-b-2 border-blue-900  text-[#283275]"
+                    : " text-[#283275]"
+                )
               }
             >
               {tab}
@@ -42,86 +59,135 @@ const Committees = () => {
           ))}
         </Tab.List>
 
-        {/* Event Details */}
         <Tab.Panels>
           <Tab.Panel>
-            <div className="p-6 space-y-4 bg-white border border-gray-200 rounded-lg shadow">
-              {/* Display Title */}
-              <div className="flex items-center justify-between pb-4 border-b">
-                <p className="text-gray-700">Display Title: Fall NACC Mini Conference</p>
-                <PencilIcon className="w-5 h-5 text-gray-500 cursor-pointer" />
-              </div>
+            <div className="mt-6 space-y-4 bg-gray-100 border border-gray-600 rounded-3xl">
+              <div className="bg-[#ffffff] rounded-t-3xl">
+                <div className="flex items-center justify-between border-b border-gray-400">
+                  <p className="text-[#282728] text-sm font-normal m-3.5">
+                    Display Title:
+                    <span className="text-base text-[#283275] font-semibold">
+                      Fall NACC Mini Conference
+                    </span>
+                  </p>
+                  <ChevronDownIcon className="w-5 h-5 text-gray-500 cursor-pointer m-3.5" />
+                </div>
 
-              {/* Main Event Title */}
-              <div className="space-y-2">
-                <h2 className="text-xl font-bold text-gray-800">
-                  The 2024 North American Conservation Corps Annual Conference
-                </h2>
-                <div className="flex items-center space-x-2">
-                  <CheckCircleIcon className="w-5 h-5 text-green-500" />
-                  <p className="text-sm text-gray-600">Show On Public Site</p>
+                <div className="space-y-2 border-b border-gray-400">
+                 <div className="m-5">
+                 <span className="flex justify-between ">
+                    <p className="text-[#282728] text-sm font-normal">
+                      Display Title:
+                    </p>
+                    <PencilIcon className="w-5 h-5" />
+                  </span>
+                  <h2 className="text-3xl font-semibold text-[#283275] ">
+                    The 2024 North American Conservation Corps Annual Conference
+                  </h2>
+                  <span className="flex items-center mt-2 space-x-2">
+                    {/* <CheckCircleIcon className="w-5 h-5 text-green-500" /> */}
+                    <p className="text-sm text-[#283275]">
+                      Show On Public Site
+                    </p>
+                  </span>
+                  </div>
                 </div>
               </div>
 
-              {/* Event Information */}
-              <div className="pt-4 space-y-2 border-t">
-                {/* Description */}
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Description:</p>
-                  <p className="text-gray-700">
-                    The Conference unites people from across sectors and throughout the country who are connected...
+              <div className="space-y-2 ">
+                <div className="flex items-center gap-1 mx-4">
+                  <p className="text-sm text-[#282728]">Description:</p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    The Conference unites people from across sectors and
+                    throughout the country who are connected...
                   </p>
                 </div>
 
-                {/* Dates */}
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Dates:</p>
-                  <p className="text-gray-700">10.24.24 - 10.16.24</p>
+                <div className="pt-3 border-t border-gray-400">
+                 <span className="flex items-center gap-1 mx-4 ">
+                 <p className="text-sm text-[#282728]">Dates:</p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    10.24.24 - 10.16.24
+                  </p>
+                 </span>
                 </div>
 
-                {/* Location */}
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Location:</p>
-                  <p className="text-gray-700">
+                <div className="pt-3 border-t border-gray-400">
+                <span className="flex items-center gap-1 mx-4 ">   
+                <p className="text-sm text-[#282728]">Location:</p>
+                  <p className="text-[#283275] text-base font-semibold">
                     Hyatt Regency Denver at Colorado Convention Center
+                  </p>                 
+                  </span>
+                  
+                </div>
+
+                <div className="pt-3 border-t border-gray-400">
+                <span className="flex items-center gap-1 mx-4 ">   
+                <p className=" text-sm text-[#282728]">
+                    Registration Opens:
                   </p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    10.02.2024
+                  </p>
+                </span>
                 </div>
 
-                {/* Registration Opens */}
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Registration Opens:</p>
-                  <p className="text-gray-700">10.02.2024</p>
+                <div className="pt-3 border-t border-gray-400">
+                <span className="flex items-center gap-1 mx-4 ">   
+                <p className=" text-sm text-[#282728]">
+                    Membership Level Access:
+                  </p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    Chapter Gold, Chapter Silver
+                  </p>
+                  </span>
+                 
                 </div>
 
-                {/* Membership Level Access */}
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Membership Level Access:</p>
-                  <p className="text-gray-700">Chapter Gold, Chapter Silver</p>
+                <div className="pt-3 border-t border-gray-400">
+                <span className="flex items-center gap-1 mx-4 ">   
+                <p className=" text-sm text-[#282728]">
+                    Event Type:
+                  </p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    On-Site
+                  </p>                    
+                  </span>
+                 
                 </div>
 
-                {/* Event Type */}
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Event Type:</p>
-                  <p className="text-gray-700">On-Site</p>
+                <div className="pt-3 border-t border-gray-400">
+                <span className="flex items-center gap-1 mx-4 ">   
+                <p className=" text-sm text-[#282728]">
+                    Event Category:
+                  </p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    Outreach
+                  </p>
+                  </span>
+                  
                 </div>
 
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Event Category:</p>
-                  <p className="text-gray-700">Outreach</p>
-                </div>
-
-                <div className="flex justify-between">
-                  <p className="font-semibold text-gray-600">Status:</p>
-                  <p className="text-gray-700">Active</p>
+                <div className="py-3 border-t border-gray-400">
+                <span className="flex items-center gap-1 mx-4 ">   
+                <p className=" text-sm text-[#282728]">
+                    Status:
+                  </p>
+                  <p className="text-[#283275] text-base font-semibold">
+                    Active
+                  </p>
+                  </span>
+                 
                 </div>
               </div>
             </div>
           </Tab.Panel>
+          <Tab.Panel></Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
-    </div>
-  </PrimaryContainer>;
-
-}
+    </PrimaryContainer>
+  );
+};
 
 export default Committees;

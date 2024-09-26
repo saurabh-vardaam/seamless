@@ -58,7 +58,7 @@ export default function PrimaryContainer({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   return (
-    <div>
+    <div className="font-Montserrat">
       <Dialog
         open={sidebarOpen}
         onClose={() => setSidebarOpen(false)}
@@ -77,35 +77,29 @@ export default function PrimaryContainer({ children }) {
                 <XMarkIcon className="w-6 h-6 text-white" />
               </button>
             </div>
-            <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#273175] px-6 pb-4">
-              <div className="flex items-center h-16 shrink-0">
-                <img
-                  alt="Your Company"
-                  src="https://tailwindui.com/img/logos/mark.svg?color=white"
-                  className="w-auto h-8"
-                />
-              </div>
+            <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#273175]  pb-4">
+             
               <nav className="flex flex-col flex-1">
                 <ul role="list" className="flex flex-col flex-1 gap-y-7">
                   <li>
-                    <ul role="list" className="-mx-2 space-y-1">
+                    <ul role="list" className="space-y-1 ">
                       {navigation.map((item) => (
                         <li key={item.name}>
                           <Link
                             to={item.path}
                             className={classNames(
                               location.pathname === item.path
-                                ? "bg-indigo-700 text-white"
-                                : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
-                              "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                                ? "bg-[#171f52] text-[#dfe1e1]"
+                                : "text-[#dfe1e1] ",
+                              "group flex gap-x-3 rounded-md p-4 text-sm font-semibold leading-6"
                             )}
                           >
                             <item.icon
                               aria-hidden="true"
                               className={classNames(
                                 location.pathname === item.path
-                                  ? "text-white"
-                                  : "text-indigo-200 group-hover:text-white",
+                                  ? "text-[#dfe1e1]"
+                                  : "text-[#dfe1e1]",
                                 "h-6 w-6 shrink-0"
                               )}
                             />
@@ -190,29 +184,29 @@ export default function PrimaryContainer({ children }) {
           </div>
         </div>
         <div className="sticky flex grow">
-          <div className="w-1/6 h-full lg:z-50 lg:flex lg:flex-col">
-            <div className="flex grow flex-col gap-y-5  bg-[#273175] px-6 pb-4">
-              <nav className="flex flex-col flex-1 pt-2">
+          <div className="h-full lg:w-1/6 lg:z-50 lg:flex lg:flex-col sm:hidden max-sm:hidden">
+            <div className="flex grow flex-col gap-y-5  bg-[#273175] pb-4">
+              <nav className="flex flex-col flex-1">
                 <ul role="list" className="flex flex-col flex-1 gap-y-7">
                   <li>
-                    <ul role="list" className="-mx-2 space-y-1">
+                    <ul role="list" className="space-y-1 ">
                       {navigation.map((item) => (
                         <li key={item.name}>
                           <Link
                             to={item.path}
                             className={classNames(
                               location.pathname === item.path
-                                ? "bg-indigo-700 text-white"
-                                : "text-indigo-200 hover:bg-indigo-700 hover:text-white",
-                              "group flex gap-x-3 rounded-md p-2 text-sm font-semibold leading-6"
+                                ? "bg-[#171f52] text-[#dfe1e1]"
+                                : "text-[#dfe1e1]",
+                              "group flex gap-x-3 rounded-md p-4 text-sm font-medium"
                             )}
                           >
                             <item.icon
                               aria-hidden="true"
                               className={classNames(
                                 location.pathname === item.path
-                                  ? "text-white"
-                                  : "text-indigo-200 group-hover:text-white",
+                                  ? "text-[#dfe1e1]"
+                                  : "text-[#dfe1e1] group-hover:text-[#dfe1e1]",
                                 "h-6 w-6 shrink-0"
                               )}
                             />

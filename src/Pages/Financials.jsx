@@ -14,7 +14,7 @@ const Financials = () => {
 
   return (
     <PrimaryContainer>
-      <h2 className="text-2xl font-semibold text-[#283275] mb-4">MemberShip</h2>
+      <h2 className="text-2xl font-extralight text-[#283275] mb-4">MemberShip</h2>
 
       <Tab.Group>
         <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
@@ -94,7 +94,10 @@ const Financials = () => {
                 </div>
               </div>
 
-              <div className="flex items-center justify-between mt-6">
+              
+
+              <div className="mt-6 ">
+              <div className="flex items-center justify-between py-2 border-b ">
                 <p className="text-[#282728] text-sm font-normal">
                   Status:
                   <span className="px-3 py-1 text-[#282728] bg-[#cdd5d4] rounded-xl text-sm ml-3">
@@ -110,21 +113,19 @@ const Financials = () => {
                   </button>
                 </div>
               </div>
-
-              <div className="">
-                <div className="flex justify-between py-4 text-[#282728] border-b text-sm">
+                <div className="flex justify-between py-2 text-[#282728] border-b text-sm">
                   <p>
                     Member ID: <span className="text-[#283275] text-sm font-semibold">1032882</span>
                   </p>
                   <ChevronDownIcon className="w-6 h-6" />
                 </div>
-                <div className="flex justify-between py-4 text-[#282728] text-sm border-b">
+                <div className="flex justify-between py-2 text-[#282728] text-sm border-b">
                   <p>
                     Role: <span className="text-[#283275] text-sm font-semibold ml-0.5">Admin</span>
                   </p>
                   <ChevronDownIcon className="w-6 h-6" />
                 </div>
-                <div className="flex justify-between py-4 text-[#282728] text-sm border-b ">
+                <div className="flex justify-between py-2 text-[#282728] text-sm border-b ">
                   <p>
                     Chapter:
                     <span className="text-[#283275] text-sm font-semibold ml-0.5">
@@ -133,7 +134,7 @@ const Financials = () => {
                   </p>
                   <ChevronDownIcon className="w-6 h-6" />
                 </div>
-                <div className="flex justify-between py-4 text-[#282728] text-smborder-b">
+                <div className="flex justify-between py-2 text-[#282728] text-smborder-b">
                   <p>
                     Committees:{" "}
                     <span className="text-[#283275] text-sm font-semibold ml-0.5">
@@ -143,7 +144,7 @@ const Financials = () => {
                   <ChevronDownIcon className="w-6 h-6" />
                 </div>
                 
-                <div className="flex justify-between py-4 text-[#282728] text-sm border-b">
+                <div className="flex justify-between py-2 text-[#282728] text-sm border-b">
                   <p>
                     Subscription:{" "}
                     <span className="text-[#283275] text-sm font-semibold ml-0.5">Chapter Gold</span>{" "}
@@ -151,7 +152,7 @@ const Financials = () => {
                   </p>
                   <ChevronDownIcon className="w-6 h-6" />
                 </div>
-                <div className="flex justify-between py-4 text-[#282728] text-sm border-b">
+                <div className="flex justify-between py-2 text-[#282728] text-sm border-b">
                   <p>
                     Subscription:{" "}
                     <span className="text-[#283275] text-sm font-semibold ml-0.5">Chapter Gold</span>{" "}
@@ -161,7 +162,7 @@ const Financials = () => {
                   </p>
                   <ChevronDownIcon className="w-6 h-6" />
                 </div>
-                <div className="flex justify-between py-4 text-[#282728] text-sm">
+                <div className="flex justify-between py-2 text-[#282728] text-sm">
                   <p>
                     Renewal: <span className="text-[#283275] text-sm font-semibold ml-0.5">01.15.2025</span>{" "}
                     <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
