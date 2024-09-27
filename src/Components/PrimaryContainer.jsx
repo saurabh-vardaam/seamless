@@ -40,7 +40,7 @@ const navigation = [
   { name: "Committees", path: "/committees", icon: UserGroupIcon },
   { name: "Education", path: "/education", icon: AcademicCapIcon },
   { name: "Events", path: "/events", icon: CalendarDateRangeIcon },
-  { name: "Documents", path: "/reports", icon: DocumentArrowDownIcon },
+  { name: "Documents", path: "/document", icon: DocumentArrowDownIcon },
   { name: "Reports", path: "/reports", icon: ChartBarIcon },
   { name: "Settigns", path: "/settigns", icon: Cog8ToothIcon },
 ];

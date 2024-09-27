@@ -1,218 +1,182 @@
 import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
-import Nacclogo from "../Icons/NaccLogo";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
+import Chart from "react-google-charts";
+import NaccLogo from "../Images/NaccLogo.png";
 
 const Dashboard = () => {
+  const data = [
+    ["Day", "Background Engagement", "Foreground Engagement"],
+    ["Mon", 10, 7],
+    ["Tue", 12, 10],
+    ["Wed", 14, 5],
+    ["Thu", 10, 8],
+    ["Fri", 9, 7],
+    ["Sat", 11, 4],
+    ["Sun", 12, 6],
+  ];
+
+  const options = {
+    chartArea: { width: "95%", height: "90%" },
+    colors: ["#2E3E77", "#A9C7EE"],
+    bar: { groupWidth: "20%" },
+    isStacked: true,
+    hAxis: {
+      baselineColor: "transparent",
+      gridlines: { color: "transparent" },
+      textPosition: "none",
+    },
+    vAxis: {
+      gridlines: { color: "#E5E7EB" },
+      baselineColor: "#E5E7EB",
+      textPosition: "none",
+    },
+    legend: { position: "none" },
+    backgroundColor: "transparent",
+  };
+
   const cardData = [
     {
       title: "ORGANIZATION",
-      content: <Nacclogo />,
+      content: (
+        <img
+          src={NaccLogo}
+          alt="Organization Logo"
+          className="w-full h-auto mx-6 my-4" // Adjust image size responsively
+        />
+      ),
+      className: "col-span-1 md:col-span-1",
     },
     {
       title: "ENGAGEMENT",
       content: (
-        <div className="flex items-center justify-center h-16">
-          {/* Add a chart or graph here */}
-          <p>Graph goes here</p>
+        <div className="relative">
+          <Chart
+            chartType="ColumnChart"
+            data={data}
+            options={options}
+            width="100%" // Responsive width
+            height="100px"
+          />
         </div>
       ),
+      className: "col-span-1 md:col-span-2",
     },
     {
       title: "CHAPTERS",
       content: (
-        <div>
-          <p className="text-3xl font-bold">
-            78 <span className="text-sm">Active</span>
+        <div className="flex gap-4 md:gap-10 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            78 <span className="text-base text-[#283275] font-semibold">Active</span>
           </p>
-          <p className="text-sm">2 Inactive</p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            2 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
         </div>
       ),
+      className: "col-span-1",
     },
     {
       title: "COMMITTEES",
       content: (
-        <div>
-          <p className="text-3xl font-bold">
-            102 <span className="text-sm">Active</span>
+        <div className="flex gap-4 md:gap-8 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            102 <span className="text-base text-[#283275] font-semibold">Active</span>
           </p>
-          <p className="text-sm">23 Inactive</p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
         </div>
       ),
+      className: "col-span-1",
     },
     {
       title: "SUBSCRIBERS",
       content: (
-        <div>
-          <p className="text-3xl font-bold">
-            325 <span className="text-sm">Active</span>
+        <div className="flex gap-4 md:gap-9 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            325 <span className="text-base text-[#283275] font-semibold">Active</span>
           </p>
-          <p className="text-sm">11 Inactive</p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            11 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
         </div>
       ),
+      className: "col-span-1",
     },
     {
       title: "MEMBERS",
       content: (
-        <div>
-          <p className="text-3xl font-bold">
-            1,240 <span className="text-sm">Total Active</span>
-          </p>
-          <p className="text-sm">2 Total Inactive</p>
-          <div className="grid grid-cols-4 gap-4 mt-4">
-            <div>BOD: 6</div>
-            <div>Staff: 16</div>
-            <div>Chapter Members: 1,123</div>
-            <div>Committee Members: 234</div>
+        <div className="mx-1">
+          <div className="flex items-baseline mb-4 gap-4 md:gap-10">
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
+              <span className="text-base text-[#283275] font-semibold">Total Active</span>
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
+              <span className="text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
+            </div>
+          </div>
+
+          <div className="flex gap-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">BOD</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">6</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">STAFF</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">16</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">CHAPTER MEMBERS</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,123</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">COMMITTEE MEMBERS</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">234</p>
+            </div>
           </div>
         </div>
       ),
+      className: "col-span-1 md:col-span-2",
     },
     {
       title: "NONMEMBERS",
       content: (
-        <div>
-          <p className="text-3xl font-bold">
-            115 <span className="text-sm">Active</span>
+        <div className="flex gap-4 md:gap-14 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            115 <span className="text-base font-semibold text-[#283275]">Active</span>
           </p>
-          <p className="text-sm">12 Inactive</p>
+          <p className="text-2xl md:text-4xl font-extrabold mt-4 md:mt-24 text-[#6b6a6b]">
+            12 <span className="text-sm text-[#6b6a6b]">Inactive</span>
+          </p>
         </div>
       ),
+      className: "col-span-1",
     },
   ];
+
   return (
     <PrimaryContainer>
-     <div className="p-8  bg-gray-50">
-      <h1 className="mb-6 text-xl font-bold text-indigo-900">Dashboard</h1>
-      
-      {/* First Row */}
-      <div className="grid grid-cols-1 gap-6 mb-6 lg:grid-cols-2">
-        {/* Organization Card */}
-        <div className="relative p-4 bg-white rounded-lg shadow">
-          <div className="absolute top-4 right-4">
-            <EllipsisHorizontalCircleIcon className="w-5 h-5 text-gray-400" />
-          </div>
-          <h2 className="mb-2 text-sm font-semibold text-indigo-900">ORGANIZATION</h2>
-          <div className="flex items-center mt-2">
-            {/* Organization logo */}
-            <div className="flex items-center justify-center w-16 h-16 bg-gray-200 rounded-full">
-              {/* Replace with actual logo */}
-              <span className="text-2xl font-bold text-gray-600">nacc</span>
+      <div>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">Dashboard</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
+            >
+              <div className="flex justify-between items-center mx-2 md:mx-4 mt-2">
+                <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
+                <EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-400" />
+              </div>
+              <div className="mx-2 md:mx-4 my-4">{card.content}</div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
             </div>
-          </div>
-          <div className="mt-4 border-t-4 border-gradient-to-r from-purple-400 to-teal-400"></div>
-        </div>
-
-        {/* Engagement Card */}
-        <div className="relative p-4 bg-white rounded-lg shadow">
-          <div className="absolute top-4 right-4">
-            <EllipsisHorizontalCircleIcon className="w-5 h-5 text-gray-400" />
-          </div>
-          <h2 className="mb-2 text-sm font-semibold text-indigo-900">ENGAGEMENT</h2>
-          <div className="h-24 mt-4 bg-gray-200 rounded-md">
-            {/* Replace this div with the graph */}
-          </div>
-          <div className="mt-4 border-t-4 border-gradient-to-r from-purple-400 to-teal-400"></div>
+          ))}
         </div>
       </div>
-
-      {/* Second Row */}
-      <div className="grid grid-cols-1 gap-6 lg:grid-cols-4">
-        {/* Chapters Card */}
-        <div className="relative p-4 bg-white rounded-lg shadow">
-          <div className="absolute top-4 right-4">
-            <EllipsisHorizontalCircleIcon className="w-5 h-5 text-gray-400" />
-          </div>
-          <h2 className="mb-2 text-sm font-semibold text-indigo-900">CHAPTERS</h2>
-          <div className="flex mt-2">
-            <span className="text-2xl font-bold text-gray-800">78</span>
-            <div className="ml-4">
-              <span className="text-gray-600">Active</span>
-              <span className="block text-gray-500">2 Inactive</span>
-            </div>
-          </div>
-          <div className="mt-4 border-t-4 border-gradient-to-r from-purple-400 to-teal-400"></div>
-        </div>
-
-        {/* Committees Card */}
-        <div className="relative p-4 bg-white rounded-lg shadow">
-          <div className="absolute top-4 right-4">
-            <EllipsisHorizontalCircleIcon className="w-5 h-5 text-gray-400" />
-          </div>
-          <h2 className="mb-2 text-sm font-semibold text-indigo-900">COMMITTEES</h2>
-          <div className="flex mt-2">
-            <span className="text-2xl font-bold text-gray-800">102</span>
-            <div className="ml-4">
-              <span className="text-gray-600">Active</span>
-              <span className="block text-gray-500">23 Inactive</span>
-            </div>
-          </div>
-          <div className="mt-4 border-t-4 border-gradient-to-r from-purple-400 to-teal-400"></div>
-        </div>
-
-        {/* Subscribers Card */}
-        <div className="relative p-4 bg-white rounded-lg shadow">
-          <div className="absolute top-4 right-4">
-            <EllipsisHorizontalCircleIcon className="w-5 h-5 text-gray-400" />
-          </div>
-          <h2 className="mb-2 text-sm font-semibold text-indigo-900">SUBSCRIBERS</h2>
-          <div className="flex mt-2">
-            <span className="text-2xl font-bold text-gray-800">325</span>
-            <div className="ml-4">
-              <span className="text-gray-600">Active</span>
-              <span className="block text-gray-500">11 Inactive</span>
-            </div>
-          </div>
-          <div className="mt-4 border-t-4 border-gradient-to-r from-purple-400 to-teal-400"></div>
-        </div>
-
-        {/* Nonmembers Card */}
-        <div className="relative p-4 bg-white rounded-lg shadow">
-          <div className="absolute top-4 right-4">
-            <EllipsisHorizontalCircleIcon className="w-5 h-5 text-gray-400" />
-          </div>
-          <h2 className="mb-2 text-sm font-semibold text-indigo-900">NONMEMBERS</h2>
-          <div className="flex mt-2">
-            <span className="text-2xl font-bold text-gray-800">115</span>
-            <div className="ml-4">
-              <span className="text-gray-600">Active</span>
-              <span className="block text-gray-500">12 Inactive</span>
-            </div>
-          </div>
-          <div className="mt-4 border-t-4 border-gradient-to-r from-purple-400 to-teal-400"></div>
-        </div>
-      </div>
-
-      {/* Members Section */}
-      <div className="p-6 mt-6 bg-white rounded-lg shadow">
-        <h2 className="mb-4 text-sm font-semibold text-indigo-900">MEMBERS</h2>
-        <div className="flex mb-4">
-          <span className="text-3xl font-bold text-gray-800">1,240</span>
-          <div className="ml-4">
-            <span className="text-gray-600">Total Active</span>
-            <span className="block text-gray-500">2 Total Inactive</span>
-          </div>
-        </div>
-        <div className="grid grid-cols-4 gap-6">
-          <div>
-            <span className="text-2xl font-bold text-gray-800">6</span>
-            <p className="text-sm text-gray-600">BOD</p>
-          </div>
-          <div>
-            <span className="text-2xl font-bold text-gray-800">16</span>
-            <p className="text-sm text-gray-600">Staff</p>
-          </div>
-          <div>
-            <span className="text-2xl font-bold text-gray-800">1,123</span>
-            <p className="text-sm text-gray-600">Chapter Members</p>
-          </div>
-          <div>
-            <span className="text-2xl font-bold text-gray-800">234</span>
-            <p className="text-sm text-gray-600">Committee Members</p>
-          </div>
-        </div>
-      </div>
-    </div>
     </PrimaryContainer>
   );
 };

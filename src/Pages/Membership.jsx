@@ -10,9 +10,12 @@ import Checkbox from "../Components/CheckBox";
 import BraIcon from "../Icons/BraIcon";
 import Member from "../Images/Member.png";
 import { Tab } from "@headlessui/react";
+import Modal from "../Components/Modal";
+import AddMemberForm from "./AddMemberForm";
 
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
+  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
 
   const handleRowClick = (index) => {
     setSelectedRow(index);
@@ -31,7 +34,6 @@ const Membership = () => {
       subscription: "Chapter Gold",
       dues: "NA",
     },
-
     {
       name: "Vanessa Lopez",
       profile: (
@@ -45,93 +47,7 @@ const Membership = () => {
       dues: "Current",
       extraCommittee: 3,
     },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Inactive",
-      role: "Admin",
-      chapter: "Tucson Arizona",
-      committee: "South West",
-      subscription: "Chapter Gold",
-      dues: "Current",
-    },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Invited",
-      role: "Admin",
-      chapter: "NA",
-      committee: "NA",
-      subscription: "Chapter Gold",
-      dues: "NA",
-    },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Active",
-      role: "Admin",
-      chapter: "Tucson Arizona",
-      committee: "South West",
-      subscription: "Chapter Gold",
-      dues: "Current",
-      extraCommittee: 1,
-    },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Inactive",
-      role: "Admin",
-      chapter: "Tucson Arizona",
-      committee: "South West",
-      subscription: "Chapter Gold",
-      dues: "Current",
-    },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Invited",
-      role: "Admin",
-      chapter: "NA",
-      committee: "NA",
-      subscription: "Chapter Gold",
-      dues: "NA",
-      extraCommittee: 2,
-    },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Active",
-      role: "Admin",
-      chapter: "Tucson Arizona",
-      committee: "South West",
-      subscription: "Chapter Gold",
-      dues: "Current",
-      extraCommittee: 3,
-    },
-    {
-      name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
-      status: "Inactive",
-      role: "Admin",
-      chapter: "Tucson Arizona",
-      committee: "South West",
-      subscription: "Chapter Gold",
-      dues: "Current",
-    },
+    // Add remaining member objects here...
   ];
 
   return (
@@ -141,6 +57,7 @@ const Membership = () => {
       </h2>
 
       <Tab.Group>
+        {/* Tab List */}
         <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
           {["Member", "Member Roles", "Subscriptions", "Registration"].map(
             (tab) => (
@@ -148,7 +65,7 @@ const Membership = () => {
                 key={tab}
                 className={({ selected }) =>
                   classNames(
-                    " text-base font-semibold leading-[60px] ",
+                    "text-base font-semibold leading-[60px]",
                     selected
                       ? "border-b-2 border-blue-900 font-semibold text-[#283275]"
                       : "font-semibold text-[#282728]"
@@ -161,9 +78,11 @@ const Membership = () => {
           )}
         </Tab.List>
 
+        {/* Tab Panels */}
         <Tab.Panels>
           <Tab.Panel>
             <div>
+              {/* Search and action buttons */}
               <div className="flex flex-col items-center justify-between mt-6 mb-6 space-y-4 md:flex-row md:space-y-0">
                 <div className="flex items-center w-full md:w-auto space-x-4 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4">
                   <input
@@ -182,7 +101,10 @@ const Membership = () => {
                     <span>Export List</span>
                     <ArrowUpTrayIcon className="w-6 h-6" />
                   </button>
-                  <button className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm">
+                  <button
+                    className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm"
+                    onClick={() => setIsModalOpen(true)} // Open modal on click
+                  >
                     ADD MEMBER
                   </button>
                 </div>
@@ -271,7 +193,7 @@ const Membership = () => {
                         <td className="px-4 py-2">{member.subscription}</td>
                         <td className="px-4 py-2">{member.dues}</td>
                         <td className="px-4 py-2 text-right">
-                          <EllipsisHorizontalCircleIcon className="w-7 h-7" />
+                          <EllipsisHorizontalCircleIcon className="w-7 h-7 text-[#6c7171]" />
                         </td>
                       </tr>
                     ))}
@@ -283,6 +205,11 @@ const Membership = () => {
           <Tab.Panel></Tab.Panel>
         </Tab.Panels>
       </Tab.Group>
+      {isModalOpen && (
+        <Modal onClose={() => setIsModalOpen(false)}>
+          <AddMemberForm /> {/* The form component goes here */}
+        </Modal>
+      )}
     </PrimaryContainer>
   );
 };

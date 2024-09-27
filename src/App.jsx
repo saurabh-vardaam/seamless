@@ -10,6 +10,7 @@ import Education from "./Pages/Education";
 import Events from "./Pages/Events";
 import Reports from "./Pages/Reports";
 import Settigns from "./Pages/Settigns";
+import Documents from "./Pages/Documents";
 
 function App() {
   return (
@@ -23,6 +24,7 @@ function App() {
         <Route path="/committees" element={<Committees />} />
         <Route path="/education" element={<Education />} />
         <Route path="/events" element={<Events />} />
+        <Route path="/document" element={<Documents />} />
         <Route path="/reports" element={<Reports />} />
         <Route path="/settigns" element={<Settigns />} />
       </Routes>

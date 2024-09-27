@@ -5,7 +5,7 @@ import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import Chart from "react-google-charts";
 import NaccLogo from "../Images/NaccLogo.png";
 
-const Reports = () => {
+const Documents = () => {
   const data = [
     ["Day", "Background Engagement", "Foreground Engagement"],
     ["Mon", 10, 7],
@@ -43,7 +43,7 @@ const Reports = () => {
         <img
           src={NaccLogo}
           alt="Organization Logo"
-          className="w-full h-auto mx-6 my-4" 
+          className="w-full h-auto mx-6 my-4" // Adjust image size responsively
         />
       ),
       className: "col-span-1 md:col-span-1",
@@ -56,7 +56,7 @@ const Reports = () => {
             chartType="ColumnChart"
             data={data}
             options={options}
-            width="100%" 
+            width="100%" // Responsive width
             height="100px"
           />
         </div>
@@ -182,6 +182,4 @@ const Reports = () => {
   );
 };
 
-export default Reports;
-
-
+export default Documents;
