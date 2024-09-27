@@ -42,7 +42,7 @@ const Education = () => {
         <img
           src={NaccLogo}
           alt="Organization Logo"
-          className="w-full h-auto mx-6 my-4" // Adjust image size responsively
+          className="w-full h-auto mx-6 my-4" 
         />
       ),
       className: "col-span-1 md:col-span-1",
@@ -55,7 +55,7 @@ const Education = () => {
             chartType="ColumnChart"
             data={data}
             options={options}
-            width="100%" // Responsive width
+            width="100%" 
             height="100px"
           />
         </div>
@@ -79,21 +79,21 @@ const Education = () => {
     {
       title: "COMMITTEES",
       content: (
-        <div className="flex gap-4 md:gap-8 items-baseline mx-1">
-          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
-            102 <span className="text-base text-[#283275] font-semibold">Active</span>
-          </p>
-          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
-            23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
-          </p>
-        </div>
+        <div className="flex gap-4 md:gap-5 items-baseline">
+        <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+          102 <span className="text-base text-[#283275] font-semibold">Active</span>
+        </p>
+        <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+          23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+        </p>
+      </div>
       ),
       className: "col-span-1",
     },
     {
       title: "SUBSCRIBERS",
       content: (
-        <div className="flex gap-4 md:gap-9 items-baseline mx-1">
+         <div className="flex gap-4 md:gap-5 items-baseline mx-1">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
             325 <span className="text-base text-[#283275] font-semibold">Active</span>
           </p>
@@ -109,17 +109,17 @@ const Education = () => {
       content: (
         <div className="mx-1">
           <div className="flex items-baseline mb-4 gap-4 md:gap-10">
-            <div className="flex items-baseline gap-1">
+            <div className="flex items-baseline gap-2">
               <span className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
               <span className="text-base text-[#283275] font-semibold">Total Active</span>
             </div>
-            <div className="flex items-baseline gap-1">
+            <div className="flex items-baseline gap-2">
               <span className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
               <span className="text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
             </div>
           </div>
 
-          <div className="flex gap-6">
+          <div className="flex space-x-6">
             <div className="space-y-4">
               <h3 className="text-lg font-extrabold text-[#283275]">BOD</h3>
               <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">6</p>
@@ -144,7 +144,7 @@ const Education = () => {
     {
       title: "NONMEMBERS",
       content: (
-        <div className="flex gap-4 md:gap-14 items-baseline mx-1">
+        <div className="flex  items-baseline  gap-4 md:gap-8">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
             115 <span className="text-base font-semibold text-[#283275]">Active</span>
           </p>
@@ -182,3 +182,7 @@ const Education = () => {
 };
 
 export default Education;
+
+
+
+

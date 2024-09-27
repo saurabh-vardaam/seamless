@@ -21,7 +21,6 @@ const EventDetails = () => {
 
   return (
     <PrimaryContainer>
-      {/* Responsive heading and button */}
       <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
         <h1 className="text-xl sm:text-2xl font-extrabold text-[#283275]">
           Fall NACC Mini Conference
@@ -93,7 +92,6 @@ const EventDetails = () => {
                 </div>
               </div>
 
-              {/* Responsive details */}
               <div className="space-y-2">
                 <div className="flex flex-col sm:flex-row items-start gap-1 mx-4">
                   <p className="text-sm text-[#282728]">Description:</p>
