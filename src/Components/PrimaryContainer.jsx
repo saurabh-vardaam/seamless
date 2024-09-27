@@ -222,7 +222,7 @@ export default function PrimaryContainer({ children }) {
               </nav>
             </div>
           </div>
-          <main className="w-5/6 h-full bg-[#ebecec]">
+          <main className="lg:w-5/6 w-full overflow-hidden h-full bg-[#ebecec]">
             <div className="w-full h-full px-12 py-10">{children} </div>
           </main>
         </div>

@@ -22,15 +22,15 @@ function App() {
         <Route path="/organization" element={<Organization />} />
         <Route path= "/membership" element={<Membership />} />
         <Route path="/member-details" element={<MemberDetails />} />
-        <Route path="/financials" element={<Financials />} />
-        <Route path="/chapters" element={<Chapters />} />
-        <Route path="/committees" element={<Committees />} />
-        <Route path="/education" element={<Education />} />
+        <Route path="/financials" element={<Dashboard />} />
+        <Route path="/chapters" element={<Dashboard />} />
+        <Route path="/committees" element={<Dashboard />} />
+        <Route path="/education" element={<Dashboard />} />
         <Route path="/events" element={<Events />} />
         <Route path="/event-details" element={<EventDetails />} />
-        <Route path="/document" element={<Documents />} />
-        <Route path="/reports" element={<Reports />} />
-        <Route path="/settigns" element={<Settigns />} />
+        <Route path="/document" element={<Dashboard />} />
+        <Route path="/reports" element={<Dashboard />} />
+        <Route path="/settigns" element={<Dashboard />} />
       </Routes>
     </Router>
   );
