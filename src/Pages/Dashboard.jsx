@@ -42,7 +42,7 @@ const Dashboard = () => {
         <img
           src={NaccLogo}
           alt="Organization Logo"
-          className="w-full h-auto mx-6 my-4" // Adjust image size responsively
+          className="items-center p-4" 
         />
       ),
       className: "col-span-1 md:col-span-1",
@@ -55,7 +55,7 @@ const Dashboard = () => {
             chartType="ColumnChart"
             data={data}
             options={options}
-            width="100%" // Responsive width
+            width="100%" 
             height="100px"
           />
         </div>
