@@ -19,30 +19,24 @@ const committees = [
 ];
 
 const customSelectStyles = {
-  control: (provided,state) => ({
+  control: (provided, state) => ({
     ...provided,
-    borderRadius: '9999px', 
+    borderRadius: '9999px',
     backgroundColor: '#edefef',
-    boxShadow: 'none', 
-    outline: 'none', 
-    borderColor: state.isFocused ? '#edefef' : '#edefef', 
-
-
+    boxShadow: 'none',
+    outline: 'none',
+    borderColor: state.isFocused ? '#edefef' : '#edefef',
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: '#282728', 
+    color: '#282728',
     fontSize: "12px",
     fontWeight: '400',
-    
   }),
-
   menu: (provided) => ({
     ...provided,
-    
   }),
 };
-
 
 const AddMemberForm = () => {
   const [formData, setFormData] = useState({
@@ -52,6 +46,7 @@ const AddMemberForm = () => {
     chapter: null,
     committee: null,
   });
+
   const handleChange = (selectedOption, field) => {
     setFormData({ ...formData, [field]: selectedOption });
   };
@@ -64,12 +59,13 @@ const AddMemberForm = () => {
     e.preventDefault();
     console.log(formData);
   };
+
   return (
-    <div className="p-10 bg-[#ffffff] rounded-[50px] max-w-[350px] drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full ">
+    <div className="p-5 md:p-10 bg-white rounded-[50px] max-w-[400px] drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full mx-auto">
       <div className="flex justify-center mb-6">
-        <img src={NaccLogo} alt="nacc" className="items-center h-12" />
+        <img src={NaccLogo} alt="nacc" className="h-12" />
       </div>
-      <form className="pt-5">
+      <form className="pt-5" onSubmit={handleSubmit}>
         <input
           type="text"
           placeholder="First Name"
@@ -116,15 +112,16 @@ const AddMemberForm = () => {
             styles={customSelectStyles}
           />
         </div>
-        
+
         <button
           type="submit"
-          className="w-full px-4 py-2 text-[#ffffff] transition-colors duration-300 bg-[#283275] rounded-[21px] text-sm font-semibold"
+          className="w-full px-4 py-2 text-white transition-colors duration-300 bg-[#283275] rounded-[21px] text-sm font-semibold"
         >
           SEND INVITE
         </button>
       </form>
-    </div>)
+    </div>
+  );
 }
 
-export default AddMemberForm
+export default AddMemberForm;
