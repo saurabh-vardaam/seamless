@@ -1,208 +1,182 @@
-import {
-  ChevronDownIcon,
-  EnvelopeIcon,
-  GlobeAltIcon,
-  PencilIcon,
-  PencilSquareIcon,
-  PhoneIcon,
-} from "@heroicons/react/24/outline";
+import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
-import User from "../Images/User.png";
-import { Tab } from "@headlessui/react";
+import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
+import Chart from "react-google-charts";
+import NaccLogo from "../Images/NaccLogo.png";
 
 const Financials = () => {
-  const classNames = (...classes) => classes.filter(Boolean).join(" ");
+  const data = [
+    ["Day", "Background Engagement", "Foreground Engagement"],
+    ["Mon", 10, 7],
+    ["Tue", 12, 10],
+    ["Wed", 14, 5],
+    ["Thu", 10, 8],
+    ["Fri", 9, 7],
+    ["Sat", 11, 4],
+    ["Sun", 12, 6],
+  ];
+
+  const options = {
+    chartArea: { width: "95%", height: "90%" },
+    colors: ["#2E3E77", "#A9C7EE"],
+    bar: { groupWidth: "20%" },
+    isStacked: true,
+    hAxis: {
+      baselineColor: "transparent",
+      gridlines: { color: "transparent" },
+      textPosition: "none",
+    },
+    vAxis: {
+      gridlines: { color: "#E5E7EB" },
+      baselineColor: "#E5E7EB",
+      textPosition: "none",
+    },
+    legend: { position: "none" },
+    backgroundColor: "transparent",
+  };
+
+  const cardData = [
+    {
+      title: "ORGANIZATION",
+      content: (
+        <img
+          src={NaccLogo}
+          alt="Organization Logo"
+          className="w-full h-auto mx-6 my-4" // Adjust image size responsively
+        />
+      ),
+      className: "col-span-1 md:col-span-1",
+    },
+    {
+      title: "ENGAGEMENT",
+      content: (
+        <div className="relative">
+          <Chart
+            chartType="ColumnChart"
+            data={data}
+            options={options}
+            width="100%" // Responsive width
+            height="100px"
+          />
+        </div>
+      ),
+      className: "col-span-1 md:col-span-2",
+    },
+    {
+      title: "CHAPTERS",
+      content: (
+        <div className="flex gap-4 md:gap-10 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            78 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            2 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+    {
+      title: "COMMITTEES",
+      content: (
+        <div className="flex gap-4 md:gap-8 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            102 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+    {
+      title: "SUBSCRIBERS",
+      content: (
+        <div className="flex gap-4 md:gap-9 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            325 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            11 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+    {
+      title: "MEMBERS",
+      content: (
+        <div className="mx-1">
+          <div className="flex items-baseline mb-4 gap-4 md:gap-10">
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
+              <span className="text-base text-[#283275] font-semibold">Total Active</span>
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
+              <span className="text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
+            </div>
+          </div>
+
+          <div className="flex gap-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">BOD</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">6</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">STAFF</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">16</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">CHAPTER MEMBERS</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,123</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">COMMITTEE MEMBERS</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">234</p>
+            </div>
+          </div>
+        </div>
+      ),
+      className: "col-span-1 md:col-span-2",
+    },
+    {
+      title: "NONMEMBERS",
+      content: (
+        <div className="flex gap-4 md:gap-14 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            115 <span className="text-base font-semibold text-[#283275]">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold mt-4 md:mt-24 text-[#6b6a6b]">
+            12 <span className="text-sm text-[#6b6a6b]">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+  ];
 
   return (
     <PrimaryContainer>
-      <h2 className="text-2xl font-extrabold text-[#283275] mb-4">MemberShip</h2>
-
-      <Tab.Group>
-        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
-          {[
-            "Member Details",
-            "Events",
-            "Education",
-            "Committees",
-            "Transactions",
-            "Documents",
-            "History",
-          ].map((tab) => (
-            <Tab
-              key={tab}
-              className={({ selected }) =>
-                classNames(
-                  " text-base font-semibold leading-[60px] ",
-                  selected
-                    ? "border-b-2 border-blue-900 text-[#283275]"
-                    : " text-[#282728]"
-                )
-              }
+      <div>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">Dashboard</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
             >
-              {tab}
-            </Tab>
-          ))}
-        </Tab.List>
-
-        <Tab.Panels>
-          <Tab.Panel>
-            <div className=" border border-[#6b6a6b] rounded-3xl mt-7">
-              <div className="flex items-center justify-between mr-5 mt-4">
-                <h2 className=""></h2>
-                <button className="text-gray-400 hover:text-gray-600">
-                  <PencilIcon className="h-6 w-6" />
-                </button>
+              <div className="flex justify-between items-center mx-2 md:mx-4 mt-2">
+                <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
+                <EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-400" />
               </div>
-              <div className="flex items-center gap-28 border-b border-gray-400">
-             
-                <div className="relative mx-4 mb-3">
-                  <img
-                    className="rounded-full h-30 w-30"
-                    src={User}
-                    alt="Profile"
-                  />
-                  <span className="absolute w-full px-2 py-1 text-sm text-[#282728] bg-[#cdd5d4] rounded-full left-36 top-8 max-w-[71px] text-center ">
-                    Invited
-                  </span>
-                </div>
-
-
-                <div className="space-y-2">
-                  <h2 className="text-2xl font-semibold text-[#283275]">
-                    Vanessa Lopez
-                  </h2>
-                  <p className="text-[#282728] text-lg font-medium">
-                    Director of Communications
-                  </p>
-                  <p className="text-[#282728] text-lg font-medium">
-                    Tuscon Arizona Chapter NACC
-                  </p>
-                </div>
-                <div className="space-y-2 ">
-                  <a
-                    href="#"
-                    className="flex items-center space-x-4 hover:underline"
-                  >
-                    <GlobeAltIcon className="w-5 h-5" />
-                    <span className="text-[#283275] text-lg font-medium">
-                      www.NACC/TusconArizona
-                    </span>
-                  </a>
-                  <p className="flex items-center space-x-4">
-                    <EnvelopeIcon className="w-5 h-5" />
-                    <span className="text-[#283275] text-lg font-medium">
-                      1.301.433.9928
-                    </span>
-                  </p>
-                  <p className="flex items-center space-x-4">
-                    <PhoneIcon className="w-5 h-5" />
-                    <span className="text-[#283275] text-lg font-medium">
-                      vlopez@NACC.com
-                    </span>
-                  </p>
-                </div>
-
-              </div>
-
-
-
-              <div className="">
-                <div className="flex items-center justify-between mx-4 my-2">
-                  
-                  <p className="text-[#282728] text-sm font-normal">
-                    Status:
-                    <span className="px-3 py-1 text-[#282728] bg-[#cdd5d4] rounded-xl text-sm ml-3">
-                      Invited
-                    </span>
-                  </p>
-                  <div className="space-x-4">
-                    <button className="px-4 py-1 text-[#282728] bg-[#cdd5d4] rounded-2xl text-sm">
-                      Resend Invite
-                    </button>
-                    <button className="px-4 py-1 text-[#ffffff] bg-[#283275] rounded-2xl text-sm">
-                      Reset Password
-                    </button>
-                  </div>
-                </div>
-                <div className=" py-2 text-[#282728] border-b text-sm border-t border-gray-400">
-                 <div className="flex justify-between mx-4 ">
-                 <p>
-                    Member ID: <span className="text-[#283275] text-sm font-semibold">1032882</span>
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                 </div>
-                </div>
-                <div className=" py-2 text-[#282728] text-sm border-t">
-                <div className="flex justify-between mx-4">
-                <p>
-                    Role: <span className="text-[#283275] text-sm font-semibold ml-0.5">Admin</span>
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                </div>
-                </div>
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                  <div className="flex justify-between mx-4 ">
-                  <p>
-                    Chapter:
-                    <span className="text-[#283275] text-sm font-semibold ml-0.5">
-                      Tuscon Arizona Chapter NACC
-                    </span>
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                  </div>
-                 
-                </div>
-                <div className=" py-2 text-[#282728] text-smborder-b border-t border-gray-400">
-                 <div className="flex justify-between mx-4">
-                 <p>
-                    Committees:
-                    <span className="text-[#283275] text-sm font-semibold ml-0.5">
-                      South West, Events, Education
-                    </span>
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                 </div>
-                </div>
-
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                  <div className="flex justify-between mx-4">
-                  <p>
-                    Subscription:
-                    <span className="text-[#283275] text-sm font-semibold ml-0.5">Chapter Gold</span>
-
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                  </div>
-                </div>
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                  <div className="flex justify-between mx-4">
-                  <p>
-                    Subscription:{" "}
-                    <span className="text-[#283275] text-sm font-semibold ml-0.5">Chapter Gold</span>{" "}
-                    <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
-                      Current
-                    </span>
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                  </div>
-                </div>
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                 <div className="flex justify-between mx-4">
-                 <p>
-                    Renewal: <span className="text-[#283275] text-sm font-semibold ml-0.5">01.15.2025</span>{" "}
-                    <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
-                      Auto
-                    </span>
-                  </p>
-                  <ChevronDownIcon className="w-6 h-6" />
-                 </div>
-                </div>
-              </div>
+              <div className="mx-2 md:mx-4 my-4">{card.content}</div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
             </div>
-          </Tab.Panel>
-          <Tab.Panel></Tab.Panel>
-        </Tab.Panels>
-      </Tab.Group>
+          ))}
+        </div>
+      </div>
     </PrimaryContainer>
   );
 };

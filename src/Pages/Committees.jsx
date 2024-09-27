@@ -1,163 +1,182 @@
-import React, { useState } from "react";
+import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
-import { Tab } from "@headlessui/react";
-import { CheckCircleIcon, ChevronDownIcon, PencilIcon } from "@heroicons/react/24/outline";
+import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
+import Chart from "react-google-charts";
+import NaccLogo from "../Images/NaccLogo.png";
 
 const Committees = () => {
-  const classNames = (...classes) => classes.filter(Boolean).join(" ");
-  const [isVisible, setIsVisible] = useState(true);
+  const data = [
+    ["Day", "Background Engagement", "Foreground Engagement"],
+    ["Mon", 10, 7],
+    ["Tue", 12, 10],
+    ["Wed", 14, 5],
+    ["Thu", 10, 8],
+    ["Fri", 9, 7],
+    ["Sat", 11, 4],
+    ["Sun", 12, 6],
+  ];
 
+  const options = {
+    chartArea: { width: "95%", height: "90%" },
+    colors: ["#2E3E77", "#A9C7EE"],
+    bar: { groupWidth: "20%" },
+    isStacked: true,
+    hAxis: {
+      baselineColor: "transparent",
+      gridlines: { color: "transparent" },
+      textPosition: "none",
+    },
+    vAxis: {
+      gridlines: { color: "#E5E7EB" },
+      baselineColor: "#E5E7EB",
+      textPosition: "none",
+    },
+    legend: { position: "none" },
+    backgroundColor: "transparent",
+  };
 
-  const tabs = [
-    "Event Details",
-    "Registration",
-    "Schedule",
-    "Pricing",
-    "CEU's",
-    "Speakers",
-    "Exhibitors",
-    "Sponsors",
+  const cardData = [
+    {
+      title: "ORGANIZATION",
+      content: (
+        <img
+          src={NaccLogo}
+          alt="Organization Logo"
+          className="w-full h-auto mx-6 my-4" // Adjust image size responsively
+        />
+      ),
+      className: "col-span-1 md:col-span-1",
+    },
+    {
+      title: "ENGAGEMENT",
+      content: (
+        <div className="relative">
+          <Chart
+            chartType="ColumnChart"
+            data={data}
+            options={options}
+            width="100%" // Responsive width
+            height="100px"
+          />
+        </div>
+      ),
+      className: "col-span-1 md:col-span-2",
+    },
+    {
+      title: "CHAPTERS",
+      content: (
+        <div className="flex gap-4 md:gap-10 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            78 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            2 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+    {
+      title: "COMMITTEES",
+      content: (
+        <div className="flex gap-4 md:gap-8 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            102 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+    {
+      title: "SUBSCRIBERS",
+      content: (
+        <div className="flex gap-4 md:gap-9 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            325 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            11 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
+    {
+      title: "MEMBERS",
+      content: (
+        <div className="mx-1">
+          <div className="flex items-baseline mb-4 gap-4 md:gap-10">
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
+              <span className="text-base text-[#283275] font-semibold">Total Active</span>
+            </div>
+            <div className="flex items-baseline gap-1">
+              <span className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
+              <span className="text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
+            </div>
+          </div>
+
+          <div className="flex gap-6">
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">BOD</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">6</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">STAFF</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">16</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">CHAPTER MEMBERS</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,123</p>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-lg font-extrabold text-[#283275]">COMMITTEE MEMBERS</h3>
+              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">234</p>
+            </div>
+          </div>
+        </div>
+      ),
+      className: "col-span-1 md:col-span-2",
+    },
+    {
+      title: "NONMEMBERS",
+      content: (
+        <div className="flex gap-4 md:gap-14 items-baseline mx-1">
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            115 <span className="text-base font-semibold text-[#283275]">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold mt-4 md:mt-24 text-[#6b6a6b]">
+            12 <span className="text-sm text-[#6b6a6b]">Inactive</span>
+          </p>
+        </div>
+      ),
+      className: "col-span-1",
+    },
   ];
 
   return (
     <PrimaryContainer>
-      {/* Responsive heading and button */}
-      <div className="flex flex-col sm:flex-row items-start sm:items-center gap-4 mb-4">
-        <h1 className="text-xl sm:text-2xl font-extrabold text-[#283275]">
-          Fall NACC Mini Conference
-        </h1>
-        <button className="px-3 py-1 text-xs sm:text-sm font-normal text-[#282728] bg-[#c2e0b3] rounded-full">
-          Active
-        </button>
-      </div>
-
-      <Tab.Group>
-        <Tab.List className="flex flex-col sm:flex-row sm:space-x-4 border-b-2 border-gray-300">
-          {tabs.map((tab) => (
-            <Tab
-              key={tab}
-              className={({ selected }) =>
-                classNames(
-                  "text-sm sm:text-base font-semibold py-2 px-4", 
-                  selected ? "border-b-2 border-blue-900 text-[#283275]" : "text-[#283275] hover:text-blue-600" 
-                )
-              }
+      <div>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">Dashboard</h1>
+        <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+          {cardData.map((card, index) => (
+            <div
+              key={index}
+              className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
             >
-              {tab}
-            </Tab>
-          ))}
-        </Tab.List>
-
-
-        <Tab.Panels>
-          <Tab.Panel>
-            <div className="mt-6 space-y-4 bg-gray-100 border border-gray-600 rounded-3xl">
-              <div className="bg-[#ffffff] rounded-t-3xl">
-                <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between border-b border-gray-400">
-                  <p className="text-[#282728] text-sm font-normal m-3.5">
-                    Display Title:
-                    <span className="text-base text-[#283275] font-semibold">
-                      Fall NACC Mini Conference
-                    </span>
-                  </p>
-                  <ChevronDownIcon className="w-5 h-5 text-gray-500 cursor-pointer m-3.5" />
-                </div>
-
-                <div className="space-y-2 border-b border-gray-400">
-                  <div className="m-5">
-                    <span className="flex justify-between">
-                      <p className="text-[#282728] text-sm font-normal">Display Title:</p>
-                      <PencilIcon className="w-5 h-5" />
-                    </span>
-                    <h2 className="text-xl sm:text-2xl font-semibold text-[#283275]">
-                      The 2024 North American Conservation Corps Annual Conference
-                    </h2>
-                    <span className="flex items-center mt-2 space-x-2">
-                    <div className="relative">
-                    <button
-              onClick={() => setIsVisible(!isVisible)}
-              className={`inline-flex h-3 w-6 items-center rounded-full p-0.5 transition-colors duration-300 border border-black ${
-                isVisible ? "bg-gray-200" : "bg-gray-300"
-              }`}
-            >
-              <span
-                className={`h-2 w-2 bg-white rounded-full transition-transform duration-300 transform border border-black ${
-                  isVisible ? "translate-x-3" : "translate-x-0"
-                }`}
-              />
-            </button>
-          </div>
-                      <p className="text-sm text-[#283275]">Show On Public Site</p>
-                    </span>
-                  </div>
-                </div>
+              <div className="flex justify-between items-center mx-2 md:mx-4 mt-2">
+                <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
+                <EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-400" />
               </div>
-
-              {/* Responsive details */}
-              <div className="space-y-2">
-                <div className="flex flex-col sm:flex-row items-start gap-1 mx-4">
-                  <p className="text-sm text-[#282728]">Description:</p>
-                  <p className="text-[#283275] text-base font-semibold">
-                    The Conference unites people from across sectors and throughout the country who are connected...
-                  </p>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Dates:</p>
-                    <p className="text-[#283275] text-base font-semibold">10.24.24 - 10.16.24</p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Location:</p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      Hyatt Regency Denver at Colorado Convention Center
-                    </p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Registration Opens:</p>
-                    <p className="text-[#283275] text-base font-semibold">10.02.2024</p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Membership Level Access:</p>
-                    <p className="text-[#283275] text-base font-semibold">Chapter Gold, Chapter Silver</p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Event Type:</p>
-                    <p className="text-[#283275] text-base font-semibold">On-Site</p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Event Category:</p>
-                    <p className="text-[#283275] text-base font-semibold">Outreach</p>
-                  </span>
-                </div>
-
-                <div className="py-3 border-t border-gray-400">
-                  <span className="flex flex-col sm:flex-row items-start sm:items-center gap-1 mx-4">
-                    <p className="text-sm text-[#282728]">Status:</p>
-                    <p className="text-[#283275] text-base font-semibold">Active</p>
-                  </span>
-                </div>
-              </div>
+              <div className="mx-2 md:mx-4 my-4">{card.content}</div>
+              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
             </div>
-          </Tab.Panel>
-          <Tab.Panel></Tab.Panel>
-        </Tab.Panels>
-      </Tab.Group>
+          ))}
+        </div>
+      </div>
     </PrimaryContainer>
   );
 };

@@ -15,8 +15,7 @@ import AddMemberForm from "./AddMemberForm";
 
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for modal visibility
-
+  const [isModalOpen, setIsModalOpen] = useState(false); 
   const handleRowClick = (index) => {
     setSelectedRow(index);
   };
@@ -47,7 +46,6 @@ const Membership = () => {
       dues: "Current",
       extraCommittee: 3,
     },
-    // Add remaining member objects here...
   ];
 
   return (
@@ -57,8 +55,7 @@ const Membership = () => {
       </h2>
 
       <Tab.Group>
-        {/* Tab List */}
-        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-6">
+        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-9">
           {["Member", "Member Roles", "Subscriptions", "Registration"].map(
             (tab) => (
               <Tab
@@ -78,11 +75,9 @@ const Membership = () => {
           )}
         </Tab.List>
 
-        {/* Tab Panels */}
         <Tab.Panels>
           <Tab.Panel>
             <div>
-              {/* Search and action buttons */}
               <div className="flex flex-col items-center justify-between mt-6 mb-6 space-y-4 md:flex-row md:space-y-0">
                 <div className="flex items-center w-full md:w-auto space-x-4 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4">
                   <input
@@ -103,14 +98,13 @@ const Membership = () => {
                   </button>
                   <button
                     className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm"
-                    onClick={() => setIsModalOpen(true)} // Open modal on click
+                    onClick={() => setIsModalOpen(true)} 
                   >
                     ADD MEMBER
                   </button>
                 </div>
               </div>
 
-              {/* Responsive table */}
               <div className="border border-[#6b6a6b] rounded-2xl overflow-x-auto">
                 <table className="min-w-full table-auto">
                   <thead className="text-left text-[#283275] text-sm font-semibold">
@@ -207,7 +201,7 @@ const Membership = () => {
       </Tab.Group>
       {isModalOpen && (
         <Modal onClose={() => setIsModalOpen(false)}>
-          <AddMemberForm /> {/* The form component goes here */}
+          <AddMemberForm /> 
         </Modal>
       )}
     </PrimaryContainer>
