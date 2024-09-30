@@ -165,7 +165,7 @@ const Chapters = () => {
           {cardData.map((card, index) => (
             <div
               key={index}
-              className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
+              className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`}
             >
               <div className="flex justify-between items-center mx-2 md:mx-4 mt-2">
                 <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>

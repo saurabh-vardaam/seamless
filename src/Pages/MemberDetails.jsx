@@ -31,7 +31,7 @@ const MemberDetails = () => {
               key={tab}
               className={({ selected }) =>
                 classNames(
-                  "text-base font-semibold leading-[60px] py-2 px-4",
+                  "text-base font-semibold  py-2 px-2",
                   selected
                     ? "border-b-2 border-blue-900 text-[#283275]"
                     : "text-[#282728]"
