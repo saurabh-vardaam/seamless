@@ -1,6 +1,5 @@
 import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
-import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 import Chart from "react-google-charts";
 import NaccLogo from "../Images/NaccLogo.png";
 

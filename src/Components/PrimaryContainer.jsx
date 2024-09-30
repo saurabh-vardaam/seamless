@@ -130,7 +130,6 @@ export default function PrimaryContainer({ children }) {
 
           <div className="flex items-center justify-between w-full">
             <SeamLessLogo />
-
             <div className="flex items-center ml-auto space-x-5">
               <div className="inline-flex items-center gap-4">
                 <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec] py-2 px-4 ">

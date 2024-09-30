@@ -16,6 +16,9 @@ import AddMemberForm from "./AddMemberForm";
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); 
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
   const handleRowClick = (index) => {
     setSelectedRow(index);
   };
@@ -200,7 +203,7 @@ const Membership = () => {
         </Tab.Panels>
       </Tab.Group>
       {isModalOpen && (
-        <Modal onClose={() => setIsModalOpen(false)}>
+        <Modal  onClose={handleCloseModal}>
           <AddMemberForm /> 
         </Modal>
       )}
