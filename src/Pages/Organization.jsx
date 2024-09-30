@@ -5,6 +5,7 @@ import {
   EllipsisHorizontalCircleIcon,
   ViewColumnsIcon,
 } from "@heroicons/react/24/outline";
+import PopUp from "../Components/Popover";
 
 const Organization = () => {
   return (
@@ -36,7 +37,7 @@ const Organization = () => {
               </div>
               <div className="flex space-x-2">
                 <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <EllipsisHorizontalCircleIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+                <PopUp />
               </div>
             </div>
 
@@ -49,7 +50,7 @@ const Organization = () => {
               </div>
               <div className="flex space-x-2">
                 <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <EllipsisHorizontalCircleIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+                <PopUp />            
               </div>
             </div>
 
@@ -62,7 +63,7 @@ const Organization = () => {
               </div>
               <div className="flex space-x-2">
                 <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <EllipsisHorizontalCircleIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+                <PopUp />
               </div>
             </div>
 
@@ -75,7 +76,7 @@ const Organization = () => {
               </div>
               <div className="flex space-x-2">
                 <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <EllipsisHorizontalCircleIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+                <PopUp />
               </div>
             </div>
 
@@ -88,7 +89,7 @@ const Organization = () => {
               </div>
               <div className="flex space-x-2">
                 <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <EllipsisHorizontalCircleIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+                <PopUp />
               </div>
             </div>
           </div>

@@ -3,6 +3,8 @@ import PrimaryContainer from "../Components/PrimaryContainer";
 import Chart from "react-google-charts";
 import NaccLogo from "../Images/NaccLogo.png";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
+import { Popover } from "@headlessui/react";
+import PopUp from "../Components/Popover";
 
 const Dashboard = () => {
   const data = [
@@ -170,12 +172,12 @@ const Dashboard = () => {
             return (
               <div
                 key={index}
-                className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
+                className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} 
               >
                 <div className="flex items-center justify-between mx-2 mt-2 md:mx-4">
                   <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
-                  <EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-400" />
-                </div>
+                  <PopUp />
+                               </div>
                 <div className="mx-2 my-4 md:mx-4">{card.content}</div>
                 <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
               </div>

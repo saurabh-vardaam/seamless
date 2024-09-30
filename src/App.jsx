@@ -30,7 +30,7 @@ function App() {
         <Route path="/event-details" element={<EventDetails />} />
         <Route path="/document" element={<Dashboard />} />
         <Route path="/reports" element={<Dashboard />} />
-        <Route path="/settigns" element={<Dashboard />} />
+        <Route path="/settings" element={<Dashboard />} />
       </Routes>
     </Router>
   );

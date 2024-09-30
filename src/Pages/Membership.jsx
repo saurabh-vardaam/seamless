@@ -12,10 +12,12 @@ import Member from "../Images/Member.png";
 import { Tab } from "@headlessui/react";
 import Modal from "../Components/Modal";
 import AddMemberForm from "./AddMemberForm";
+import { Popover } from "@headlessui/react";
+import PopUp from "../Components/Popover";
 
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
@@ -190,7 +192,7 @@ const Membership = () => {
                         <td className="px-4 py-2">{member.subscription}</td>
                         <td className="px-4 py-2">{member.dues}</td>
                         <td className="px-4 py-2 text-right">
-                          <EllipsisHorizontalCircleIcon className="w-7 h-7 text-[#6c7171]" />
+                         <PopUp />
                         </td>
                       </tr>
                     ))}
@@ -203,7 +205,7 @@ const Membership = () => {
         </Tab.Panels>
       </Tab.Group>
       {isModalOpen && (
-        <Modal  onClose={handleCloseModal}>
+        <Modal onClose={handleCloseModal}>
           <AddMemberForm /> 
         </Modal>
       )}
