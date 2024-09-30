@@ -2,6 +2,7 @@ import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 import Chart from "react-google-charts";
 import NaccLogo from "../Images/NaccLogo.png";
+import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 
 const Dashboard = () => {
   const data = [
