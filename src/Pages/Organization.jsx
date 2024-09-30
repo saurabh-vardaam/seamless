@@ -10,9 +10,9 @@ import PopUp from "../Components/Popover";
 const Organization = () => {
   return (
     <PrimaryContainer>
-      <div className="w-full bg-[#edeeee] p-2 sm:p-3 md:p-6 xl:p-10">
+      <div className="w-full bg-[#edeeee]">
         <div className="mb-3 sm:mb-4 md:mb-10 border-b-2 border-[#d4d5d5]">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-3 sm:mb-4 md:mb-9 leading-[25px] sm:leading-[30px] md:leading-[60px]">
+          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-3 sm:mb-4 md:mb-9 ">
             Organization
           </h2>
           <div className="flex flex-col sm:flex-row md:space-x-10">

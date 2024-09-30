@@ -55,7 +55,7 @@ const Membership = () => {
 
   return (
     <PrimaryContainer>
-      <h2 className="text-2xl font-extrabold text-[#283275] mb-9">
+      <h2 className="sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-9">
         Membership
       </h2>
 

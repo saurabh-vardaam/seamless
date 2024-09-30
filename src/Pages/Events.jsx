@@ -4,13 +4,10 @@ import {
   AdjustmentsHorizontalIcon,
   ArrowUpTrayIcon,
   MagnifyingGlassIcon,
-  EllipsisHorizontalCircleIcon,
 } from "@heroicons/react/24/outline";
 import Checkbox from "../Components/CheckBox";
 import BraIcon from "../Icons/BraIcon";
-import { Popover } from "@headlessui/react";
 import PopUp from "../Components/Popover";
-
 
 const Events = () => {
   const [selectedRow, setSelectedRow] = useState(null);
@@ -65,14 +62,15 @@ const Events = () => {
       registration: "NACC Open Registration",
       type: "On-Site",
     },
+  
   ];
 
   return (
     <PrimaryContainer>
       <div className="mb-6">
-        <h2 className="text-2xl font-extrabold text-[#283275] mb-9">Events</h2>
+        <h2 className="text-xl md:text-2xl font-extrabold text-[#283275] mb-6 md:mb-9">Events</h2>
         <div className="flex border-b-2 border-gray-300">
-          <span className="text-[#283275] text-base relative pb-4 font-semibold">
+          <span className="text-[#283275] text-sm md:text-base relative pb-3 md:pb-4 font-semibold">
             Events
             <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#b222fb] via-[#8a54f4] to-[#2dc7e5]" />
           </span>
@@ -80,32 +78,32 @@ const Events = () => {
       </div>
 
       <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
-        <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full sm:w-3/4 md:w-auto">
+        <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto mb-4 md:mb-0">
           <div className="flex items-center gap-2 w-full">
             <input
-              className="w-full bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 sm:w-60 md:w-40"
+              className="w-full bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 md:w-40 lg:w-60"
               placeholder="Search..."
             />
             <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
           </div>
         </div>
 
-        <div className="flex items-center gap-4 mt-4 md:mt-0">
+        <div className="flex flex-wrap items-center gap-4 justify-center md:justify-end">
           <button className="flex pr-2 space-x-2 items-center leading-[40px] sm:leading-[50px] lg:leading-[60px]">
-            <span className="text-sm sm:text-base font-medium text-[#282728]">
+            <span className="text-sm font-medium text-[#282728]">
               Filter
             </span>
-            <AdjustmentsHorizontalIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#282728]" />
+            <AdjustmentsHorizontalIcon className="w-5 h-5 text-[#282728]" />
           </button>
 
           <button className="flex items-center gap-2 pr-2 leading-[40px] sm:leading-[50px] lg:leading-[60px]">
-            <span className="text-sm sm:text-base font-medium text-[#282728]">
+            <span className="text-sm font-medium text-[#282728]">
               Export List
             </span>
-            <ArrowUpTrayIcon className="w-5 h-5 sm:w-6 sm:h-6 text-[#282728]" />
+            <ArrowUpTrayIcon className="w-5 h-5 text-[#282728]" />
           </button>
 
-          <button className="px-4 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-xs sm:text-sm lg:px-6 ">
+          <button className="px-4 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-xs sm:text-sm lg:px-6 mt-2 md:mt-0">
             ADD A NEW EVENT
           </button>
         </div>
@@ -123,7 +121,7 @@ const Events = () => {
                 <BraIcon className="inline-block ml-3 " />
               </th>
               <th className="py-3 text-sm font-semibold">
-                Status
+                Status 
                 <BraIcon className="inline-block ml-3 " />
               </th>
               <th className="px-2 py-3 text-sm font-semibold">
@@ -160,11 +158,11 @@ const Events = () => {
                     className={`px-4 py-1.5 rounded-xl text-sm font-normal ${event.status === "Live"
                         ? "bg-[#c2e0b3] text-[#282728]"
                         : event.status === "Pause"
-                          ? "bg-[#cdd5d4] text-[#282728]"
-                          : event.status === "Inactive"
-                            ? "bg-[#e0b3c9] text-[#282728]"
-                            : ""
-                      }`}
+                        ? "bg-[#cdd5d4] text-[#282728]"
+                        : event.status === "Inactive"
+                        ? "bg-[#e0b3c9] text-[#282728]"
+                        : ""
+                    }`}
                   >
                     {event.status}
                   </span>
