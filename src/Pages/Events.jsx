@@ -62,7 +62,6 @@ const Events = () => {
       registration: "NACC Open Registration",
       type: "On-Site",
     },
-  
   ];
 
   return (
@@ -106,7 +105,9 @@ const Events = () => {
             </button>
           </div>
         </div>
-        <div className=" mt-6 mb-6 border border-[#6b6a6b] rounded-2xl">
+
+        {/* Table wrapper for scrolling on smaller screens */}
+        <div className="overflow-x-auto mt-6 mb-6 border border-[#6b6a6b] rounded-2xl">
           <table className="min-w-full table-auto">
             <thead className="text-left text-[#283275]">
               <tr className="border-b border-gray-300">
@@ -140,9 +141,8 @@ const Events = () => {
               {eventsData.map((event, index) => (
                 <tr
                   key={index}
-                  className={`border-t border-gray-300 ${
-                    selectedRow === index ? "bg-white" : ""
-                  }`}
+                  className={`border-t border-gray-300 ${selectedRow === index ? "bg-white" : ""
+                    }`}
                   onClick={() => setSelectedRow(index)}
                 >
                   <td className="px-4 py-2 text-sm font-medium">
@@ -153,15 +153,14 @@ const Events = () => {
                   </td>
                   <td className="py-3">
                     <span
-                      className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
-                        event.status === "Live"
+                      className={`px-4 py-1.5 rounded-xl text-sm font-normal ${event.status === "Live"
                           ? "bg-[#c2e0b3] text-[#282728]"
                           : event.status === "Pause"
-                          ? "bg-[#cdd5d4] text-[#282728]"
-                          : event.status === "Inactive"
-                          ? "bg-[#e0b3c9] text-[#282728]"
-                          : ""
-                      }`}
+                            ? "bg-[#cdd5d4] text-[#282728]"
+                            : event.status === "Inactive"
+                              ? "bg-[#e0b3c9] text-[#282728]"
+                              : ""
+                        }`}
                     >
                       {event.status}
                     </span>

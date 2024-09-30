@@ -42,7 +42,7 @@ const Dashboard = () => {
         <img
           src={NaccLogo}
           alt="Organization Logo"
-          className="items-center p-4" 
+          className="items-center p-4"
         />
       ),
       className: "col-span-1 md:col-span-1",
@@ -55,7 +55,7 @@ const Dashboard = () => {
             chartType="ColumnChart"
             data={data}
             options={options}
-            width="100%" 
+            width="100%"
             height="100px"
           />
         </div>
@@ -80,20 +80,20 @@ const Dashboard = () => {
       title: "COMMITTEES",
       content: (
         <div className="flex items-baseline gap-4 md:gap-5">
-        <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
-          102 <span className="text-base text-[#283275] font-semibold">Active</span>
-        </p>
-        <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
-          23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
-        </p>
-      </div>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+            102 <span className="text-base text-[#283275] font-semibold">Active</span>
+          </p>
+          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+            23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+          </p>
+        </div>
       ),
       className: "col-span-1",
     },
     {
       title: "SUBSCRIBERS",
       content: (
-         <div className="flex items-baseline gap-4 mx-1 md:gap-5">
+        <div className="flex items-baseline gap-4 mx-1 md:gap-5">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
             325 <span className="text-base text-[#283275] font-semibold">Active</span>
           </p>
@@ -108,36 +108,39 @@ const Dashboard = () => {
       title: "MEMBERS",
       content: (
         <div className="mx-1">
-          <div className="flex items-baseline gap-4 mb-4 md:gap-10">
+          <div className="flex flex-col gap-4 mb-4 md:flex-row md:items-baseline md:gap-10">
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
-              <span className="text-base text-[#283275] font-semibold">Total Active</span>
+              <span className="text-xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
+              <span className="text-sm md:text-base text-[#283275] font-semibold">Total Active</span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
-              <span className="text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
+              <span className="text-xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
+              <span className="text-sm md:text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
             </div>
           </div>
 
-          <div className="flex space-x-6">
-            <div className="space-y-4">
-              <h3 className="text-lg font-extrabold text-[#283275]">BOD</h3>
-              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">6</p>
+          <div className="grid grid-cols-2 gap-4 md:flex md:space-x-6">
+            <div className="space-y-2 text-left">
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">BOD</h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">6</p>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-extrabold text-[#283275]">STAFF</h3>
-              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">16</p>
+            <div className="space-y-2 text-left">
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">STAFF</h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">16</p>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-extrabold text-[#283275]">CHAPTER MEMBERS</h3>
-              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">1,123</p>
+            <div className="space-y-2 text-left">
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">CHAPTER MEMBERS</h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">1,123</p>
             </div>
-            <div className="space-y-4">
-              <h3 className="text-lg font-extrabold text-[#283275]">COMMITTEE MEMBERS</h3>
-              <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">234</p>
+            <div className="space-y-2 text-left">
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">COMMITTEE MEMBERS</h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">234</p>
             </div>
           </div>
         </div>
+
+
+
       ),
       className: "col-span-1 md:col-span-2",
     },
@@ -162,19 +165,23 @@ const Dashboard = () => {
       <div>
         <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">Dashboard</h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
-          {cardData.map((card, index) => (
-            <div
-              key={index}
-              className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
-            >
-              <div className="flex items-center justify-between mx-2 mt-2 md:mx-4">
-                <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
-                <EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-400" />
+          {cardData.map((card, index) => {
+            console.log("card==", card)
+            return (
+              <div
+                key={index}
+                className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} // Add padding and rounded corners
+              >
+                <div className="flex items-center justify-between mx-2 mt-2 md:mx-4">
+                  <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
+                  <EllipsisHorizontalCircleIcon className="w-6 h-6 text-gray-400" />
+                </div>
+                <div className="mx-2 my-4 md:mx-4">{card.content}</div>
+                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
               </div>
-              <div className="mx-2 my-4 md:mx-4">{card.content}</div>
-              <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
-            </div>
-          ))}
+            )
+          }
+          )}
         </div>
       </div>
     </PrimaryContainer>
