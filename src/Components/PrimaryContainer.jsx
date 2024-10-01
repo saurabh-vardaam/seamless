@@ -32,19 +32,19 @@ import UserProfile from "../Images/UserProfile.png";
 import DotsIcon from "../Icons/DotsIcon";
 
 const navigation = [
-  { name: "Dashboard", path: "/", icon: HomeIcon },
-  { name: "Organization", path: "/organization", icon: UsersIcon },
-  { name: "Membership", path: "/membership", icon: UserGroupIcon },
-  { name: "Member Details", path: "/member-details", icon: UserGroupIcon },
-  { name: "Financials", path: "/financials", icon: CalendarIcon },
-  { name: "Chapters", path: "/chapters", icon: DocumentDuplicateIcon },
-  { name: "Committees", path: "/committees", icon: UserGroupIcon },
-  { name: "Education", path: "/education", icon: AcademicCapIcon },
-  { name: "Events", path: "/events", icon: CalendarDateRangeIcon },
-  { name: "Event Details", path: "/event-details", icon: CalendarDateRangeIcon },
-  { name: "Documents", path: "/document", icon: DocumentArrowDownIcon },
-  { name: "Reports", path: "/reports", icon: ChartBarIcon },
-  { name: "Settings", path: "/settings", icon: Cog8ToothIcon },
+  { name: "DASHBOARD", path: "/", icon: HomeIcon },
+  { name: "ORGANIZATION", path: "/organization", icon: UsersIcon },
+  { name: "MEMBERSHIP", path: "/membership", icon: UserGroupIcon },
+  { name: "MEMBER DETAILS", path: "/member-details", icon: UserGroupIcon },
+  { name: "FINANCIALS", path: "/financials", icon: CalendarIcon },
+  { name: "CHAPTERS", path: "/chapters", icon: DocumentDuplicateIcon },
+  { name: "COMMITTEES", path: "/committees", icon: UserGroupIcon },
+  { name: "EDUCATION", path: "/education", icon: AcademicCapIcon },
+  { name: "EVENTS", path: "/events", icon: CalendarDateRangeIcon },
+  { name: "EVENT DETAILS", path: "/event-details", icon: CalendarDateRangeIcon },
+  { name: "DOCUMENTS", path: "/document", icon: DocumentArrowDownIcon },
+  { name: "REPORTS", path: "/reports", icon: ChartBarIcon },
+  { name: "SETTINGS", path: "/settings", icon: Cog8ToothIcon },
 ];
 
 const userNavigation = [
