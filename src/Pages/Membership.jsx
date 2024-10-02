@@ -67,10 +67,8 @@ const Membership = () => {
                 key={tab}
                 className={({ selected }) =>
                   classNames(
-                    "text-base font-semibold focus:none leading-[60px]",
-                    selected
-                      ? "  font-semibold text-[#283275]"
-                      : "font-semibold text-[#282728] mb-1"
+                    "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
+                    selected ? "  font-semibold " : "font-semibold  mb-1"
                   )
                 }
               >
@@ -119,96 +117,125 @@ const Membership = () => {
 
               <div className="border border-[#6b6a6b] rounded-2xl overflow-x-auto">
                 <table className="min-w-full table-auto">
-                  <thead className="text-left text-[#283275] text-sm font-semibold">
+                  <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
                     <tr className="border-b border-gray-300">
-                      <th className="px-6 py-5">
+                      <th className="p-6">
                         <Checkbox />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="text-sm font-semibold">
                         Member Name
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="p-6 text-sm font-semibold">
                         Status
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="p-6 text-sm font-semibold">
                         Role
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="p-6 text-sm font-semibold">
                         Chapter
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="p-6 text-sm font-semibold">
                         Committee
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="p-6 text-sm font-semibold">
                         Subscription
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3 text-sm font-semibold">
+                      <th className="p-6 text-sm font-semibold">
                         Dues
                         <BraIcon className="inline-block ml-3" />
                       </th>
-                      <th className="px-4 py-3"></th>
+                      <th className="p-6"></th>
                     </tr>
                   </thead>
                   <tbody>
-                    {members.map((member, index) => (
-                      <tr
-                        key={index}
-                        className={`border-t border-gray-300 cursor-pointer ${
-                          selectedRow === index ? "bg-[#ffffff]" : ""
-                        }`}
-                        onClick={() => handleRowClick(index)}
-                      >
-                        <td className="px-6 py-2">
-                          <Checkbox />
-                        </td>
-                        <td className="flex items-center gap-3 px-4 py-2">
-                          {member.profile}
-                          {member.name}
-                        </td>
-                        <td className="px-4 py-3">
-                          <span
-                            className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
-                              member.status === "Active"
-                                ? "bg-[#c2e0b3] text-[#282728]"
-                                : member.status === "Invited"
-                                ? "bg-[#cdd5d4] text-[#282728]"
-                                : member.status === "Inactive"
-                                ? "bg-[#e0b3c9] text-[#282728]"
-                                : ""
-                            }`}
-                          >
-                            {member.status}
-                          </span>
-                        </td>
-                        <td className="px-4 py-2">{member.role}</td>
-                        <td className="px-4 py-2">{member.chapter}</td>
-                        <td className="flex items-center px-4 py-2">
-                          {member.committee}
-                          {member.extraCommittee && (
-                            <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
-                              +{member.extraCommittee}
+                    {new Array(5)
+                      .fill({
+                        profile: (
+                          <img
+                            src={Member}
+                            className="w-8 h-8 mt-1 rounded-full cursor-none"
+                          />
+                        ),
+                        name: "Vanessa Lopez",
+                        status: "Invited",
+                        role: "Admin",
+                        chapter: "NA",
+                        committee: "NA",
+                        subscription: "Chapter Gold",
+                        dues: "NA",
+                      })
+                      .map((member, index) => (
+                        <tr
+                          key={index}
+                          className={`border-t border-gray-300 cursor-pointer ${
+                            selectedRow === index ? "bg-[#ffffff]" : ""
+                          }`}
+                          onClick={() => handleRowClick(index)}
+                        >
+                          <td className="px-6 py-2">
+                            <Checkbox />
+                          </td>
+                          <td className="flex items-center gap-3 px-4 py-2">
+                            {member.profile}
+                            {member.name}
+                          </td>
+                          <td className="px-4 py-3">
+                            <span
+                              className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
+                                member.status === "Active"
+                                  ? "bg-[#c2e0b3] text-[#282728]"
+                                  : member.status === "Invited"
+                                  ? "bg-[#cdd5d4] text-[#282728]"
+                                  : member.status === "Inactive"
+                                  ? "bg-[#e0b3c9] text-[#282728]"
+                                  : ""
+                              }`}
+                            >
+                              {member.status}
                             </span>
-                          )}
-                        </td>
-                        <td className="px-4 py-2">{member.subscription}</td>
-                        <td className="px-4 py-2">{member.dues}</td>
-                        <td className="px-6 py-2 text-right">
-                          <PopUp />
-                        </td>
-                      </tr>
-                    ))}
+                          </td>
+                          <td className="px-4 py-2">{member.role}</td>
+                          <td className="px-4 py-2">{member.chapter}</td>
+                          <td className="flex items-center px-4 py-2">
+                            {member.committee}
+                            {member.extraCommittee && (
+                              <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
+                                +{member.extraCommittee}
+                              </span>
+                            )}
+                          </td>
+                          <td className="px-4 py-2">{member.subscription}</td>
+                          <td className="px-4 py-2">{member.dues}</td>
+                          <td className="px-6 py-2 text-right">
+                            <EllipsisHorizontalCircleIcon className="sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+                          </td>
+                        </tr>
+                      ))}
                   </tbody>
                 </table>
               </div>
             </div>
           </Tab.Panel>
-          <Tab.Panel></Tab.Panel>
+          {[1, 2, 3]?.map((tab) => (
+            <Tab.Panel>
+              <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
+                <div className="flex items-center justify-center w-full h-60">
+                  <div className="flex flex-col items-center ">
+                    <p className="text-lg font-semibold ">Not Created</p>
+                    <p className="text-sm font-medium">
+                      This Tab Panel is not created please first create the Tab
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tab.Panel>
+          ))}
         </Tab.Panels>
       </Tab.Group>
       {isModalOpen && (

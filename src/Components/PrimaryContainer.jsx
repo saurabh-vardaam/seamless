@@ -225,7 +225,7 @@ export default function PrimaryContainer({ children }) {
             </div>
           </div>
           <main className="w-full h-full overflow-hidden lg:w-5/6 bg-seamlessGray-300">
-            <div className="w-full h-full px-4 py-10 overflow-auto sm:px-12 scrollbar-hide">
+            <div className="w-full h-full px-4 py-4 overflow-auto sm:py-16 sm:px-16 scrollbar-hide">
               {children}{" "}
             </div>
           </main>

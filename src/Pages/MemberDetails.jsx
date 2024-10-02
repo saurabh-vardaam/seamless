@@ -35,8 +35,8 @@ const MemberDetails = () => {
               key={tab}
               className={({ selected }) =>
                 classNames(
-                  "text-base font-semibold leading-[60px]",
-                  selected ? " text-[#283275]" : "text-[#282728] mb-1"
+                  "text-base text-seamlessBlue-700 font-semibold leading-[60px]",
+                  selected ? "  font-semibold " : "font-semibold  mb-1"
                 )
               }
             >
@@ -213,7 +213,20 @@ const MemberDetails = () => {
               </div>
             </div>
           </Tab.Panel>
-          <Tab.Panel></Tab.Panel>
+          {[1, 2, 3,4,5,6]?.map((tab) => (
+            <Tab.Panel>
+              <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
+                <div className="flex items-center justify-center w-full h-60">
+                  <div className="flex flex-col items-center ">
+                    <p className="text-lg font-semibold ">Not Created</p>
+                    <p className="text-sm font-medium">
+                      This Tab Panel is not created please first create the Tab
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tab.Panel>
+          ))}
         </Tab.Panels>
       </Tab.Group>
     </PrimaryContainer>

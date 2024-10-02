@@ -32,41 +32,37 @@ const EventDetails = () => {
       </h2>
 
       <Tab.Group>
-      <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-9">
-          {tabs.map(
-            (tab, index) => (
-              <Tab
-                key={tab}
-                className={({ selected }) =>
-                  classNames(
-                    "text-base font-semibold focus:none leading-[60px]",
-                    selected
-                      ? "  font-semibold text-[#283275]"
-                      : "font-semibold text-[#282728] mb-1"
-                  )
-                }
-              >
-                {({ hover, selected }) => (
-                  <>
-                    {tab}
-                    {selected && (
-                      <p className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
-                    )}
-                  </>
-                )}
-              </Tab>
-            )
-          )}
+        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-9">
+          {tabs.map((tab, index) => (
+            <Tab
+              key={tab}
+              className={({ selected }) =>
+                classNames(
+                  "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
+                  selected ? "  font-semibold " : "font-semibold  mb-1"
+                )
+              }
+            >
+              {({ hover, selected }) => (
+                <>
+                  {tab}
+                  {selected && (
+                    <p className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
+                  )}
+                </>
+              )}
+            </Tab>
+          ))}
         </Tab.List>
 
         <Tab.Panels>
           <Tab.Panel>
-            <div className="mt-6 space-y-4 bg-gray-100 border border-gray-600 rounded-3xl">
+            <div className="mt-6 bg-gray-100 border border-gray-600 rounded-3xl">
               <div className="bg-[#ffffff] rounded-t-3xl">
                 <div className="flex flex-col items-start justify-between border-b border-gray-400 sm:flex-row sm:items-center">
-                  <p className="text-[#282728] text-sm font-normal m-3.5">
+                  <p className="text-[#282728] text-sm font-normal px-6 py-4">
                     Display Title:
-                    <span className="text-base text-[#283275] font-semibold">
+                    <span className="ml-2 text-base font-semibold text-seamlessBlue-700">
                       Fall NACC Mini Conference
                     </span>
                   </p>
@@ -74,14 +70,14 @@ const EventDetails = () => {
                 </div>
 
                 <div className="space-y-2 border-b border-gray-400">
-                  <div className="m-5">
+                  <div className="py-10 px-9">
                     <span className="flex justify-between">
                       <p className="text-[#282728] text-sm font-normal">
                         Display Title:
                       </p>
                       <PencilIcon className="w-5 h-5" />
                     </span>
-                    <h2 className="text-xl sm:text-2xl font-semibold text-[#283275]">
+                    <h2 className="text-xl font-semibold sm:text-2xl text-seamlessBlue-700">
                       The 2024 North American Conservation Corps Annual
                       Conference
                     </h2>
@@ -89,18 +85,18 @@ const EventDetails = () => {
                       <div className="relative">
                         <button
                           onClick={() => setIsVisible(!isVisible)}
-                          className={`inline-flex h-3 w-6 items-center rounded-full p-0.5 transition-colors duration-300 border border-black ${
+                          className={`inline-flex h-5 w-9 items-center rounded-full  transition-colors duration-300 border border-black ${
                             isVisible ? "bg-gray-200" : "bg-gray-300"
                           }`}
                         >
                           <span
-                            className={`h-2 w-2 bg-white rounded-full transition-transform duration-300 transform border border-black ${
-                              isVisible ? "translate-x-3" : "translate-x-0"
+                            className={`h-3 w-3 bg-white rounded-full transition-transform duration-300 transform border border-black ${
+                              isVisible ? "translate-x-5" : "translate-x-0"
                             }`}
                           />
                         </button>
                       </div>
-                      <p className="text-sm text-[#283275]">
+                      <p className="text-sm text-seamlessBlue-700">
                         Show On Public Site
                       </p>
                     </span>
@@ -108,85 +104,76 @@ const EventDetails = () => {
                 </div>
               </div>
 
-              <div className="space-y-2">
-                <div className="flex flex-col items-start gap-1 mx-4 sm:flex-row">
+              <div className="divide-y divide-gray-400">
+                <div className="flex px-6 py-4">
                   <p className="text-sm text-[#282728]">Description:</p>
-                  <p className="text-[#283275] text-base font-semibold">
+                  <p className="text-base font-semibold text-seamlessBlue-700">
                     The Conference unites people from across sectors and
                     throughout the country who are connected...
                   </p>
                 </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">Dates:</p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      10.24.24 - 10.16.24
-                    </p>
-                  </span>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">Dates:</p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    10.24.24 - 10.16.24
+                  </p>
+                </div>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">Location:</p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    Hyatt Regency Denver at Colorado Convention Center
+                  </p>
+                </div>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">Registration Opens:</p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    10.02.2024
+                  </p>
+                </div>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">
+                    Membership Level Access:
+                  </p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    Chapter Gold, Chapter Silver
+                  </p>
                 </div>
 
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">Location:</p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      Hyatt Regency Denver at Colorado Convention Center
-                    </p>
-                  </span>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">Event Type:</p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    On-Site
+                  </p>
                 </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">
-                      Registration Opens:
-                    </p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      10.02.2024
-                    </p>
-                  </span>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">Event Category:</p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    Outreach
+                  </p>
                 </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">
-                      Membership Level Access:
-                    </p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      Chapter Gold, Chapter Silver
-                    </p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">Event Type:</p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      On-Site
-                    </p>
-                  </span>
-                </div>
-
-                <div className="pt-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">Event Category:</p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      Outreach
-                    </p>
-                  </span>
-                </div>
-
-                <div className="py-3 border-t border-gray-400">
-                  <span className="flex flex-col items-start gap-1 mx-4 sm:flex-row sm:items-center">
-                    <p className="text-sm text-[#282728]">Status:</p>
-                    <p className="text-[#283275] text-base font-semibold">
-                      Active
-                    </p>
-                  </span>
+                <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
+                  <p className="text-sm text-[#282728]">Status:</p>
+                  <p className="text-base font-semibold text-seamlessBlue-700">
+                    Active
+                  </p>
                 </div>
               </div>
             </div>
           </Tab.Panel>
-          <Tab.Panel></Tab.Panel>
+          {[1, 2, 3, 4, 5, 6, 7]?.map((tab) => (
+            <Tab.Panel>
+              <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
+                <div className="flex items-center justify-center w-full h-60">
+                  <div className="flex flex-col items-center ">
+                    <p className="text-lg font-semibold ">Not Created</p>
+                    <p className="text-sm font-medium">
+                      This Tab Panel is not created please first create the Tab
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </Tab.Panel>
+          ))}
         </Tab.Panels>
       </Tab.Group>
     </PrimaryContainer>

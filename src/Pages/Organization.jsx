@@ -10,16 +10,16 @@ import PopUp from "../Components/Popover";
 const Organization = () => {
   return (
     <PrimaryContainer>
-      <div className="w-full bg-[#edeeee]">
+      <div className="w-full ">
         <div className="mb-3 border-b-2 sm:mb-4 md:mb-10 border-seamlessBlue-400">
-          <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-3 sm:mb-4 md:mb-9 ">
+          <h2 className="mb-3 text-lg font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 sm:mb-4 md:mb-9 ">
             Organization
           </h2>
           <div className="flex flex-col sm:flex-row md:space-x-10">
-            <span className="text-[#282728] border-b-2 border-transparent cursor-pointer text-sm sm:text-base font-semibold">
+            <span className="text-sm font-semibold border-b-2 border-transparent cursor-pointer text-seamlessGray-750 sm:text-base">
               Organization Info
             </span>
-            <span className="pb-2 cursor-pointer text-[#283275] text-sm sm:text-base relative font-semibold">
+            <span className="relative pb-2 text-sm font-semibold cursor-pointer text-seamlessBlue-700 sm:text-base">
               Structure
               <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
             </span>
@@ -50,7 +50,7 @@ const Organization = () => {
               </div>
               <div className="flex space-x-2">
                 <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <PopUp />            
+                <PopUp />
               </div>
             </div>
 

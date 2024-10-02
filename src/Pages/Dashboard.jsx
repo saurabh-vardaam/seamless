@@ -47,7 +47,7 @@ const Dashboard = () => {
           className="items-center p-4 mx-auto"
         />
       ),
-      className: "col-span-1 md:col-span-1",
+      className: "col-span-1 md:col-span-1  ",
     },
     {
       title: "ENGAGEMENT",
@@ -207,17 +207,17 @@ const Dashboard = () => {
   return (
     <PrimaryContainer>
       <div>
-        <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">
+        <h1 className="text-2xl  font-extrabold text-[#283275] mb-14 ">
           Dashboard
         </h1>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
+        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 ">
           {cardData.map((card, index) => {
             return (
               <div
                 key={index}
                 className={`bg-seamlessCyan-500  flex flex-col  ${card.className}  `}
               >
-                <div className="p-8 grow">
+                <div className="px-8 pt-4 pb-3 grow">
                   <div className="flex items-center justify-between ">
                     <h2 className="font-extrabold text-[#283275] text-lg">
                       {card.title}
