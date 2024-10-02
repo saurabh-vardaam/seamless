@@ -60,21 +60,28 @@ const Membership = () => {
       </h2>
 
       <Tab.Group>
-        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-9">
+        <Tab.List className="flex flex-col border-b-2 border-seamlessBlue-400 sm:flex-row sm:space-x-9">
           {["Member", "Member Roles", "Subscriptions", "Registration"].map(
-            (tab) => (
+            (tab, index) => (
               <Tab
                 key={tab}
                 className={({ selected }) =>
                   classNames(
-                    "text-base font-semibold leading-[60px]",
+                    "text-base font-semibold focus:none leading-[60px]",
                     selected
-                      ? "border-b-2 border-blue-900 font-semibold text-[#283275]"
-                      : "font-semibold text-[#282728]"
+                      ? "  font-semibold text-[#283275]"
+                      : "font-semibold text-[#282728] mb-1"
                   )
                 }
               >
-                {tab}
+                {({ hover, selected }) => (
+                  <>
+                    {tab}
+                    {selected && (
+                      <p className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
+                    )}
+                  </>
+                )}
               </Tab>
             )
           )}
@@ -103,7 +110,7 @@ const Membership = () => {
                   </button>
                   <button
                     className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm"
-                    onClick={() => setIsModalOpen(true)} 
+                    onClick={() => setIsModalOpen(true)}
                   >
                     ADD MEMBER
                   </button>
@@ -114,7 +121,7 @@ const Membership = () => {
                 <table className="min-w-full table-auto">
                   <thead className="text-left text-[#283275] text-sm font-semibold">
                     <tr className="border-b border-gray-300">
-                      <th className="px-4 py-3">
+                      <th className="px-6 py-5">
                         <Checkbox />
                       </th>
                       <th className="px-4 py-3 text-sm font-semibold">
@@ -157,7 +164,7 @@ const Membership = () => {
                         }`}
                         onClick={() => handleRowClick(index)}
                       >
-                        <td className="px-4 py-2">
+                        <td className="px-6 py-2">
                           <Checkbox />
                         </td>
                         <td className="flex items-center gap-3 px-4 py-2">
@@ -191,8 +198,8 @@ const Membership = () => {
                         </td>
                         <td className="px-4 py-2">{member.subscription}</td>
                         <td className="px-4 py-2">{member.dues}</td>
-                        <td className="px-4 py-2 text-right">
-                         <PopUp />
+                        <td className="px-6 py-2 text-right">
+                          <PopUp />
                         </td>
                       </tr>
                     ))}
@@ -206,7 +213,7 @@ const Membership = () => {
       </Tab.Group>
       {isModalOpen && (
         <Modal onClose={handleCloseModal}>
-          <AddMemberForm /> 
+          <AddMemberForm />
         </Modal>
       )}
     </PrimaryContainer>

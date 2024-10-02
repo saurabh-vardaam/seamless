@@ -79,7 +79,7 @@ const Events = () => {
 
       <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
         <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto mb-4 md:mb-0">
-          <div className="flex items-center gap-2 w-full">
+          <div className="flex items-center w-full gap-2">
             <input
               className="w-full bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 md:w-40 lg:w-60"
               placeholder="Search..."
@@ -88,7 +88,7 @@ const Events = () => {
           </div>
         </div>
 
-        <div className="flex flex-wrap items-center gap-4 justify-center md:justify-end">
+        <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
           <button className="flex pr-2 space-x-2 items-center leading-[40px] sm:leading-[50px] lg:leading-[60px]">
             <span className="text-sm font-medium text-[#282728]">
               Filter
@@ -109,11 +109,11 @@ const Events = () => {
         </div>
       </div>
 
-      <div className="mt-6 mb-6 border border-[#6b6a6b] rounded-2xl overflow-x-auto">
+      <div className="mt-6  mb-6 border border-[#6b6a6b] rounded-2xl overflow-x-auto">
         <table className="min-w-full table-auto">
           <thead className="text-left text-[#283275]">
             <tr className="border-b border-gray-300">
-              <th className="px-2 py-3 text-sm font-medium">
+              <th className="px-6 py-3 text-sm font-medium">
                 <Checkbox />
               </th>
               <th className="py-3 text-sm font-semibold">
@@ -143,11 +143,11 @@ const Events = () => {
             {eventsData.map((event, index) => (
               <tr
                 key={index}
-                className={`border-t border-gray-300 ${selectedRow === index ? "bg-white" : ""
+                className={`border-t  border-gray-300 ${selectedRow === index ? "bg-white" : ""
                   }`}
                 onClick={() => setSelectedRow(index)}
               >
-                <td className="px-2 py-2 text-sm font-medium">
+                <td className="px-6 py-2 text-sm font-medium">
                   <Checkbox />
                 </td>
                 <td className="py-2 text-[#283275] text-sm font-semibold">

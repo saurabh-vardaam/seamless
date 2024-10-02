@@ -41,7 +41,11 @@ const navigation = [
   { name: "COMMITTEES", path: "/committees", icon: UserGroupIcon },
   { name: "EDUCATION", path: "/education", icon: AcademicCapIcon },
   { name: "EVENTS", path: "/events", icon: CalendarDateRangeIcon },
-  { name: "EVENT DETAILS", path: "/event-details", icon: CalendarDateRangeIcon },
+  {
+    name: "EVENT DETAILS",
+    path: "/event-details",
+    icon: CalendarDateRangeIcon,
+  },
   { name: "DOCUMENTS", path: "/document", icon: DocumentArrowDownIcon },
   { name: "REPORTS", path: "/reports", icon: ChartBarIcon },
   { name: "SETTINGS", path: "/settings", icon: Cog8ToothIcon },
@@ -80,7 +84,6 @@ export default function PrimaryContainer({ children }) {
               </button>
             </div>
             <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#273175]  pb-4">
-
               <nav className="flex flex-col flex-1">
                 <ul role="list" className="flex flex-col flex-1 gap-y-7">
                   <li>
@@ -91,8 +94,8 @@ export default function PrimaryContainer({ children }) {
                             to={item.path}
                             className={classNames(
                               location.pathname === item.path
-                                ? "bg-[#171f52] text-[#dfe1e1]"
-                                : "text-[#dfe1e1] ",
+                                ? "bg-[#171f52] text-seamlessGray-400"
+                                : "text-seamlessGray-400 ",
                               "group flex gap-x-3 rounded-md p-4 text-sm font-semibold leading-6"
                             )}
                           >
@@ -100,8 +103,8 @@ export default function PrimaryContainer({ children }) {
                               aria-hidden="true"
                               className={classNames(
                                 location.pathname === item.path
-                                  ? "text-[#dfe1e1]"
-                                  : "text-[#dfe1e1]",
+                                  ? "text-seamlessGray-400"
+                                  : "text-seamlessGray-400",
                                 "h-6 w-6 shrink-0"
                               )}
                             />
@@ -118,109 +121,102 @@ export default function PrimaryContainer({ children }) {
         </div>
       </Dialog>
       <div className="w-[100vw] flex flex-col h-[100vh]">
-      <div className="sticky top-0 z-40 flex items-center w-full h-16 px-4 bg-white border-b border-gray-200 shadow-sm shrink-0 gap-x-4 sm:gap-x-6 sm:px-6 lg:px-8">
-      <button
-        type="button"
-        onClick={() => setSidebarOpen(true)}
-        className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
-      >
-        <span className="sr-only">Open sidebar</span>
-        <Bars3Icon className="w-6 h-6" />
-      </button>
-      
-      <div className="flex items-center justify-between w-full">
-        <SeamLessLogo className="h-8 w-auto" />
+        <div className="sticky top-0 z-40 flex items-center w-full h-16 px-4 bg-white border-b border-gray-200 shadow-sm shrink-0 gap-x-4 sm:gap-x-6 sm:px-6 lg:px-8">
+          <button
+            type="button"
+            onClick={() => setSidebarOpen(true)}
+            className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+          >
+            <span className="sr-only">Open sidebar</span>
+            <Bars3Icon className="w-6 h-6" />
+          </button>
 
-        <div className="flex items-center ml-auto space-x-2 sm:space-x-3 md:space-x-5">
-          <div className="hidden sm:inline-flex items-center gap-2 sm:gap-3">
-            <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec] py-1.5 px-3 sm:py-2 sm:px-4">
-              <div className="flex items-center gap-1.5 sm:gap-2">
-                <input
-                  className="bg-[#ebecec] text-sm text-gray-900 focus:outline-none focus:ring-0 max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] w-full"
-                  placeholder="Search..."
-                />
-                <MagnifyingGlassIcon className="text-[#B6B6B6] w-4 h-4 sm:w-5 sm:h-5" />
+          <div className="flex items-center justify-between w-full">
+            <SeamLessLogo className="w-auto h-8" />
+
+            <div className="flex items-center ml-auto space-x-2 sm:space-x-3 md:space-x-5">
+              <div className="items-center hidden gap-2 sm:inline-flex sm:gap-3">
+                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec] py-1.5 px-3 sm:py-2 sm:px-4">
+                  <div className="flex items-center gap-1.5 sm:gap-2">
+                    <input
+                      className="bg-[#ebecec] text-sm text-gray-900 focus:outline-none focus:ring-0 max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] w-full"
+                      placeholder="Search..."
+                    />
+                    <MagnifyingGlassIcon className="text-[#B6B6B6] w-4 h-4 sm:w-5 sm:h-5" />
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center gap-x-3 sm:gap-x-4 md:gap-x-5 lg:gap-x-6">
+                <Menu as="div" className="relative">
+                  <Menu.Button className="-m-1.5 flex items-center p-1.5">
+                    <span className="sr-only">Open user menu</span>
+                    <img
+                      alt="Profile"
+                      src={UserProfile}
+                      className="w-8 h-8 rounded-full sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-gray-50"
+                    />
+                    <span className="hidden md:flex md:items-center">
+                      <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
+                        Justin Watson
+                      </span>
+                      <ChevronDownIcon className="w-4 sm:w-5 h-4 sm:h-5 ml-1.5 lg:ml-2 text-gray-400" />
+                    </span>
+                  </Menu.Button>
+                  <Menu.Items className="absolute right-0 z-10 mt-2.5 w-28 sm:w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                    {userNavigation.map((item) => (
+                      <Menu.Item key={item.name}>
+                        {({ active }) => (
+                          <a
+                            href={item.path}
+                            className={`${
+                              active ? "bg-gray-50" : ""
+                            } block px-2 py-1 text-sm leading-6 text-gray-900`}
+                          >
+                            {item.name}
+                          </a>
+                        )}
+                      </Menu.Item>
+                    ))}
+                  </Menu.Items>
+                </Menu>
+
+                <div className="flex items-center gap-x-3 sm:gap-x-4 lg:gap-x-6">
+                  <DotsIcon />
+                </div>
               </div>
             </div>
           </div>
-
-          <div className="flex items-center gap-x-3 sm:gap-x-4 md:gap-x-5 lg:gap-x-6">
-            <Menu as="div" className="relative">
-              <Menu.Button className="-m-1.5 flex items-center p-1.5">
-                <span className="sr-only">Open user menu</span>
-                <img
-                  alt="Profile"
-                  src={UserProfile}
-                  className="w-8 h-8 sm:w-9 sm:h-9 lg:w-10 lg:h-10 rounded-full bg-gray-50"
-                />
-                <span className="hidden md:flex md:items-center">
-                  <span
-                    className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]"
-                  >
-                    Justin Watson
-                  </span>
-                  <ChevronDownIcon
-                    className="w-4 sm:w-5 h-4 sm:h-5 ml-1.5 lg:ml-2 text-gray-400"
-                  />
-                </span>
-              </Menu.Button>
-              <Menu.Items
-                className="absolute right-0 z-10 mt-2.5 w-28 sm:w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none"
-              >
-                {userNavigation.map((item) => (
-                  <Menu.Item key={item.name}>
-                    {({ active }) => (
-                      <a
-                        href={item.path}
-                        className={`${
-                          active ? 'bg-gray-50' : ''
-                        } block px-2 py-1 text-sm leading-6 text-gray-900`}
-                      >
-                        {item.name}
-                      </a>
-                    )}
-                  </Menu.Item>
-                ))}
-              </Menu.Items>
-            </Menu>
-
-            <div className="flex items-center gap-x-3 sm:gap-x-4 lg:gap-x-6">
-              <DotsIcon />
-            </div>
-          </div>
         </div>
-      </div>
-    </div>
-        <div className="sticky flex grow">
-          <div className="h-full lg:w-1/6 lg:z-50 lg:flex lg:flex-col sm:hidden max-sm:hidden">
-            <div className="flex grow flex-col gap-y-5  bg-[#273175] pb-4">
+        <div className="sticky flex overflow-hidden grow">
+          <div className="h-full overflow-auto scrollbar-hide lg:w-1/6 lg:z-50 lg:flex lg:flex-col sm:hidden max-sm:hidden">
+            <div className="flex flex-col pb-4 grow gap-y-5 bg-seamlessBlue-800">
               <nav className="flex flex-col flex-1">
                 <ul role="list" className="flex flex-col flex-1 gap-y-7">
                   <li>
                     <ul role="list" className="space-y-1 ">
                       {navigation.map((item) => (
-                        <li key={item.name}>
-                          <Link
-                            to={item.path}
+                        <Link
+                          key={item.name}
+                          to={item.path}
+                          className={classNames(
+                            location.pathname === item.path
+                              ? "bg-seamlessBlue-900 text-seamlessGray-400"
+                              : "text-seamlessGray-400",
+                            "group items-center  flex gap-x-3  px-10 py-5 text-sm font-medium"
+                          )}
+                        >
+                          <item.icon
+                            aria-hidden="true"
                             className={classNames(
                               location.pathname === item.path
-                                ? "bg-[#171f52] text-[#dfe1e1]"
-                                : "text-[#dfe1e1]",
-                              "group flex gap-x-3 rounded-md p-4 text-sm font-medium"
+                                ? "text-seamlessGray-400"
+                                : "text-seamlessGray-400 group-hover:text-seamlessGray-400",
+                              "h-6 w-6 shrink-0"
                             )}
-                          >
-                            <item.icon
-                              aria-hidden="true"
-                              className={classNames(
-                                location.pathname === item.path
-                                  ? "text-[#dfe1e1]"
-                                  : "text-[#dfe1e1] group-hover:text-[#dfe1e1]",
-                                "h-6 w-6 shrink-0"
-                              )}
-                            />
-                            {item.name}
-                          </Link>
-                        </li>
+                          />
+                          {item.name}
+                        </Link>
                       ))}
                     </ul>
                   </li>
@@ -228,8 +224,10 @@ export default function PrimaryContainer({ children }) {
               </nav>
             </div>
           </div>
-          <main className="lg:w-5/6 w-full overflow-hidden h-full bg-[#ebecec]">
-            <div className="w-full h-full px-12 py-10">{children} </div>
+          <main className="w-full h-full overflow-hidden lg:w-5/6 bg-seamlessGray-300">
+            <div className="w-full h-full px-4 py-10 overflow-auto sm:px-12 scrollbar-hide">
+              {children}{" "}
+            </div>
           </main>
         </div>
       </div>

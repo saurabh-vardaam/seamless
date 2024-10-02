@@ -8,16 +8,19 @@ import {
 import PrimaryContainer from "../Components/PrimaryContainer";
 import User from "../Images/User.png";
 import { Tab } from "@headlessui/react";
+import { Fragment } from "react";
 
 const MemberDetails = () => {
   const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
   return (
     <PrimaryContainer>
-      <h2 className="text-2xl font-extrabold text-[#283275] mb-4">Membership</h2>
+      <h2 className="text-2xl font-extrabold text-[#283275] mb-4">
+        Membership
+      </h2>
 
       <Tab.Group>
-        <Tab.List className="flex flex-col border-b-2 border-gray-300 sm:flex-row sm:space-x-9">
+        <Tab.List className="flex flex-col border-b-2 border-seamlessBlue-400 sm:flex-row sm:space-x-9">
           {[
             "Member Details",
             "Events",
@@ -28,17 +31,23 @@ const MemberDetails = () => {
             "History",
           ].map((tab) => (
             <Tab
+            as='button'
               key={tab}
               className={({ selected }) =>
                 classNames(
-                  "text-base font-semibold  py-2 px-2",
-                  selected
-                    ? "border-b-2 border-blue-900 text-[#283275]"
-                    : "text-[#282728]"
+                  "text-base font-semibold leading-[60px]",
+                  selected ? " text-[#283275]" : "text-[#282728] mb-1"
                 )
               }
             >
-              {tab}
+              {({ hover, selected }) => (
+                <>
+                  {tab}
+                  {selected && (
+                    <p className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
+                  )}
+                </>
+              )}
             </Tab>
           ))}
         </Tab.List>
@@ -46,16 +55,16 @@ const MemberDetails = () => {
         <Tab.Panels>
           <Tab.Panel>
             <div className="border border-[#6b6a6b] rounded-3xl mt-7">
-              <div className="flex items-center justify-between mr-5 mt-4">
+              <div className="flex items-center justify-between mt-4 mr-5">
                 <h2></h2>
                 <button className="text-gray-400 hover:text-gray-600">
-                  <PencilIcon className="h-6 w-6" />
+                  <PencilIcon className="w-6 h-6" />
                 </button>
               </div>
-              <div className="flex flex-col md:flex-row items-center gap-8 border-b border-gray-400 p-4">
+              <div className="flex flex-col items-center gap-8 p-4 border-b border-gray-400 md:flex-row">
                 <div className="relative mb-3">
                   <img
-                    className="rounded-full h-24 w-24 md:h-30 md:w-30"
+                    className="w-24 h-24 rounded-full md:h-30 md:w-30"
                     src={User}
                     alt="Profile"
                   />
@@ -100,11 +109,8 @@ const MemberDetails = () => {
                 </div>
               </div>
 
-  
-  
-                <div className="">
-                  <div className="flex items-center justify-between mx-4 my-2">
-                    
+              <div className="">
+                <div className="flex items-center justify-between mx-4 my-2">
                   <p className="text-[#282728] text-sm font-normal">
                     Status:
                     <span className="px-3 py-1 text-[#282728] bg-[#cdd5d4] rounded-xl text-sm ml-3">
@@ -120,24 +126,30 @@ const MemberDetails = () => {
                     </button>
                   </div>
                 </div>
-                  <div className=" py-2 text-[#282728] border-b text-sm border-t border-gray-400">
-                   <div className="flex justify-between mx-4 ">
+                <div className=" py-2 text-[#282728] border-b text-sm border-t border-gray-400">
+                  <div className="flex justify-between mx-4 ">
                     <p>
-                      Member ID: <span className="text-[#283275] text-sm font-semibold">1032882</span>
+                      Member ID:{" "}
+                      <span className="text-[#283275] text-sm font-semibold">
+                        1032882
+                      </span>
                     </p>
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                  <div className=" py-2 text-[#282728] text-sm border-t">
+                <div className=" py-2 text-[#282728] text-sm border-t">
                   <div className="flex justify-between mx-4">
                     <p>
-                      Role: <span className="text-[#283275] text-sm font-semibold ml-0.5">Admin</span>
+                      Role:{" "}
+                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                        Admin
+                      </span>
                     </p>
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                  <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                    <div className="flex justify-between mx-4 ">
+                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                  <div className="flex justify-between mx-4 ">
                     <p>
                       Chapter:
                       <span className="text-[#283275] text-sm font-semibold ml-0.5">
@@ -146,10 +158,9 @@ const MemberDetails = () => {
                     </p>
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
-                   
                 </div>
-                  <div className=" py-2 text-[#282728] text-smborder-b border-t border-gray-400">
-                   <div className="flex justify-between mx-4">
+                <div className=" py-2 text-[#282728] text-smborder-b border-t border-gray-400">
+                  <div className="flex justify-between mx-4">
                     <p>
                       Committees:
                       <span className="text-[#283275] text-sm font-semibold ml-0.5">
@@ -160,21 +171,24 @@ const MemberDetails = () => {
                   </div>
                 </div>
 
-                  <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                    <div className="flex justify-between mx-4">
+                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                  <div className="flex justify-between mx-4">
                     <p>
                       Subscription:
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">Chapter Gold</span>
-  
+                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                        Chapter Gold
+                      </span>
                     </p>
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                  <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                    <div className="flex justify-between mx-4">
+                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                  <div className="flex justify-between mx-4">
                     <p>
                       Subscription:{" "}
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">Chapter Gold</span>{" "}
+                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                        Chapter Gold
+                      </span>{" "}
                       <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
                         Current
                       </span>
@@ -182,10 +196,13 @@ const MemberDetails = () => {
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                  <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
-                   <div className="flex justify-between mx-4">
+                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                  <div className="flex justify-between mx-4">
                     <p>
-                      Renewal: <span className="text-[#283275] text-sm font-semibold ml-0.5">01.15.2025</span>{" "}
+                      Renewal:{" "}
+                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                        01.15.2025
+                      </span>{" "}
                       <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
                         Auto
                       </span>

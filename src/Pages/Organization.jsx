@@ -11,7 +11,7 @@ const Organization = () => {
   return (
     <PrimaryContainer>
       <div className="w-full bg-[#edeeee]">
-        <div className="mb-3 sm:mb-4 md:mb-10 border-b-2 border-[#d4d5d5]">
+        <div className="mb-3 border-b-2 sm:mb-4 md:mb-10 border-seamlessBlue-400">
           <h2 className="text-lg sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-3 sm:mb-4 md:mb-9 ">
             Organization
           </h2>
@@ -21,7 +21,7 @@ const Organization = () => {
             </span>
             <span className="pb-2 cursor-pointer text-[#283275] text-sm sm:text-base relative font-semibold">
               Structure
-              <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-[#b222fb] via-[#8a54f4] to-[#2dc7e5]" />
+              <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
             </span>
           </div>
         </div>
@@ -95,7 +95,7 @@ const Organization = () => {
           </div>
         </div>
 
-        <div className="flex justify-center sm:justify-end mt-4">
+        <div className="flex justify-center mt-4 sm:justify-end">
           <button className="py-2 sm:py-1 px-6 sm:px-10 text-sm sm:text-base text-[#283275] border border-[#6b6a6b] rounded-full font-semibold">
             SAVE
           </button>

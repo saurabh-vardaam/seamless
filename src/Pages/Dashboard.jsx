@@ -44,7 +44,7 @@ const Dashboard = () => {
         <img
           src={NaccLogo}
           alt="Organization Logo"
-          className="items-center p-4"
+          className="items-center p-4 mx-auto"
         />
       ),
       className: "col-span-1 md:col-span-1",
@@ -52,7 +52,7 @@ const Dashboard = () => {
     {
       title: "ENGAGEMENT",
       content: (
-        <div className="relative">
+        <div className="relative w-full">
           <Chart
             chartType="ColumnChart"
             data={data}
@@ -67,12 +67,18 @@ const Dashboard = () => {
     {
       title: "CHAPTERS",
       content: (
-        <div className="flex items-baseline gap-4 mx-1 md:gap-10">
+        <div className="grid items-baseline w-full grid-cols-2 gap-4 mx-1 md:gap-10">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
-            78 <span className="text-base text-[#283275] font-semibold">Active</span>
+            78{" "}
+            <span className="text-base text-[#283275] font-semibold">
+              Active
+            </span>
           </p>
           <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
-            2 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+            2{" "}
+            <span className="text-base text-[#6b6a6b] font-semibold">
+              Inactive
+            </span>
           </p>
         </div>
       ),
@@ -81,12 +87,18 @@ const Dashboard = () => {
     {
       title: "COMMITTEES",
       content: (
-        <div className="flex items-baseline gap-4 md:gap-5">
+        <div className="grid items-baseline w-full grid-cols-2 gap-4 md:gap-5">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
-            102 <span className="text-base text-[#283275] font-semibold">Active</span>
+            102{" "}
+            <span className="text-base text-[#283275] font-semibold">
+              Active
+            </span>
           </p>
           <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
-            23 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+            23{" "}
+            <span className="text-base text-[#6b6a6b] font-semibold">
+              Inactive
+            </span>
           </p>
         </div>
       ),
@@ -95,12 +107,18 @@ const Dashboard = () => {
     {
       title: "SUBSCRIBERS",
       content: (
-        <div className="flex items-baseline gap-4 mx-1 md:gap-5">
+        <div className="grid items-baseline w-full grid-cols-2 gap-4 mx-1 md:gap-5">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
-            325 <span className="text-base text-[#283275] font-semibold">Active</span>
+            325{" "}
+            <span className="text-base text-[#283275] font-semibold">
+              Active
+            </span>
           </p>
           <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
-            11 <span className="text-base text-[#6b6a6b] font-semibold">Inactive</span>
+            11{" "}
+            <span className="text-base text-[#6b6a6b] font-semibold">
+              Inactive
+            </span>
           </p>
         </div>
       ),
@@ -109,49 +127,73 @@ const Dashboard = () => {
     {
       title: "MEMBERS",
       content: (
-        <div className="mx-1">
-          <div className="flex flex-col gap-4 mb-4 md:flex-row md:items-baseline md:gap-10">
+        <div className="w-full ">
+          <div className="grid w-full grid-cols-2 gap-4 mb-4 xl:grid-cols-3 ">
             <div className="flex items-baseline gap-2">
-              <span className="text-xl md:text-4xl font-extrabold text-[#283275]">1,240</span>
-              <span className="text-sm md:text-base text-[#283275] font-semibold">Total Active</span>
+              <span className="text-xl md:text-4xl font-extrabold text-[#283275]">
+                1,240
+              </span>
+              <span className="text-sm md:text-base text-[#283275] font-semibold">
+                Total Active
+              </span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl md:text-4xl font-extrabold text-[#6b6a6b]">2</span>
-              <span className="text-sm md:text-base text-[#6b6a6b] font-semibold">Total Inactive</span>
+              <span className="text-xl md:text-4xl font-extrabold text-[#6b6a6b]">
+                2
+              </span>
+              <span className="text-sm md:text-base text-[#6b6a6b] font-semibold">
+                Total Inactive
+              </span>
             </div>
           </div>
 
-          <div className="grid grid-cols-2 gap-4 md:flex md:space-x-6">
+          <div className="grid w-full grid-cols-3 gap-4 mt-8 xl:grid-cols-6 ">
             <div className="space-y-2 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">BOD</h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">6</p>
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+                BOD
+              </h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+                6
+              </p>
             </div>
             <div className="space-y-2 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">STAFF</h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">16</p>
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+                STAFF
+              </h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+                16
+              </p>
             </div>
-            <div className="space-y-2 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">CHAPTER MEMBERS</h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">1,123</p>
+            <div className="col-span-2 space-y-2 text-left">
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+                CHAPTER MEMBERS
+              </h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+                1,123
+              </p>
             </div>
-            <div className="space-y-2 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">COMMITTEE MEMBERS</h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">234</p>
+            <div className="col-span-2 space-y-2 text-left">
+              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+                COMMITTEE MEMBERS
+              </h3>
+              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+                234
+              </p>
             </div>
           </div>
         </div>
-
-
-
       ),
       className: "col-span-1 md:col-span-2",
     },
     {
       title: "NONMEMBERS",
       content: (
-        <div className="flex items-baseline gap-4 md:gap-8">
+        <div className="grid items-baseline w-full grid-cols-2 gap-4 md:gap-8">
           <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
-            115 <span className="text-base font-semibold text-[#283275]">Active</span>
+            115{" "}
+            <span className="text-base font-semibold text-[#283275]">
+              Active
+            </span>
           </p>
           <p className="text-2xl md:text-4xl font-extrabold mt-4 md:mt-24 text-[#6b6a6b]">
             12 <span className="text-sm text-[#6b6a6b]">Inactive</span>
@@ -165,25 +207,31 @@ const Dashboard = () => {
   return (
     <PrimaryContainer>
       <div>
-        <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">Dashboard</h1>
+        <h1 className="text-2xl md:text-3xl font-extrabold text-[#283275] mb-6">
+          Dashboard
+        </h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3">
           {cardData.map((card, index) => {
-            console.log("card==", card)
             return (
               <div
                 key={index}
-                className={`bg-[#d9e3e2] shadow-md relative border ${card.className} p-4 rounded-lg`} 
+                className={`bg-seamlessCyan-500  flex flex-col  ${card.className}  `}
               >
-                <div className="flex items-center justify-between mx-2 mt-2 md:mx-4">
-                  <h2 className="font-extrabold text-[#283275] text-lg">{card.title}</h2>
-                  <PopUp />
-                               </div>
-                <div className="mx-2 my-4 md:mx-4">{card.content}</div>
-                <div className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-purple-400 via-pink-500 to-blue-500" />
+                <div className="p-8 grow">
+                  <div className="flex items-center justify-between ">
+                    <h2 className="font-extrabold text-[#283275] text-lg">
+                      {card.title}
+                    </h2>
+                    <PopUp />
+                  </div>
+                  <div className="flex items-center w-full my-5 px-auto">
+                    {card.content}
+                  </div>
+                </div>
+                <div className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
               </div>
-            )
-          }
-          )}
+            );
+          })}
         </div>
       </div>
     </PrimaryContainer>
