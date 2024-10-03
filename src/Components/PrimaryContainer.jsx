@@ -26,13 +26,13 @@ import {
   Cog8ToothIcon,
   AcademicCapIcon,
 } from "@heroicons/react/24/outline";
-import { Link, useLocation } from "react-router-dom";
+import { Link, useLocation, useNavigate } from "react-router-dom";
 import SeamLessLogo from "../Icons/SeamLessLogo";
 import UserProfile from "../Images/UserProfile.png";
 import DotsIcon from "../Icons/DotsIcon";
 
 const navigation = [
-  { name: "DASHBOARD", path: "/", icon: HomeIcon },
+  { name: "DASHBOARD", path: "/dashboard", icon: HomeIcon },
   { name: "ORGANIZATION", path: "/organization", icon: UsersIcon },
   { name: "MEMBERSHIP", path: "/membership", icon: UserGroupIcon },
   { name: "MEMBER DETAILS", path: "/member-details", icon: UserGroupIcon },
@@ -63,6 +63,12 @@ function classNames(...classes) {
 export default function PrimaryContainer({ children }) {
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
+  const navigate = useNavigate();
+  const handleLogout = () => {
+    setTimeout(() => {
+      navigate("/");
+    }, 100); // 1000 ms = 1 second
+  };
   return (
     <div className="font-Montserrat">
       <Dialog
@@ -163,17 +169,22 @@ export default function PrimaryContainer({ children }) {
                     </span>
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 z-10 mt-2.5 w-28 sm:w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
-                    {userNavigation.map((item) => (
+                    {userNavigation.map((item, index) => (
                       <Menu.Item key={item.name}>
                         {({ active }) => (
-                          <a
+                          <div
+                            onClick={() => {
+                              if (index === 1) {
+                                handleLogout();
+                              }
+                            }}
                             href={item.path}
                             className={`${
                               active ? "bg-gray-50" : ""
-                            } block px-2 py-1 text-sm leading-6 text-gray-900`}
+                            } block px-2 py-1 text-sm cursor-pointer leading-6 text-gray-900`}
                           >
                             {item.name}
-                          </a>
+                          </div>
                         )}
                       </Menu.Item>
                     ))}

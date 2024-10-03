@@ -13,14 +13,16 @@ import Settigns from "./Pages/Settigns";
 import Documents from "./Pages/Documents";
 import EventDetails from "./Pages/EventDetails";
 import MemberDetails from "./Pages/MemberDetails";
+import Login from "./Pages/Login";
 
 function App() {
   return (
     <Router>
       <Routes>
-        <Route path="/" element={<Dashboard />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/dashboard" element={<Dashboard />} />
         <Route path="/organization" element={<Organization />} />
-        <Route path= "/membership" element={<Membership />} />
+        <Route path="/membership" element={<Membership />} />
         <Route path="/member-details" element={<MemberDetails />} />
         <Route path="/financials" element={<Dashboard />} />
         <Route path="/chapters" element={<Dashboard />} />
