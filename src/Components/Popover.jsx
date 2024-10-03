@@ -2,7 +2,7 @@ import React from "react";
 import { Popover } from "@headlessui/react";
 import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 
-const PopUp = ({onDelete,editName}) => {
+const PopUp = ({ onDelete, editName, onEdit }) => {
   return (
     <Popover className="relative focus:none">
       <Popover.Button>
@@ -10,11 +10,17 @@ const PopUp = ({onDelete,editName}) => {
       </Popover.Button>
       <Popover.Panel className="absolute right-0 z-10 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-36">
         <div className="flex flex-col p-2">
-          <button onClick={onDelete} className="px-4 py-2 text-sm text-left text-red-600 hover:bg-gray-100">
+          <button
+            onClick={onDelete}
+            className="px-4 py-2 text-sm text-left text-red-600 hover:bg-gray-100"
+          >
             Delete
           </button>
-          <button className="px-4 py-2 text-sm text-left text-blue-600 hover:bg-gray-100">
-         { editName?editName:   Edit}
+          <button
+            onClick={onEdit}
+            className="px-4 py-2 text-sm text-left text-blue-600 hover:bg-gray-100"
+          >
+            {editName ? editName : "Edit"}
           </button>
         </div>
       </Popover.Panel>

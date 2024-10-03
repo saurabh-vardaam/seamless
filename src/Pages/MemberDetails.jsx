@@ -13,45 +13,7 @@ import { Fragment } from "react";
 const MemberDetails = () => {
   const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
-  const memberShipDetails = [
-    {
-      title: "Member ID",
-      value: "1032882",
-      children: [],
-    },
-    {
-      title: "Role",
-      value: "Admin",
-      children: [],
-    },
-    {
-      title: "Chapter",
-      value: "Tuscon Arizona Chapter NACC",
-      children: [],
-    },
-    {
-      title: "Committees",
-      value: "South West, Events, Education",
-      children: [],
-    },
-    {
-      title: "Subscription",
-      value: "Chapter Gold",
-      children: [],
-    },
-    {
-      title: "Subscription",
-      value: "Chapter Gold",
-      feature: "Current",
-      children: [],
-    },
-    {
-      title: "Renewal",
-      value: " 01.15.2025",
-      feature: "Auto",
-      children: [],
-    },
-  ];
+
 
   return (
     <PrimaryContainer>
@@ -168,7 +130,7 @@ const MemberDetails = () => {
                 </div>
                 <div className="flex items-center justify-between px-6 py-5">
                   <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
-                    <span>Status:</span>
+                    <span>   Member ID:{" "}</span>
                     <span className="py-2.5 px-4 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
                       Invited
                     </span>
@@ -178,7 +140,7 @@ const MemberDetails = () => {
                 <div className="py-2 text-sm border-t border-b border-gray-400 text-seamlessGray-950">
                   <div className="flex justify-between mx-4 ">
                     <p>
-                      Member ID:{" "}
+                   
                       <span className="text-[#283275] text-sm font-semibold">
                         1032882
                       </span>

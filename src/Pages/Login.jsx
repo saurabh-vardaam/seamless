@@ -6,17 +6,20 @@ import { useNavigate } from "react-router-dom";
 import Organization from "./Organization";
 const Login = () => {
   const navigate = useNavigate();
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    setTimeout(() => {
-      navigate("/dashboard");
-    }, 100);
-  };
+
   const [data, setData] = useState({
     OrganizationName: "",
     user_name: "",
     password: "",
   });
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log(data?.user_name);
+    localStorage.setItem("user_name", data.user_name);
+    setTimeout(() => {
+      navigate("/dashboard");
+    }, 100);
+  };
   return (
     <div
       style={{
@@ -33,8 +36,20 @@ const Login = () => {
           placeholder={"Organization"}
           className="border "
         />
-        <TextInput required={true} placeholder={"User"} className="border " />
         <TextInput
+          value={data?.user_name}
+          onChange={(e) =>
+            setData((pre) => ({ ...pre, user_name: e.target.value }))
+          }
+          required={true}
+          placeholder={"User"}
+          className="border "
+        />
+        <TextInput
+          value={data?.password}
+          onChange={(e) =>
+            setData((pre) => ({ ...pre, password: e.target.value }))
+          }
           required={true}
           placeholder={"Password"}
           className="border "

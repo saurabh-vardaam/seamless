@@ -35,7 +35,7 @@ const navigation = [
   { name: "DASHBOARD", path: "/dashboard", icon: HomeIcon },
   { name: "ORGANIZATION", path: "/organization", icon: UsersIcon },
   { name: "MEMBERSHIP", path: "/membership", icon: UserGroupIcon },
-  { name: "MEMBER DETAILS", path: "/member-details", icon: UserGroupIcon },
+  // { name: "MEMBER DETAILS", path: "/member-details", icon: UserGroupIcon },
   { name: "FINANCIALS", path: "/financials", icon: CalendarIcon },
   { name: "CHAPTERS", path: "/chapters", icon: DocumentDuplicateIcon },
   { name: "COMMITTEES", path: "/committees", icon: UserGroupIcon },
@@ -164,7 +164,8 @@ export default function PrimaryContainer({ children }) {
                     />
                     <span className="hidden md:flex md:items-center">
                       <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
-                        Justin Watson
+                        {console.log(localStorage.getItem("user_name"))}
+                        {localStorage.getItem("user_name")}
                       </span>
                     </span>
                   </Menu.Button>
