@@ -11,7 +11,7 @@ const Modal = ({ children, onClose }) => {
         }
       }}
     >
-      <div className="relative max-h-[251px] h-full bg-[#ffffff] rounded-[50px] max-w-[350px] drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full">
+      <div className="relative h-full sm:h-[60%] scrollbar-hide  overflow-auto  bg-[#ffffff] rounded-[50px] w-[500px] drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] ">
         {children}
       </div>
     </div>

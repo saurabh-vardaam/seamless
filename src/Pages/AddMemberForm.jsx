@@ -2,93 +2,148 @@ import React, { useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Select from "react-select";
 import NaccLogo from "../Images/NaccLogo.png";
+import TextInput from "../Components/TextInput";
 
 const roles = [
-  { value: 'admin', label: 'Admin' },
-  { value: 'user', label: 'User' },
+  { value: "admin", label: "Admin" },
+  { value: "user", label: "User" },
+];
+
+const statusOptions = [
+  { value: "Invited", label: "Invited" },
+  { value: "Active", label: "Active" },
 ];
 
 const chapters = [
-  { value: 'chapter1', label: 'Chapter 1' },
-  { value: 'chapter2', label: 'Chapter 2' },
+  { value: "chapter1", label: "Chapter 1" },
+  { value: "chapter2", label: "Chapter 2" },
 ];
 
 const committees = [
-  { value: 'committee1', label: 'Committee 1' },
-  { value: 'committee2', label: 'Committee 2' },
+  { value: "East Organization", label: "East Organization" },
+  { value: "West Organization", label: "West Organization" },
 ];
 
 const customSelectStyles = {
   control: (provided, state) => ({
     ...provided,
-    borderRadius: '9999px',
-    backgroundColor: '#edefef',
-    boxShadow: 'none',
-    outline: 'none',
-    borderColor: state.isFocused ? '#edefef' : '#edefef',
+    borderRadius: "9999px",
+    backgroundColor: "#edefef",
+    boxShadow: "none",
+    outline: "none",
+    borderColor: state.isFocused ? "#edefef" : "#edefef",
+    padding: "4px 10px",
   }),
   placeholder: (provided) => ({
     ...provided,
-    color: '#282728',
-    fontSize: "12px",
-    fontWeight: '400',
+    color: "#282728",
+    fontSize: "14px",
+    fontWeight: "400",
+  }),
+  option: (provided, { data, isDisabled, isFocused, isSelected }) => ({
+    ...provided,
+    fontSize: "14px",
+    backgroundColor: isDisabled
+      ? data?.color
+      : isSelected
+      ? " #273175"
+      : isFocused
+      ? " #273175"
+      : undefined,
+    color: isDisabled
+      ? undefined
+      : isSelected
+      ? " #edefef"
+      : isFocused
+      ? " #edefef"
+      : undefined,
+    cursor: isDisabled ? "not-allowed" : "default",
+    ":active": {
+      ...provided[":active"],
+      backgroundColor: !isDisabled
+        ? isSelected
+          ? " #f0f0"
+          : " #edefef"
+        : undefined,
+    },
   }),
   menu: (provided) => ({
     ...provided,
   }),
 };
 
-const AddMemberForm = () => {
+const AddMemberForm = ({
+  newMember,
+  setNewMember,
+  handleCloseModal,
+  memberList,
+  setMemberList,
+}) => {
   const [formData, setFormData] = useState({
-    firstName: '',
-    lastName: '',
-    role: null,
-    chapter: null,
-    committee: null,
+    firstName: "",
+    lastName: "",
+    role: "admin",
+    chapter: "chapter1",
+    committee: "East Organization",
+    status: "Invited",
   });
 
   const handleChange = (selectedOption, field) => {
     setFormData({ ...formData, [field]: selectedOption });
   };
 
-  const handleInputChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+  const handleInputChange = (name, value) => {
+    setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(formData);
+    const newMember = { ...formData, id: Math.random() };
+    setNewMember(newMember);
+    handleCloseModal();
+    const newMembers = [...memberList, newMember];
+    setMemberList(newMembers);
   };
 
   return (
-    <div className="p-5 md:p-10 bg-white rounded-[50px] max-w-[400px] drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full mx-auto">
+    <div className="p-5 md:p-10 bg-white rounded-[50px]  drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full mx-auto">
       <div className="flex justify-center mb-6">
         <img src={NaccLogo} alt="nacc" className="h-12" />
       </div>
-      <form className="pt-5" onSubmit={handleSubmit}>
-        <input
+      <form className="w-full pt-5 space-y-4" onSubmit={handleSubmit}>
+        <TextInput
+          required={true}
+          name="firstName"
+          onChange={(e) => handleInputChange("firstName", e.target.value)}
+          value={formData.firstName}
           type="text"
           placeholder="First Name"
-          name="firstName"
-          value={formData.firstName}
-          onChange={handleInputChange}
-          className="w-full px-4 py-2 mb-4 text-[#282728] placeholder:text-sm bg-[#edefef] rounded-[21px] focus:outline-none text-sm font-normal placeholder:text-[#282728]"
+          className={"w-full bg-seamlessGray-300"}
         />
-        <input
+        <TextInput
+          required={true}
           type="text"
+          className={"w-full bg-seamlessGray-300"}
           name="lastName"
           placeholder="Last Name"
           value={formData.lastName}
-          onChange={handleInputChange}
-          className="w-full px-4 py-2 mb-4 text-[#282728] placeholder:text-sm bg-[#edefef] rounded-[21px] focus:outline-none text-sm font-normal placeholder:text-[#282728]"
+          onChange={(e) => handleInputChange("lastName", e.target.value)}
         />
-
         <div className="mb-4">
           <Select
             options={roles}
             placeholder="Role"
             value={formData.role}
-            onChange={(selectedOption) => handleChange(selectedOption, 'role')}
+            onChange={(e) => handleInputChange("role", e.value)}
+            styles={customSelectStyles}
+          />
+        </div>
+        <div className="mb-4">
+          <Select
+            options={statusOptions}
+            placeholder="Status"
+            value={formData.status}
+            onChange={(e) => handleInputChange("status", e.value)}
             styles={customSelectStyles}
           />
         </div>
@@ -98,7 +153,7 @@ const AddMemberForm = () => {
             options={chapters}
             placeholder="Chapter"
             value={formData.chapter}
-            onChange={(selectedOption) => handleChange(selectedOption, 'chapter')}
+            onChange={(e) => handleInputChange("chapter", e.value)}
             styles={customSelectStyles}
           />
         </div>
@@ -108,20 +163,20 @@ const AddMemberForm = () => {
             options={committees}
             placeholder="Committee"
             value={formData.committee}
-            onChange={(selectedOption) => handleChange(selectedOption, 'committee')}
+            onChange={(e) => handleInputChange("committee", e.value)}
             styles={customSelectStyles}
           />
         </div>
 
         <button
           type="submit"
-          className="w-full px-4 py-2 text-white transition-colors duration-300 bg-[#283275] rounded-[21px] text-sm font-semibold"
+          className="w-full px-4 py-4 mt-2 text-white transition-colors duration-300 bg-[#283275] rounded-[21px] text-sm font-semibold"
         >
           SEND INVITE
         </button>
       </form>
     </div>
   );
-}
+};
 
 export default AddMemberForm;

@@ -21,7 +21,7 @@ const Login = () => {
     <div
       style={{
         backgroundImage: `url(${Image})`,
-        backgroundPosition: ``,
+        backgroundPosition: `center`,
         objectFit: `cover`,
       }}
       className="h-[100vh] w-[100vw] bg-blue-500 flex items-center justify-center"
