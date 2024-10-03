@@ -2,10 +2,10 @@ import { ChevronRightIcon } from "@heroicons/react/24/outline";
 import React from "react";
 import './seamlessstyle.css'
 
-const SeamLessLogo = () => {
+const SeamLessLogo = ({className}) => {
   return (
     <svg
-    height={'50px'}
+      className={className}
       xmlns="http://www.w3.org/2000/svg"
       version="1.1"
       viewBox="0 0 1491.6 420.1"

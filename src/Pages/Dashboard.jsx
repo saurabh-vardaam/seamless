@@ -9,7 +9,7 @@ import PopUp from "../Components/Popover";
 const Dashboard = () => {
   const data = [
     ["Day", "Background Engagement", "Foreground Engagement"],
-    ["Mon", 10, 7],
+    ["Mon", 10, 10],
     ["Tue", 12, 10],
     ["Wed", 14, 5],
     ["Thu", 10, 8],
@@ -41,11 +41,13 @@ const Dashboard = () => {
     {
       title: "ORGANIZATION",
       content: (
-        <img
-          src={NaccLogo}
-          alt="Organization Logo"
-          className="items-center p-4 mx-auto"
-        />
+        <div className="py-10">
+          <img
+            src={NaccLogo}
+            alt="Organization Logo"
+            className="items-center h-16 "
+          />
+        </div>
       ),
       className: "col-span-1 md:col-span-1  ",
     },
@@ -128,7 +130,7 @@ const Dashboard = () => {
       title: "MEMBERS",
       content: (
         <div className="w-full ">
-          <div className="grid w-full grid-cols-2 gap-4 mb-4 xl:grid-cols-3 ">
+          <div className="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-3">
             <div className="flex items-baseline gap-2">
               <span className="text-xl md:text-4xl font-extrabold text-[#283275]">
                 1,240
@@ -147,8 +149,8 @@ const Dashboard = () => {
             </div>
           </div>
 
-          <div className="grid w-full grid-cols-3 gap-4 mt-8 xl:grid-cols-6 ">
-            <div className="space-y-2 text-left">
+          <div className="grid w-full grid-cols-3 gap-10 mt-8 xl:grid-cols-6 ">
+            <div className="space-y-4 text-left">
               <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
                 BOD
               </h3>
@@ -156,7 +158,7 @@ const Dashboard = () => {
                 6
               </p>
             </div>
-            <div className="space-y-2 text-left">
+            <div className="space-y-4 text-left">
               <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
                 STAFF
               </h3>
@@ -164,7 +166,7 @@ const Dashboard = () => {
                 16
               </p>
             </div>
-            <div className="col-span-2 space-y-2 text-left">
+            <div className="col-span-2 space-y-4 text-left">
               <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
                 CHAPTER MEMBERS
               </h3>
@@ -172,7 +174,7 @@ const Dashboard = () => {
                 1,123
               </p>
             </div>
-            <div className="col-span-2 space-y-2 text-left">
+            <div className="col-span-2 space-y-4 text-left">
               <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
                 COMMITTEE MEMBERS
               </h3>
@@ -207,7 +209,7 @@ const Dashboard = () => {
   return (
     <PrimaryContainer>
       <div>
-        <h1 className="text-2xl  font-extrabold text-[#283275] mb-14 ">
+        <h1 className="text-2xl  font-extrabold text-[#283275] mb-12 ">
           Dashboard
         </h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 ">
@@ -217,16 +219,14 @@ const Dashboard = () => {
                 key={index}
                 className={`bg-seamlessCyan-500  flex flex-col  ${card.className}  `}
               >
-                <div className="px-8 pt-4 pb-3 grow">
+                <div className="px-8 py-6 grow">
                   <div className="flex items-center justify-between ">
                     <h2 className="font-extrabold text-[#283275] text-lg">
                       {card.title}
                     </h2>
                     <PopUp />
                   </div>
-                  <div className="flex items-center w-full my-5 px-auto">
-                    {card.content}
-                  </div>
+                  <div className="py-2">{card.content}</div>
                 </div>
                 <div className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
               </div>

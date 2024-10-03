@@ -121,22 +121,22 @@ export default function PrimaryContainer({ children }) {
         </div>
       </Dialog>
       <div className="w-[100vw] flex flex-col h-[100vh]">
-        <div className="sticky top-0 z-40 flex items-center w-full h-16 px-4 bg-white border-b border-gray-200 shadow-sm shrink-0 gap-x-4 sm:gap-x-6 sm:px-6 lg:px-8">
-          <button
-            type="button"
-            onClick={() => setSidebarOpen(true)}
-            className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
-          >
-            <span className="sr-only">Open sidebar</span>
-            <Bars3Icon className="w-6 h-6" />
-          </button>
-
-          <div className="flex items-center justify-between w-full">
-            <SeamLessLogo className="w-auto h-8" />
-
-            <div className="flex items-center ml-auto space-x-2 sm:space-x-3 md:space-x-5">
+        <div className="sticky top-0 z-40 w-full px-4 bg-white border-b border-gray-200 shadow-sm shrink-0 gap-x-4 sm:gap-x-6 sm:px-6 lg:px-7">
+          <div className="flex items-center justify-between my-1 w-fll min-h-20">
+            <button
+              type="button"
+              onClick={() => setSidebarOpen(true)}
+              className="-m-2.5 p-2.5 text-gray-700 lg:hidden"
+            >
+              <span className="sr-only">Open sidebar</span>
+              <Bars3Icon className="w-6 h-6" />
+            </button>
+            <div>
+              <SeamLessLogo className="mt-2 w-44" />
+            </div>
+            <div className="flex items-center px-5 space-x-2 lg:mr-10 sm:space-x-3 md:space-x-5">
               <div className="items-center hidden gap-2 sm:inline-flex sm:gap-3">
-                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec] py-1.5 px-3 sm:py-2 sm:px-4">
+                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec]  px-3 sm:py-2 sm:px-4">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <input
                       className="bg-[#ebecec] text-sm text-gray-900 focus:outline-none focus:ring-0 max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] w-full"
@@ -160,7 +160,6 @@ export default function PrimaryContainer({ children }) {
                       <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
                         Justin Watson
                       </span>
-                      <ChevronDownIcon className="w-4 sm:w-5 h-4 sm:h-5 ml-1.5 lg:ml-2 text-gray-400" />
                     </span>
                   </Menu.Button>
                   <Menu.Items className="absolute right-0 z-10 mt-2.5 w-28 sm:w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
@@ -189,10 +188,10 @@ export default function PrimaryContainer({ children }) {
           </div>
         </div>
         <div className="sticky flex overflow-hidden grow">
-          <div className="h-full overflow-auto scrollbar-hide lg:w-1/6 lg:z-50 lg:flex lg:flex-col sm:hidden max-sm:hidden">
-            <div className="flex flex-col pb-4 grow gap-y-5 bg-seamlessBlue-800">
+          <div className="h-full overflow-auto scrollbar-hide lg:w-[14.75%] lg:z-50 lg:flex lg:flex-col sm:hidden max-sm:hidden">
+            <div className="flex flex-col grow bg-seamlessBlue-800">
               <nav className="flex flex-col flex-1">
-                <ul role="list" className="flex flex-col flex-1 gap-y-7">
+                <ul role="list" className="flex flex-col flex-1 ">
                   <li>
                     <ul role="list" className="space-y-1 ">
                       {navigation.map((item) => (
@@ -203,7 +202,7 @@ export default function PrimaryContainer({ children }) {
                             location.pathname === item.path
                               ? "bg-seamlessBlue-900 text-seamlessGray-400"
                               : "text-seamlessGray-400",
-                            "group items-center  flex gap-x-3  px-10 py-5 text-sm font-medium"
+                            "group items-center  flex gap-x-3  px-10 py-4 text-sm font-medium"
                           )}
                         >
                           <item.icon
@@ -224,8 +223,8 @@ export default function PrimaryContainer({ children }) {
               </nav>
             </div>
           </div>
-          <main className="w-full h-full overflow-hidden lg:w-5/6 bg-seamlessGray-300">
-            <div className="w-full h-full px-4 py-4 overflow-auto sm:py-16 sm:px-16 scrollbar-hide">
+          <main className="w-full h-full overflow-hidden lg:w-[85.75%] bg-seamlessGray-300">
+            <div className="w-full h-full px-4 py-4 overflow-auto sm:py-12 sm:px-16 scrollbar-hide">
               {children}{" "}
             </div>
           </main>

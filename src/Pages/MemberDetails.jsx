@@ -13,6 +13,46 @@ import { Fragment } from "react";
 const MemberDetails = () => {
   const classNames = (...classes) => classes.filter(Boolean).join(" ");
 
+  const memberShipDetails = [
+    {
+      title: "Member ID",
+      value: "1032882",
+      children: [],
+    },
+    {
+      title: "Role",
+      value: "Admin",
+      children: [],
+    },
+    {
+      title: "Chapter",
+      value: "Tuscon Arizona Chapter NACC",
+      children: [],
+    },
+    {
+      title: "Committees",
+      value: "South West, Events, Education",
+      children: [],
+    },
+    {
+      title: "Subscription",
+      value: "Chapter Gold",
+      children: [],
+    },
+    {
+      title: "Subscription",
+      value: "Chapter Gold",
+      feature: "Current",
+      children: [],
+    },
+    {
+      title: "Renewal",
+      value: " 01.15.2025",
+      feature: "Auto",
+      children: [],
+    },
+  ];
+
   return (
     <PrimaryContainer>
       <h2 className="text-2xl font-extrabold text-[#283275] mb-4">
@@ -31,7 +71,7 @@ const MemberDetails = () => {
             "History",
           ].map((tab) => (
             <Tab
-            as='button'
+              as="button"
               key={tab}
               className={({ selected }) =>
                 classNames(
@@ -54,7 +94,7 @@ const MemberDetails = () => {
 
         <Tab.Panels>
           <Tab.Panel>
-            <div className="border border-[#6b6a6b] rounded-3xl mt-7">
+            <div className="border border-seamlessGray-900 rounded-3xl mt-7">
               <div className="flex items-center justify-between mt-4 mr-5">
                 <h2></h2>
                 <button className="text-gray-400 hover:text-gray-600">
@@ -68,7 +108,7 @@ const MemberDetails = () => {
                     src={User}
                     alt="Profile"
                   />
-                  <span className="absolute w-full px-2 py-1 text-sm text-[#282728] bg-[#cdd5d4] rounded-full left-12 top-8 max-w-[71px] text-center">
+                  <span className="absolute w-full px-2 py-1 text-sm text-[#282728] bg-seamlessCyan-600 rounded-full left-12 top-8 max-w-[71px] text-center">
                     Invited
                   </span>
                 </div>
@@ -109,24 +149,33 @@ const MemberDetails = () => {
                 </div>
               </div>
 
-              <div className="">
-                <div className="flex items-center justify-between mx-4 my-2">
-                  <p className="text-[#282728] text-sm font-normal">
-                    Status:
-                    <span className="px-3 py-1 text-[#282728] bg-[#cdd5d4] rounded-xl text-sm ml-3">
+              <div className="divide-y divide-gray-500">
+                <div className="flex items-center justify-between px-6 py-5">
+                  <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
+                    <span>Status:</span>
+                    <span className="py-2.5 px-4 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
                       Invited
                     </span>
-                  </p>
-                  <div className="space-x-4">
-                    <button className="px-4 py-1 text-[#282728] bg-[#cdd5d4] rounded-2xl text-sm">
+                  </div>
+                  <div className="space-x-2.5">
+                    <button className="px-4 py-2.5 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
                       Resend Invite
                     </button>
-                    <button className="px-4 py-1 text-[#ffffff] bg-[#283275] rounded-2xl text-sm">
+                    <button className="px-4 py-2.5 text-[#ffffff] bg-[#283275] rounded-3xl text-sm">
                       Reset Password
                     </button>
                   </div>
                 </div>
-                <div className=" py-2 text-[#282728] border-b text-sm border-t border-gray-400">
+                <div className="flex items-center justify-between px-6 py-5">
+                  <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
+                    <span>Status:</span>
+                    <span className="py-2.5 px-4 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
+                      Invited
+                    </span>
+                  </div>
+                  <ChevronDownIcon className="w-6 h-6" />
+                </div>
+                <div className="py-2 text-sm border-t border-b border-gray-400 text-seamlessGray-950">
                   <div className="flex justify-between mx-4 ">
                     <p>
                       Member ID:{" "}
@@ -137,7 +186,7 @@ const MemberDetails = () => {
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                <div className=" py-2 text-[#282728] text-sm border-t">
+                <div className="py-2 text-sm border-t text-seamlessGray-950">
                   <div className="flex justify-between mx-4">
                     <p>
                       Role:{" "}
@@ -148,7 +197,7 @@ const MemberDetails = () => {
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                <div className="py-2 text-sm border-t border-gray-400 text-seamlessGray-950">
                   <div className="flex justify-between mx-4 ">
                     <p>
                       Chapter:
@@ -159,7 +208,7 @@ const MemberDetails = () => {
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                <div className=" py-2 text-[#282728] text-smborder-b border-t border-gray-400">
+                <div className="py-2 border-t border-gray-400 text-seamlessGray-950 text-smborder-b">
                   <div className="flex justify-between mx-4">
                     <p>
                       Committees:
@@ -171,7 +220,7 @@ const MemberDetails = () => {
                   </div>
                 </div>
 
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                <div className="py-2 text-sm border-t border-gray-400 text-seamlessGray-950">
                   <div className="flex justify-between mx-4">
                     <p>
                       Subscription:
@@ -182,28 +231,28 @@ const MemberDetails = () => {
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                <div className="py-2 text-sm border-t border-gray-400 text-seamlessGray-950">
                   <div className="flex justify-between mx-4">
                     <p>
                       Subscription:{" "}
                       <span className="text-[#283275] text-sm font-semibold ml-0.5">
                         Chapter Gold
                       </span>{" "}
-                      <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
+                      <span className="px-2 py-1 text-sm text-seamlessGray-950 bg-[#c2e0b3] rounded-xl ml-2">
                         Current
                       </span>
                     </p>
                     <ChevronDownIcon className="w-6 h-6" />
                   </div>
                 </div>
-                <div className=" py-2 text-[#282728] text-sm border-t border-gray-400">
+                <div className="py-2 text-sm border-t border-gray-400 text-seamlessGray-950">
                   <div className="flex justify-between mx-4">
                     <p>
                       Renewal:{" "}
                       <span className="text-[#283275] text-sm font-semibold ml-0.5">
                         01.15.2025
                       </span>{" "}
-                      <span className="px-2 py-1 text-sm text-[#282728] bg-[#c2e0b3] rounded-xl ml-2">
+                      <span className="px-2 py-1 text-sm text-seamlessGray-950 bg-[#c2e0b3] rounded-xl ml-2">
                         Auto
                       </span>
                     </p>
@@ -213,7 +262,7 @@ const MemberDetails = () => {
               </div>
             </div>
           </Tab.Panel>
-          {[1, 2, 3,4,5,6]?.map((tab) => (
+          {[1, 2, 3, 4, 5, 6]?.map((tab) => (
             <Tab.Panel>
               <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
                 <div className="flex items-center justify-center w-full h-60">
