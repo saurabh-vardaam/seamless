@@ -11,6 +11,7 @@ import {
   PencilIcon,
   PhoneIcon,
   ArrowLeftIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 
 import Checkbox from "../Components/CheckBox";
@@ -24,7 +25,7 @@ import PopUp from "../Components/Popover";
 import User from "../Images/User.png";
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
-  const [IsEdit,setIsEdit] =useState(false)
+  const [IsEdit, setIsEdit] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -36,7 +37,7 @@ const Membership = () => {
   const members = [
     {
       id: "lopez",
-      profile: '',
+      profile: "",
       firstName: "Vanessa Lopez",
 
       status: "Invited",
@@ -49,7 +50,7 @@ const Membership = () => {
     {
       id: "vanessa",
       name: "Vanessa Lopez",
-      profile: '',
+      profile: "",
       firstName: "Active",
       role: "Admin",
       chapter: "Tucson Arizona",
@@ -348,9 +349,10 @@ const Membership = () => {
                       </button>
                       <button
                         className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm"
-                        onClick={() =>{
+                        onClick={() => {
                           setNewMember({});
-                          setIsModalOpen(true)}}
+                          setIsModalOpen(true);
+                        }}
                       >
                         ADD MEMBER
                       </button>
@@ -399,9 +401,9 @@ const Membership = () => {
                           {memberList.map((member, index) => (
                             <tr
                               key={index}
-                              className={`border-t  border-gray-300 cursor-pointer ${
+                              className={`border-t w-fit  border-gray-300 cursor-pointer ${
                                 member?.id === newMember?.id
-                                  ? "bg-[#ffffff]"
+                                  ? "bg-[#ffffff] text-seamlessBlue-900 "
                                   : ""
                               }`}
                               onClick={() => {
@@ -412,9 +414,12 @@ const Membership = () => {
                                 <Checkbox />
                               </td>
                               <td className="flex items-center gap-3 px-4 py-2">
-                                <img
-                                  src={Member}
-                                  className="w-8 h-8 mt-1 rounded-full cursor-none"
+                                <UserCircleIcon
+                                  className={`w-8 h-8 font-normal ${
+                                    member?.id === newMember?.id
+                                      ? "text-seamlessBlue-900"
+                                      : "text-seamlessGray-900 "
+                                  } `}
                                 />
                                 {member.firstName}
                               </td>
@@ -451,13 +456,13 @@ const Membership = () => {
                               </td>
                               <td className="px-6 py-2 text-right">
                                 <PopUp
-                                  onChange={()=>{
+                                  onChange={() => {
                                     setIsModalOpen(true);
-                                    setIsEdit(true)
+                                    setIsEdit(true);
                                   }}
                                   onEdit={() => setMemberDetails(true)}
                                   editName={"get Details"}
-                                  onDelete={(e,close) => {
+                                  onDelete={(e, close) => {
                                     e.preventDefault();
                                     setMemberList((pre) =>
                                       pre?.filter(
@@ -465,7 +470,7 @@ const Membership = () => {
                                           userMember?.id !== member?.id
                                       )
                                     );
-                                    close()
+                                    close();
                                   }}
                                 />
                               </td>
@@ -522,8 +527,7 @@ const Membership = () => {
         </PrimaryContainer>
       )}
       <AddMemberForm
-   
-      selectedMember={newMember}
+        selectedMember={newMember}
         isModalOpen={isModalOpen}
         handleCloseModal={handleCloseModal}
         setMemberList={setMemberList}

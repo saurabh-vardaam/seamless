@@ -2,105 +2,119 @@ import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 import DotIcons from "../Icons/DotIcon";
 import {
-  EllipsisHorizontalCircleIcon,
   ViewColumnsIcon,
 } from "@heroicons/react/24/outline";
 import PopUp from "../Components/Popover";
+import { Tab } from "@headlessui/react";
+import { classNames } from "../provider";
 
 const Organization = () => {
+  const structure = {
+    title: "NACC",
+    children: [
+      {
+        title: "Chapters",
+      },
+      {
+        title: "COMMITTEES",
+        children: [
+          {
+            title: "MEMBERS",
+          },
+          {
+            title: "SUBSCRIBERS",
+          },
+          {
+            title: "NON MEMBERS",
+          },
+        ],
+      },
+    ],
+  };
+
+  const getStructure = (structure, level) => {
+    return (
+      <>
+        <div
+          style={{
+            marginLeft: `${level * 40}px`,
+          }}
+          className={classNames(
+            "flex items-center justify-between grow p-5 bg-seamlessCyan-500"
+          )}
+        >
+          <div className="flex items-center space-x-2">
+            <DotIcons />
+            <h3 className="text-sm capitalize sm:text-base md:text-lg font-semibold text-[#282728]">
+              {structure?.title}
+            </h3>
+          </div>
+          <div className="flex space-x-2">
+          <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+            <PopUp />
+          </div>
+        </div>
+        {structure?.children?.map((child) => getStructure(child, level + 1))}
+      </>
+    );
+  };
   return (
     <PrimaryContainer>
-      <div className="w-full ">
-        <div className="mb-3 border-b-2 sm:mb-4 md:mb-10 border-seamlessBlue-400">
-          <h2 className="mb-3 text-lg font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 sm:mb-4 md:mb-9 ">
-            Organization
-          </h2>
-          <div className="flex flex-col sm:flex-row md:space-x-10">
-            <span className="text-sm font-semibold border-b-2 border-transparent cursor-pointer text-seamlessGray-750 sm:text-base">
-              Organization Info
-            </span>
-            <span className="relative pb-2 text-sm font-semibold cursor-pointer text-seamlessBlue-700 sm:text-base">
-              Structure
-              <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
-            </span>
-          </div>
-        </div>
+      <h2 className="sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-9">
+        Organization
+      </h2>
 
-        <div className="pb-3 sm:pb-4 md:pb-10 space-y-2 sm:space-y-3 border-b border-[#808080]">
-          <div className="flex flex-col space-y-2">
-            <div className="flex justify-between items-center bg-[#d9e3e2] p-2 sm:p-3 md:p-4">
-              <div className="flex items-center space-x-2">
-                <DotIcons />
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#282728]">
-                  NACC
-                </h3>
-              </div>
-              <div className="flex space-x-2">
-                <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <PopUp />
+      <Tab.Group>
+        <Tab.List className="flex flex-col border-b-2 border-seamlessBlue-400 sm:flex-row sm:space-x-9">
+          {["Organization Info", "Structure"].map((tab, index) => (
+            <Tab
+              key={tab}
+              className={({ selected }) =>
+                classNames(
+                  "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
+                  selected ? "  font-semibold " : "font-semibold  mb-1"
+                )
+              }
+            >
+              {({ hover, selected }) => (
+                <>
+                  {tab}
+                  {selected && (
+                    <p className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
+                  )}
+                </>
+              )}
+            </Tab>
+          ))}
+        </Tab.List>
+
+        <Tab.Panels>
+          <Tab.Panel>
+            <div className="mt-10 space-y-4 border border-gray-600 rounded-3xl">
+              <div className="flex items-center justify-center w-full h-60">
+                <div className="flex flex-col items-center ">
+                  <p className="text-lg font-semibold ">Not Created</p>
+                  <p className="text-sm font-medium">
+                    This Tab Panel is not created please first create the Tab
+                  </p>
+                </div>
               </div>
             </div>
+          </Tab.Panel>
 
-            <div className="ml-2 sm:ml-3 md:ml-20 flex justify-between items-center bg-[#d9e3e2] p-2 sm:p-3 md:p-4">
-              <div className="flex items-center space-x-2">
-                <DotIcons />
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#282728]">
-                  CHAPTERS
-                </h3>
-              </div>
-              <div className="flex space-x-2">
-                <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <PopUp />
-              </div>
+          <Tab.Panel>
+            <div className="flex flex-col my-10 gap-y-4">
+              {getStructure(structure, 0)}
             </div>
 
-            <div className="ml-4 sm:ml-6 md:ml-28 flex justify-between items-center bg-[#d9e3e2] p-2 sm:p-3 md:p-4">
-              <div className="flex items-center space-x-2">
-                <DotIcons />
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#282728]">
-                  MEMBERS
-                </h3>
-              </div>
-              <div className="flex space-x-2">
-                <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <PopUp />
-              </div>
+            <div className="flex justify-center border-t border-seamlessBlue-400 sm:justify-end">
+              <button className="py-2 mt-9 sm:py-1 px-6 sm:px-10 text-sm sm:text-base text-[#283275] border border-[#6b6a6b] rounded-full font-semibold">
+                SAVE
+              </button>
             </div>
-
-            <div className="ml-4 sm:ml-6 md:ml-28 flex justify-between items-center bg-[#d9e3e2] p-2 sm:p-3 md:p-4">
-              <div className="flex items-center space-x-2">
-                <DotIcons />
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#282728]">
-                  SUBSCRIBERS
-                </h3>
-              </div>
-              <div className="flex space-x-2">
-                <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <PopUp />
-              </div>
-            </div>
-
-            <div className="ml-4 sm:ml-6 md:ml-28 flex justify-between items-center bg-[#d9e3e2] p-2 sm:p-3 md:p-4">
-              <div className="flex items-center space-x-2">
-                <DotIcons />
-                <h3 className="text-sm sm:text-base md:text-lg font-semibold text-[#282728]">
-                  NON MEMBERS
-                </h3>
-              </div>
-              <div className="flex space-x-2">
-                <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
-                <PopUp />
-              </div>
-            </div>
-          </div>
-        </div>
-
-        <div className="flex justify-center mt-4 sm:justify-end">
-          <button className="py-2 sm:py-1 px-6 sm:px-10 text-sm sm:text-base text-[#283275] border border-[#6b6a6b] rounded-full font-semibold">
-            SAVE
-          </button>
-        </div>
-      </div>
+          </Tab.Panel>
+        </Tab.Panels>
+      </Tab.Group>
     </PrimaryContainer>
   );
 };
