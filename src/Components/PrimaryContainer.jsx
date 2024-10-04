@@ -1,51 +1,39 @@
 import { useState } from "react";
-import {
-  Dialog,
-  DialogBackdrop,
-  DialogPanel,
-  Menu,
-  MenuButton,
-  MenuItem,
-  MenuItems,
-} from "@headlessui/react";
+import { Dialog, DialogBackdrop, DialogPanel, Menu } from "@headlessui/react";
 import {
   Bars3Icon,
   XMarkIcon,
   HomeIcon,
-  UsersIcon,
-  CalendarIcon,
-  DocumentDuplicateIcon,
   MagnifyingGlassIcon,
-  UserGroupIcon,
-  CalendarDateRangeIcon,
-  DocumentArrowDownIcon,
-  ChartBarIcon,
-  Cog8ToothIcon,
-  AcademicCapIcon,
 } from "@heroicons/react/24/outline";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import SeamLessLogo from "../Icons/SeamLessLogo";
 import UserProfile from "../Images/UserProfile.png";
+import Dashboard from "../Images/Dashboard.png";
+import Membership from "../Images/Membership.png";
+import Organization from "../Images/Organization.png";
+import Commities from "../Images/Commities.png";
+import Financials from "../Images/Financials.png";
+import Chapters from "../Images/Chapters.png";
+import Education from "../Images/Education.png";
+import Events from "../Images/Events.png";
+import Documents from "../Images/Documents.png";
+import Reports from "../Images/Reports.png";
+import Settings from "../Images/Settings.png";
 import DotsIcon from "../Icons/DotsIcon";
 
 const navigation = [
-  { name: "DASHBOARD", path: "/dashboard", icon: HomeIcon },
-  { name: "ORGANIZATION", path: "/organization", icon: UsersIcon },
-  { name: "MEMBERSHIP", path: "/membership", icon: UserGroupIcon },
-  // { name: "MEMBER DETAILS", path: "/member-details", icon: UserGroupIcon },
-  { name: "FINANCIALS", path: "/financials", icon: CalendarIcon },
-  { name: "CHAPTERS", path: "/chapters", icon: DocumentDuplicateIcon },
-  { name: "COMMITTEES", path: "/committees", icon: UserGroupIcon },
-  { name: "EDUCATION", path: "/education", icon: AcademicCapIcon },
-  { name: "EVENTS", path: "/events", icon: CalendarDateRangeIcon },
-  // {
-  //   name: "EVENT DETAILS",
-  //   path: "/event-details",
-  //   icon: CalendarDateRangeIcon,
-  // },
-  { name: "DOCUMENTS", path: "/document", icon: DocumentArrowDownIcon },
-  { name: "REPORTS", path: "/reports", icon: ChartBarIcon },
-  { name: "SETTINGS", path: "/settings", icon: Cog8ToothIcon },
+  { name: "DASHBOARD", path: "/dashboard", icon: HomeIcon, image: Dashboard },
+  { name: "ORGANIZATION", path: "/organization", image: Organization },
+  { name: "MEMBERSHIP", path: "/membership", image: Membership },
+  { name: "FINANCIALS", path: "/financials", image: Financials },
+  { name: "CHAPTERS", path: "/chapters", image: Chapters },
+  { name: "COMMITTEES", path: "/committees", image: Commities },
+  { name: "EDUCATION", path: "/education", image: Education },
+  { name: "EVENTS", path: "/events", image: Events },
+  { name: "DOCUMENTS", path: "/document", image: Documents },
+  { name: "REPORTS", path: "/reports", image: Reports },
+  { name: "SETTINGS", path: "/settings", image: Settings },
 ];
 
 const userNavigation = [
@@ -64,7 +52,7 @@ export default function PrimaryContainer({ children }) {
   const handleLogout = () => {
     setTimeout(() => {
       navigate("/");
-    }, 100); // 1000 ms = 1 second
+    }, 100);
   };
   return (
     <div className="font-Montserrat">
@@ -213,15 +201,7 @@ export default function PrimaryContainer({ children }) {
                             "group items-center  flex gap-x-3  px-10 py-4 text-sm font-medium"
                           )}
                         >
-                          <item.icon
-                            aria-hidden="true"
-                            className={classNames(
-                              location.pathname === item.path
-                                ? "text-seamlessGray-400"
-                                : "text-seamlessGray-400 group-hover:text-seamlessGray-400",
-                              "h-6 w-6 shrink-0"
-                            )}
-                          />
+                          <img className="opacity-50" src={item?.image} />
                           {item.name}
                         </Link>
                       ))}

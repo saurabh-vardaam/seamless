@@ -74,25 +74,21 @@ const customSelectStyles = {
 };
 
 const AddMemberForm = ({
-  newMember,
   setNewMember,
   handleCloseModal,
   memberList,
   setMemberList,
   isModalOpen,
 }) => {
-  const [formData, setFormData] = useState({
+  const memberObject = {
     firstName: "",
     lastName: "",
     role: "admin",
     chapter: "chapter1",
     committee: "East Organization",
     status: "Invited",
-  });
-
-  const handleChange = (selectedOption, field) => {
-    setFormData({ ...formData, [field]: selectedOption });
   };
+  const [formData, setFormData] = useState(memberObject);
 
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
@@ -104,13 +100,19 @@ const AddMemberForm = ({
     setNewMember(newMember);
     const newMembers = [...memberList, newMember];
     setMemberList(newMembers);
-    console.log(newMembers,JSON.stringify(newMembers))
-    // localStorage.setItem("members", JSON.stringify(newMembers));
+    localStorage.setItem("members", JSON.stringify(newMembers));
     handleCloseModal();
+    setFormData(memberObject);
   };
 
   return (
-    <PopUpModel setOpen={handleCloseModal} open={isModalOpen}>
+    <PopUpModel
+      setOpen={() => {
+        handleCloseModal();
+        setFormData(memberObject);
+      }}
+      open={isModalOpen}
+    >
       <div className="p-5 md:p-10 bg-white rounded-[50px]  drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full mx-auto">
         <div className="flex justify-center mb-6">
           <img src={NaccLogo} alt="nacc" className="h-12" />

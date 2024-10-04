@@ -59,7 +59,7 @@ const Membership = () => {
     },
   ];
   const [newMember, setNewMember] = useState({});
-  const [memberList, setMemberList] = useState(members);
+  const [memberList, setMemberList] = useState([]);
   const [showMemberDetail, setMemberDetails] = useState(false);
   useEffect(() => {
     const newMembers = JSON.parse(localStorage.getItem("members"));

@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import TextInput from "../Components/TextInput";
-import SeamLessLogo from "../Icons/SeamLessLogo";
 import Image from "../Images/Login.png";
 import { useNavigate } from "react-router-dom";
-import Organization from "./Organization";
+import WhiteSeamlessLogo from "../Icons/WhiteSeamlessLogo";
 const Login = () => {
   const navigate = useNavigate();
 
@@ -24,13 +23,13 @@ const Login = () => {
     <div
       style={{
         backgroundImage: `url(${Image})`,
-        backgroundPosition: `center`,
+        backgroundPosition: `bottom`,
         objectFit: `cover`,
       }}
       className="h-[100vh] w-[100vw] bg-blue-500 flex items-center justify-center"
     >
       <form onSubmit={handleSubmit} className="flex flex-col space-y-4">
-        <SeamLessLogo className={"text-white"} />
+        <WhiteSeamlessLogo className={"text-white"} />
         <TextInput
           required={true}
           placeholder={"Organization"}

@@ -123,7 +123,7 @@ const Events = () => {
       registration_date: "10.02.2024",
     },
   ];
-  const [events, setEvents] = useState(eventsData);
+  const [events, setEvents] = useState([]);
   const [isVisible, setIsVisible] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState({});
   const [showEventDetails, setEventDetail] = useState(false);
