@@ -45,6 +45,7 @@ const Login = () => {
           className="border "
         />
         <TextInput
+        type="password"
           value={data?.password}
           onChange={(e) =>
             setData((pre) => ({ ...pre, password: e.target.value }))
