@@ -329,7 +329,7 @@ const Membership = () => {
             <Tab.Panels>
               <Tab.Panel>
                 <div>
-                  <div className="flex flex-col items-center justify-between mt-6 mb-6 space-y-4 md:flex-row md:space-y-0">
+                  <div className="flex flex-col items-center justify-between mt-10 mb-10 space-y-4 md:flex-row md:space-y-0">
                     <div className="flex items-center w-full md:w-auto space-x-4 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4">
                       <input
                         className="w-full bg-[#cdd5d4] text-sm text-gray-900 focus:outline-none"
@@ -497,7 +497,7 @@ const Membership = () => {
               </Tab.Panel>
               {[1, 2, 3]?.map((tab) => (
                 <Tab.Panel>
-                  <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
+                  <div className="mt-10 space-y-4 border border-gray-600 rounded-3xl">
                     <div className="flex items-center justify-center w-full h-60">
                       <div className="flex flex-col items-center ">
                         <p className="text-lg font-semibold ">Not Created</p>

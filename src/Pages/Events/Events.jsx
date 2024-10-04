@@ -7,6 +7,7 @@ import {
   ChevronDownIcon,
   PencilIcon,
   ArrowLeftIcon,
+  UserCircleIcon,
 } from "@heroicons/react/24/outline";
 import Checkbox from "../../Components/CheckBox";
 import BraIcon from "../../Icons/BraIcon";
@@ -129,8 +130,13 @@ const Events = () => {
   const [showEventDetails, setEventDetail] = useState(false);
   const [isModelOpen, setIsModelOpen] = useState(false);
   const [isEdit, setIsEdit] = useState(false);
+  const [members, setMembers] = useState([]);
   useEffect(() => {
     const events = JSON.parse(localStorage.getItem("events"));
+    const members = JSON.parse(localStorage.getItem("members"));
+    if (members?.length > 0) {
+      setMembers(members);
+    }
     if (events?.length > 0) {
       setEvents(events);
     } else {
@@ -198,7 +204,7 @@ const Events = () => {
 
             <Tab.Panels>
               <Tab.Panel>
-                <div className="mt-6 bg-gray-100 border border-gray-600 rounded-3xl">
+                <div className="mt-10 bg-gray-100 border border-gray-600 rounded-3xl">
                   <div className="bg-[#ffffff] rounded-t-3xl">
                     <div className="flex flex-col items-start justify-between border-b border-gray-400 sm:flex-row sm:items-center">
                       <p className="text-[#282728] text-sm font-normal px-6 py-4">
@@ -301,7 +307,120 @@ const Events = () => {
                   </div>
                 </div>
               </Tab.Panel>
-              {[1, 2, 3, 4, 5, 6, 7]?.map((tab) => (
+              <Tab.Panel>
+                <div>
+                  {members?.length > 0 ? (
+                    <div className="border max-h-[60vh] mt-10  border-[#6b6a6b] overflow-auto scrollbar-hide rounded-2xl">
+                      <table className="min-w-full table-auto ">
+                        <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
+                          <tr className="border-b border-gray-300">
+                            <th className="px-6 text-sm font-semibold">
+                              Member Name
+                              <BraIcon className="inline-block ml-3 text-left" />
+                            </th>
+                            <th className="px-4 py-5 text-sm font-semibold">
+                              Status
+                              <BraIcon className="inline-block ml-3" />
+                            </th>
+                            <th className="px-4 py-5 text-sm font-semibold text-left">
+                              Role
+                              <BraIcon className="inline-block ml-3" />
+                            </th>
+                            <th className="px-4 py-5 text-sm font-semibold text-left">
+                              Chapter
+                              <BraIcon className="inline-block ml-3" />
+                            </th>
+                            <th className="px-4 py-5 text-sm font-semibold text-left">
+                              Committee
+                              <BraIcon className="inline-block ml-3" />
+                            </th>
+                            <th className="px-4 py-5 text-sm font-semibold text-left">
+                              Subscription
+                              <BraIcon className="inline-block ml-3" />
+                            </th>
+                            <th className="px-4 py-5 text-sm font-semibold text-left">
+                              Dues
+                              <BraIcon className="inline-block ml-3" />
+                            </th>
+                          </tr>
+                        </thead>
+                        <tbody className="">
+                          {members.map((member, index) => (
+                            <tr
+                              key={index}
+                              className={`border-t w-fit border-b border-gray-300 cursor-pointer ${
+                                false
+                                  ? "bg-[#ffffff] text-seamlessBlue-900 "
+                                  : ""
+                              }`}
+                            
+                            >
+                             
+                              <td className="flex items-center gap-3 px-6 py-4">
+                                <UserCircleIcon
+                                  className={`w-8 h-8 font-normal ${
+                                 false
+                                      ? "text-seamlessBlue-900"
+                                      : "text-seamlessGray-900 "
+                                  } `}
+                                />
+                                {member.firstName}
+                              </td>
+                              <td className="px-4 ">
+                                <span
+                                  className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
+                                    member.status === "Active"
+                                      ? "bg-[#c2e0b3] text-[#282728]"
+                                      : member.status === "Invited"
+                                      ? "bg-[#cdd5d4] text-[#282728]"
+                                      : member.status === "Inactive"
+                                      ? "bg-[#e0b3c9] text-[#282728]"
+                                      : ""
+                                  }`}
+                                >
+                                  {member.status}
+                                </span>
+                              </td>
+                              <td className="px-4 py-2">{member.role}</td>
+                              <td className="px-4 py-2">{member.chapter}</td>
+                              <td className="px-4 py-2">
+                                {member.committee}
+                                {member.extraCommittee && (
+                                  <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
+                                    +{member.extraCommittee}
+                                  </span>
+                                )}
+                              </td>
+                              <td className="px-4 py-2">
+                                {member.subscription || "Chapter Gold"}
+                              </td>
+                              <td className="px-4 py-2">
+                                {member.dues || "NA"}
+                              </td>
+                            
+                            </tr>
+                          ))}
+                        </tbody>
+                      </table>
+                    </div>
+                  ) : (
+                    <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
+                      <div className="flex items-center justify-center w-full h-60">
+                        <div className="flex flex-col items-center ">
+                          <p className="text-lg font-semibold ">
+                            No Member Added
+                          </p>
+                          <p className="text-sm font-medium">
+                            Please Add New Member to get the memberList
+                          </p>
+                        </div>
+                      </div>
+                    </div>
+                  )}
+                </div>
+              </Tab.Panel>
+
+              {[1, 2, 3, 4, 5, 6]?.map((tab) => (
                 <Tab.Panel>
                   <div className="mt-6 space-y-4 border border-gray-600 rounded-3xl">
                     <div className="flex items-center justify-center w-full h-60">
@@ -321,8 +440,8 @@ const Events = () => {
         </PrimaryContainer>
       ) : (
         <PrimaryContainer>
-          <div className="mb-6">
-            <h2 className="text-xl md:text-2xl font-extrabold text-[#283275] mb-6 md:mb-9">
+          <div className="mb-10">
+            <h2 className="text-xl md:text-2xl font-extrabold text-[#283275] mb-10 md:mb-9">
               Events
             </h2>
             <div className="flex border-b-2 border-gray-300">
@@ -371,7 +490,7 @@ const Events = () => {
             </div>
           </div>
 
-          <div className="mt-6  mb-6 border border-[#6b6a6b] rounded-2xl overflow-x-auto">
+          <div className="mt-10  mb-6 border border-[#6b6a6b] rounded-2xl overflow-x-auto">
             <table className="min-w-full table-auto">
               <thead className="text-left text-[#283275]">
                 <tr className="border-b border-gray-300">
