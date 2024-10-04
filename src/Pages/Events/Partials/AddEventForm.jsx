@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PopUpModel from "../../../Components/PopUpModel";
 import NaccLogo from "../../../Images/NaccLogo.png";
 import TextInput from "../../../Components/TextInput";
@@ -12,6 +12,8 @@ const AddEventForm = ({
   setSelectedEvent,
   setEvents,
   events,
+  isEdit,
+  setIsEdit,
 }) => {
   const statusOptions = [
     { label: "Active", value: "Active" },
@@ -90,19 +92,36 @@ const AddEventForm = ({
   };
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newFormData = { id: Math.random(), ...formData };
-    const newEvents = [...events, newFormData];
-    setEvents(newEvents);
+    if (isEdit) {
+      let newEvents = [...events];
+      newEvents = newEvents?.map((event) =>
+        event?.id === formData?.id ? formData : event
+      );
+      setEvents(newEvents);
+      localStorage.setItem("events", JSON.stringify(newEvents));
+    } else {
+      const newFormData = { id: Math.random(), ...formData };
+      const newEvents = [...events, newFormData];
+      setEvents(newEvents);
+      localStorage.setItem("events", JSON.stringify(newEvents));
+    }
     setFormData(eventObject);
     setIsModelOpen(false);
-    localStorage.setItem("events", JSON.stringify(newEvents));
+    setIsEdit(false);
   };
 
+  useEffect(() => {
+    if (isEdit) {
+      setFormData(selectedEvent);
+    }
+  }, [isEdit, selectedEvent]);
   return (
     <PopUpModel
       setOpen={() => {
         setFormData(eventObject);
         setIsModelOpen(false);
+        // setSelectedEvent({});
+        setIsEdit(false);
       }}
       open={isModelOpen}
     >

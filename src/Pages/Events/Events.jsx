@@ -72,7 +72,7 @@ const Events = () => {
     {
       id: 4,
       name: "The 2024 North American Conservation",
-      status: "Inactive",
+      status: "InActive",
       dates: "10.14.24 - 10.16.24",
       registration_title: "NACC Open Registration",
       type: "On-Site",
@@ -98,7 +98,7 @@ const Events = () => {
     {
       id: 6,
       name: "The 2024 North American Conservation",
-      status: "Inactive",
+      status: "InActive",
       dates: "10.14.24 - 10.16.24",
       registration_title: "NACC Open Registration",
       type: "On-Site",
@@ -128,7 +128,7 @@ const Events = () => {
   const [selectedEvent, setSelectedEvent] = useState({});
   const [showEventDetails, setEventDetail] = useState(false);
   const [isModelOpen, setIsModelOpen] = useState(false);
-
+  const [isEdit, setIsEdit] = useState(false);
   useEffect(() => {
     const events = JSON.parse(localStorage.getItem("events"));
     if (events?.length > 0) {
@@ -145,6 +145,8 @@ const Events = () => {
   return (
     <>
       <AddEventForm
+        setIsEdit={setIsEdit}
+        isEdit={isEdit}
         setEvents={setEvents}
         events={events}
         selectedEvent={selectedEvent}
@@ -358,7 +360,10 @@ const Events = () => {
               </button>
 
               <button
-                onClick={() => setIsModelOpen(true)}
+                onClick={() => {
+                  setSelectedEvent({});
+                  setIsModelOpen(true);
+                }}
                 className="px-4 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-xs sm:text-sm lg:px-6 mt-2 md:mt-0"
               >
                 ADD A NEW EVENT
@@ -418,7 +423,7 @@ const Events = () => {
                             ? "bg-[#c2e0b3] text-[#282728]"
                             : event.status === "Pause"
                             ? "bg-[#cdd5d4] text-[#282728]"
-                            : event.status === "Inactive"
+                            : event.status === "InActive"
                             ? "bg-[#e0b3c9] text-[#282728]"
                             : event.status === "Active"
                             ? "bg-seamlessBlue-900 text-white"
@@ -440,12 +445,16 @@ const Events = () => {
                     </td>
                     <td className="px-2 py-2 text-left">
                       <PopUp
-                        onDelete={(e,close) => {
+                        onDelete={(e, close) => {
                           e.preventDefault();
                           setEvents((pre) =>
                             pre?.filter((curEvnt) => curEvnt?.id !== event?.id)
                           );
-                          close()
+                          close();
+                        }}
+                        onChange={() => {
+                          setIsEdit(true);
+                          setIsModelOpen(true);
                         }}
                         onEdit={() => setEventDetail(true)}
                         editName="getDetails"
