@@ -226,7 +226,7 @@ const AddEventForm = ({
             type="submit"
             className="w-full px-4 py-4 mt-2 text-white transition-colors duration-300 bg-[#283275] rounded-[21px] text-sm font-semibold"
           >
-            SEND INVITE
+       CREATE INVITE
           </button>
         </form>
       </div>
