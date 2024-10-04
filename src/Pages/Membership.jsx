@@ -24,6 +24,7 @@ import PopUp from "../Components/Popover";
 import User from "../Images/User.png";
 const Membership = () => {
   const [selectedRow, setSelectedRow] = useState(null);
+  const [IsEdit,setIsEdit] =useState(false)
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -37,6 +38,7 @@ const Membership = () => {
       id: "lopez",
       profile: '',
       firstName: "Vanessa Lopez",
+
       status: "Invited",
       role: "Admin",
       chapter: "NA",
@@ -346,7 +348,9 @@ const Membership = () => {
                       </button>
                       <button
                         className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm"
-                        onClick={() => setIsModalOpen(true)}
+                        onClick={() =>{
+                          setNewMember({});
+                          setIsModalOpen(true)}}
                       >
                         ADD MEMBER
                       </button>
@@ -447,6 +451,10 @@ const Membership = () => {
                               </td>
                               <td className="px-6 py-2 text-right">
                                 <PopUp
+                                  onChange={()=>{
+                                    setIsModalOpen(true);
+                                    setIsEdit(true)
+                                  }}
                                   onEdit={() => setMemberDetails(true)}
                                   editName={"get Details"}
                                   onDelete={(e,close) => {
@@ -514,12 +522,16 @@ const Membership = () => {
         </PrimaryContainer>
       )}
       <AddMemberForm
+   
+      selectedMember={newMember}
         isModalOpen={isModalOpen}
         handleCloseModal={handleCloseModal}
         setMemberList={setMemberList}
         memberList={memberList}
         setNewMember={setNewMember}
         newMember={newMember}
+        IsEdit={IsEdit}
+        setIsEdit={setIsEdit}
       />
     </>
   );

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Select from "react-select";
 import NaccLogo from "../Images/NaccLogo.png";
@@ -79,14 +79,18 @@ const AddMemberForm = ({
   memberList,
   setMemberList,
   isModalOpen,
+  selectedMember,
+  IsEdit,
+  setIsEdit,
+  
 }) => {
   const memberObject = {
     firstName: "",
     lastName: "",
-    role: "admin",
-    chapter: "chapter1",
-    committee: "East Organization",
-    status: "Invited",
+    role: "",
+    chapter: "",
+    committee: "",
+    status: "",
   };
   const [formData, setFormData] = useState(memberObject);
 
@@ -96,20 +100,37 @@ const AddMemberForm = ({
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    const newMember = { ...formData, id: Math.random() };
-    setNewMember(newMember);
-    const newMembers = [...memberList, newMember];
-    setMemberList(newMembers);
-    localStorage.setItem("members", JSON.stringify(newMembers));
+    if (IsEdit) {
+      setNewMember(formData);
+      let newMembers = [...memberList];
+      newMembers = newMembers?.map((member) =>
+        member?.id === formData?.id ? formData : member
+      );
+      localStorage.setItem("members", JSON.stringify(newMembers));
+      setMemberList(newMembers);
+    } else {
+      const newMember = { ...formData, id: Math.random() };
+      setNewMember(newMember);
+      const newMembers = [...memberList, newMember];
+      localStorage.setItem("members", JSON.stringify(newMembers));
+      setMemberList(newMembers);
+    }
     handleCloseModal();
     setFormData(memberObject);
   };
 
+  useEffect(() => {
+    if (IsEdit) {
+      setFormData(selectedMember);
+    }
+  }, [IsEdit, selectedMember]);
   return (
     <PopUpModel
       setOpen={() => {
         handleCloseModal();
         setFormData(memberObject);
+        setIsEdit(false);
+        setNewMember({})
       }}
       open={isModalOpen}
     >
@@ -140,7 +161,11 @@ const AddMemberForm = ({
             <Select
               options={roles}
               placeholder="Role"
-              value={formData.role}
+              value={
+                formData.role
+                  ? { label: formData.role, value: formData.role }
+                  : { label: "Role", value: "Role" }
+              }
               onChange={(e) => handleInputChange("role", e.value)}
               styles={customSelectStyles}
             />
@@ -149,7 +174,11 @@ const AddMemberForm = ({
             <Select
               options={statusOptions}
               placeholder="Status"
-              value={formData.status}
+              value={
+                formData.status
+                  ? { label: formData.status, value: formData.status }
+                  : { label: "Status", value: "Status" }
+              }
               onChange={(e) => handleInputChange("status", e.value)}
               styles={customSelectStyles}
             />
@@ -159,7 +188,11 @@ const AddMemberForm = ({
             <Select
               options={chapters}
               placeholder="Chapter"
-              value={formData.chapter}
+              value={
+                formData.chapter
+                  ? { label: formData.chapter, value: formData.chapter }
+                  : { label: "Chapter", value: "Chapter" }
+              }
               onChange={(e) => handleInputChange("chapter", e.value)}
               styles={customSelectStyles}
             />
@@ -169,7 +202,11 @@ const AddMemberForm = ({
             <Select
               options={committees}
               placeholder="Committee"
-              value={formData.committee}
+              value={
+                formData.committee
+                  ? { label: formData.committee, value: formData.committee }
+                  : { label: "Committee", value: "Committee" }
+              }
               onChange={(e) => handleInputChange("committee", e.value)}
               styles={customSelectStyles}
             />
