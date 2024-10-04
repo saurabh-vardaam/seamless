@@ -261,7 +261,6 @@ const Membership = () => {
                       </div>
                       <ChevronDownIcon className="w-6 h-6" />
                     </div>
-                    
                   </div>
                 </div>
               </Tab.Panel>
@@ -490,19 +489,28 @@ const Membership = () => {
               ))}
             </Tab.Panels>
           </Tab.Group>
-          {isModalOpen && (
+          {/* {isModalOpen && (
             <Modal onClose={handleCloseModal}>
               <AddMemberForm
+                isModalOpen={isModalOpen}
+                handleCloseModal={handleCloseModal}
                 setMemberList={setMemberList}
                 memberList={memberList}
-                handleCloseModal={handleCloseModal}
                 setNewMember={setNewMember}
                 newMember={newMember}
               />
             </Modal>
-          )}
+          )} */}
         </PrimaryContainer>
       )}
+      <AddMemberForm
+        isModalOpen={isModalOpen}
+        handleCloseModal={handleCloseModal}
+        setMemberList={setMemberList}
+        memberList={memberList}
+        setNewMember={setNewMember}
+        newMember={newMember}
+      />
     </>
   );
 };

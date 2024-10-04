@@ -13,11 +13,8 @@ import {
   XMarkIcon,
   HomeIcon,
   UsersIcon,
-  FolderIcon,
   CalendarIcon,
   DocumentDuplicateIcon,
-  ChartPieIcon,
-  ChevronDownIcon,
   MagnifyingGlassIcon,
   UserGroupIcon,
   CalendarDateRangeIcon,
@@ -41,11 +38,11 @@ const navigation = [
   { name: "COMMITTEES", path: "/committees", icon: UserGroupIcon },
   { name: "EDUCATION", path: "/education", icon: AcademicCapIcon },
   { name: "EVENTS", path: "/events", icon: CalendarDateRangeIcon },
-  {
-    name: "EVENT DETAILS",
-    path: "/event-details",
-    icon: CalendarDateRangeIcon,
-  },
+  // {
+  //   name: "EVENT DETAILS",
+  //   path: "/event-details",
+  //   icon: CalendarDateRangeIcon,
+  // },
   { name: "DOCUMENTS", path: "/document", icon: DocumentArrowDownIcon },
   { name: "REPORTS", path: "/reports", icon: ChartBarIcon },
   { name: "SETTINGS", path: "/settings", icon: Cog8ToothIcon },
@@ -164,7 +161,6 @@ export default function PrimaryContainer({ children }) {
                     />
                     <span className="hidden md:flex md:items-center">
                       <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
-                        {console.log(localStorage.getItem("user_name"))}
                         {localStorage.getItem("user_name")}
                       </span>
                     </span>

@@ -4,11 +4,11 @@ import { EllipsisHorizontalCircleIcon } from "@heroicons/react/24/outline";
 
 const PopUp = ({ onDelete, editName, onEdit }) => {
   return (
-    <Popover className="relative focus:none">
+    <Popover className="focus:none">
       <Popover.Button>
         <EllipsisHorizontalCircleIcon className="sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
       </Popover.Button>
-      <Popover.Panel className="absolute right-0 z-10 mt-2 bg-white border border-gray-300 rounded-lg shadow-lg w-36">
+      <Popover.Panel className="absolute right-0 z-10 mt-2 mr-4 bg-white border border-gray-300 rounded-lg shadow-lg w-36">
         <div className="flex flex-col p-2">
           <button
             onClick={onDelete}

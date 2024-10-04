@@ -41,7 +41,7 @@ const Dashboard = () => {
     {
       title: "ORGANIZATION",
       content: (
-        <div className="py-10">
+        <div className="py-10 mx-auto">
           <img
             src={NaccLogo}
             alt="Organization Logo"
@@ -226,7 +226,7 @@ const Dashboard = () => {
                     </h2>
                     <PopUp />
                   </div>
-                  <div className="py-2">{card.content}</div>
+                  <div className="flex items-center py-2">{card.content}</div>
                 </div>
                 <div className="w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
               </div>

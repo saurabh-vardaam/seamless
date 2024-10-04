@@ -7,13 +7,13 @@ import Financials from "./Pages/Financials";
 import Chapters from "./Pages/Chapters";
 import Committees from "./Pages/Committees";
 import Education from "./Pages/Education";
-import Events from "./Pages/Events";
 import Reports from "./Pages/Reports";
 import Settigns from "./Pages/Settigns";
 import Documents from "./Pages/Documents";
 import EventDetails from "./Pages/EventDetails";
 import MemberDetails from "./Pages/MemberDetails";
 import Login from "./Pages/Login";
+import Events from "./Pages/Events/Events";
 
 function App() {
   return (
