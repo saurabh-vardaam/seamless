@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 import {
   AdjustmentsHorizontalIcon,
@@ -35,9 +35,7 @@ const Membership = () => {
   const members = [
     {
       id: "lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
+      profile: '',
       firstName: "Vanessa Lopez",
       status: "Invited",
       role: "Admin",
@@ -49,9 +47,7 @@ const Membership = () => {
     {
       id: "vanessa",
       name: "Vanessa Lopez",
-      profile: (
-        <img src={Member} className="w-8 h-8 mt-1 rounded-full cursor-none" />
-      ),
+      profile: '',
       firstName: "Active",
       role: "Admin",
       chapter: "Tucson Arizona",
@@ -65,7 +61,20 @@ const Membership = () => {
   const [newMember, setNewMember] = useState({});
   const [memberList, setMemberList] = useState(members);
   const [showMemberDetail, setMemberDetails] = useState(false);
-  console.log(newMember);
+  useEffect(() => {
+    const newMembers = JSON.parse(localStorage.getItem("members"));
+    if (newMembers?.length > 0) {
+      setMemberList(newMembers);
+    } else {
+      setMemberList(members);
+    }
+  }, []);
+
+  useEffect(() => {
+    if (memberList.length > 0) {
+      localStorage.setItem("members", JSON.stringify(memberList));
+    }
+  }, [memberList]);
   return (
     <>
       {showMemberDetail ? (
@@ -440,7 +449,7 @@ const Membership = () => {
                                 <PopUp
                                   onEdit={() => setMemberDetails(true)}
                                   editName={"get Details"}
-                                  onDelete={(e) => {
+                                  onDelete={(e,close) => {
                                     e.preventDefault();
                                     setMemberList((pre) =>
                                       pre?.filter(
@@ -448,6 +457,7 @@ const Membership = () => {
                                           userMember?.id !== member?.id
                                       )
                                     );
+                                    close()
                                   }}
                                 />
                               </td>

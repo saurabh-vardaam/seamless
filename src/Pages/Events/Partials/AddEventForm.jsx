@@ -3,16 +3,44 @@ import PopUpModel from "../../../Components/PopUpModel";
 import NaccLogo from "../../../Images/NaccLogo.png";
 import TextInput from "../../../Components/TextInput";
 import Select from "react-select";
-
+import Flatpickr from "react-flatpickr";
+import "flatpickr/dist/flatpickr.css";
 const AddEventForm = ({
   isModelOpen,
   setIsModelOpen,
   selectedEvent,
   setSelectedEvent,
+  setEvents,
+  events,
 }) => {
-  const [formData, setFormData] = useState({});
-  const handleSubmit = () => {};
-  const handleInputChange = () => {};
+  const statusOptions = [
+    { label: "Active", value: "Active" },
+    { label: "Pause", value: "Pause" },
+    { label: "InActive", value: "InActive" },
+    { label: "Live", value: "Live" },
+  ];
+  const typeOptions = [
+    { label: "Virtual", value: "Virtual" },
+    { label: "On-Site", value: "On-Site" },
+  ];
+  let eventObject = {
+    name: "",
+    display_title: "",
+    location: "",
+    status: "",
+    type: "",
+    registration_title: "",
+    registration_date: "",
+    description: "",
+  };
+
+  const [formData, setFormData] = useState(eventObject);
+
+  const handleInputChange = (name, value) => {
+    const newData = { ...formData };
+    newData[name] = value;
+    setFormData(newData);
+  };
   const customSelectStyles = {
     control: (provided, state) => ({
       ...provided,
@@ -60,8 +88,24 @@ const AddEventForm = ({
       ...provided,
     }),
   };
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    const newFormData = { id: Math.random(), ...formData };
+    const newEvents = [...events, newFormData];
+    setEvents(newEvents);
+    setFormData(eventObject);
+    setIsModelOpen(false);
+    localStorage.setItem("events", JSON.stringify(newEvents));
+  };
+
   return (
-    <PopUpModel setOpen={() => setIsModelOpen(false)} open={isModelOpen}>
+    <PopUpModel
+      setOpen={() => {
+        setFormData(eventObject);
+        setIsModelOpen(false);
+      }}
+      open={isModelOpen}
+    >
       <div className="p-4 md:p-10 bg-white rounded-[50px]  drop-shadow-[0px 5px 31px rgba(0,0,0,0.35)] w-full mx-auto">
         <div className="flex justify-center mb-6">
           <img src={NaccLogo} alt="nacc" className="h-12" />
@@ -70,10 +114,10 @@ const AddEventForm = ({
           <TextInput
             required={true}
             name="firstName"
-            onChange={(e) => handleInputChange("firstName", e.target.value)}
-            value={formData.firstName}
+            onChange={(e) => handleInputChange("name", e.target.value)}
+            value={formData.name}
             type="text"
-            placeholder="First Name"
+            placeholder="Event Name"
             className={"w-full bg-seamlessGray-300"}
           />
           <TextInput
@@ -81,48 +125,83 @@ const AddEventForm = ({
             type="text"
             className={"w-full bg-seamlessGray-300"}
             name="lastName"
-            placeholder="Last Name"
-            value={formData.lastName}
-            onChange={(e) => handleInputChange("lastName", e.target.value)}
+            placeholder="Display Title"
+            value={formData.display_title}
+            onChange={(e) => handleInputChange("display_title", e.target.value)}
+          />
+
+          <TextInput
+            required={true}
+            type="text"
+            className={"w-full bg-seamlessGray-300"}
+            name="lastName"
+            placeholder="Location"
+            value={formData.location}
+            onChange={(e) => handleInputChange("location", e.target.value)}
           />
           <div className="mb-4">
             <Select
               //   options={roles}
-              placeholder="Role"
-              value={formData.role}
-              onChange={(e) => handleInputChange("role", e.value)}
-              styles={customSelectStyles}
-            />
-          </div>
-          <div className="mb-4">
-            <Select
-              //   options={statusOptions}
+              options={statusOptions}
               placeholder="Status"
-              value={formData.status}
-              onChange={(e) => handleInputChange("status", e.value)}
+              value={
+                formData.status
+                  ? { label: formData.status, value: formData.status }
+                  : { label: "Status", value: "Status" }
+              }
+              onChange={(e) => {
+                console.log(e?.value);
+                handleInputChange("status", e?.value);
+              }}
               styles={customSelectStyles}
             />
           </div>
-
           <div className="mb-4">
             <Select
-              //   options={chapters}
-              placeholder="Chapter"
-              value={formData.chapter}
-              onChange={(e) => handleInputChange("chapter", e.value)}
+              options={typeOptions}
+              placeholder="Type"
+              value={
+                formData.type
+                  ? { label: formData.type, value: formData.type }
+                  : { label: "Type", value: "type" }
+              }
+              onChange={(e) => handleInputChange("type", e.value)}
               styles={customSelectStyles}
             />
           </div>
-
-          <div className="mb-4">
-            <Select
-              //   options={committees}
-              placeholder="Committee"
-              value={formData.committee}
-              onChange={(e) => handleInputChange("committee", e.value)}
-              styles={customSelectStyles}
-            />
-          </div>
+          <TextInput
+            required={true}
+            type="text"
+            className={"w-full bg-seamlessGray-300"}
+            name="lastName"
+            placeholder="Registration Title"
+            value={formData.registration_title}
+            onChange={(e) =>
+              handleInputChange("registration_title", e.target.value)
+            }
+          />
+          <Flatpickr
+            style={{
+              color: "#50598f",
+            }}
+            onChange={(e, date) => {
+              handleInputChange("registration_date", date);
+            }}
+            value={formData?.registration_date}
+            disabled={false}
+            placeholder="Registration Date"
+            className={`bg-seamlessGray-300 placeholder-seamlessBlue-200 text-sm text-seamlessBlue-200 w-full text-md py-3 px-6 rounded-3xl`}
+            transperent={true}
+          />
+          <TextInput
+            required={true}
+            type="text"
+            className={"w-full bg-seamlessGray-300"}
+            name="lastName"
+            placeholder="Description"
+            value={formData.description}
+            onChange={(e) => handleInputChange("description", e.target.value)}
+          />
 
           <button
             type="submit"

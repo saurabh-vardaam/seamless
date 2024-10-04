@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import PrimaryContainer from "../../Components/PrimaryContainer";
 import {
   AdjustmentsHorizontalIcon,
@@ -16,7 +16,6 @@ import AddEventForm from "./Partials/AddEventForm";
 
 const Events = () => {
   const classNames = (...classes) => classes.filter(Boolean).join(" ");
-  const [selectedRow, setSelectedRow] = useState(null);
   const tabs = [
     "Event Details",
     "Registration",
@@ -33,67 +32,121 @@ const Events = () => {
       name: "Fall NACC Mini Conference",
       status: "Live",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "Virtual",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      description:
+        "The Conference unites people from across sectors and throughout the country who are connected",
+      location: "Hyatt Regency Denver at Colorado Convention Center",
+      registration_date: "10.02.2024",
     },
     {
       id: 2,
       name: "The 2024 North American Conservation",
       status: "Pause",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "On-Site",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      description:
+        "The Conference unites people from across sectors and throughout the country who are connected",
+      location: "Hyatt Regency Denver at Colorado Convention Center",
+      registration_date: "10.02.2024",
     },
     {
       id: 3,
       name: "Fall NACC Mini Conference",
       status: "Pause",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "On-Site",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      description:
+        "The Conference unites people from across sectors and throughout the country who are connected",
+      location: "Hyatt Regency Denver at Colorado Convention Center",
+      registration_date: "10.02.2024",
     },
     {
       id: 4,
       name: "The 2024 North American Conservation",
       status: "Inactive",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "On-Site",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      description:
+        "The Conference unites people from across sectors and throughout the country who are connected",
+      location: "Hyatt Regency Denver at Colorado Convention Center",
+      registration_date: "10.02.2024",
     },
     {
       id: 5,
       name: "Fall NACC Mini Conference",
       status: "Pause",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "On-Site",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      location: "Hyatt Regency Denver at Colorado Convention Center",
+      registration_date: "10.02.2024",
     },
     {
       id: 6,
       name: "The 2024 North American Conservation",
       status: "Inactive",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "On-Site",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      description:
+        "The Conference unites people from across sectors and throughout the country who are connected",
+      location: "Hyatt Regency Denver at Colorado Convention Center",
+      registration_date: "10.02.2024",
     },
     {
       id: 7,
       name: "Fall NACC Mini Conference",
       status: "Pause",
       dates: "10.14.24 - 10.16.24",
-      registration: "NACC Open Registration",
+      registration_title: "NACC Open Registration",
       type: "On-Site",
+      display_title:
+        "The 2024 North American Conservation Corps Annual Conference",
+      description:
+        "The Conference unites people from across sectors and throughout the country who are connected",
+      registration_date: "10.02.2024",
     },
   ];
   const [events, setEvents] = useState(eventsData);
-
   const [isVisible, setIsVisible] = useState(true);
   const [selectedEvent, setSelectedEvent] = useState({});
   const [showEventDetails, setEventDetail] = useState(false);
   const [isModelOpen, setIsModelOpen] = useState(false);
+
+  useEffect(() => {
+    const events = JSON.parse(localStorage.getItem("events"));
+    if (events?.length > 0) {
+      setEvents(events);
+    } else {
+      setEvents(eventsData);
+    }
+  }, []);
+  useEffect(() => {
+    if (events.length > 0) {
+      localStorage.setItem("events", JSON.stringify(events));
+    }
+  }, [events]);
   return (
     <>
       <AddEventForm
+        setEvents={setEvents}
+        events={events}
         selectedEvent={selectedEvent}
         setSelectedEvent={setSelectedEvent}
         setIsModelOpen={setIsModelOpen}
@@ -149,7 +202,7 @@ const Events = () => {
                       <p className="text-[#282728] text-sm font-normal px-6 py-4">
                         Display Title:
                         <span className="ml-2 text-base font-semibold text-seamlessBlue-700">
-                          Fall NACC Mini Conference
+                          {selectedEvent?.name}
                         </span>
                       </p>
                       <ChevronDownIcon className="w-5 h-5 text-gray-500 cursor-pointer m-3.5" />
@@ -164,8 +217,7 @@ const Events = () => {
                           <PencilIcon className="w-5 h-5" />
                         </span>
                         <h2 className="text-xl font-semibold sm:text-2xl text-seamlessBlue-700">
-                          The 2024 North American Conservation Corps Annual
-                          Conference
+                          {selectedEvent?.display_title}
                         </h2>
                         <span className="flex items-center mt-2 space-x-2">
                           <div className="relative">
@@ -191,11 +243,10 @@ const Events = () => {
                   </div>
 
                   <div className="divide-y divide-gray-400">
-                    <div className="flex px-6 py-4">
+                    <div className="flex items-center px-6 py-4">
                       <p className="text-sm text-[#282728]">Description:</p>
-                      <p className="text-base font-semibold text-seamlessBlue-700">
-                        The Conference unites people from across sectors and
-                        throughout the country who are connected...
+                      <p className="ml-2 text-base font-semibold text-seamlessBlue-700">
+                        {selectedEvent?.description}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
@@ -207,7 +258,7 @@ const Events = () => {
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
                       <p className="text-sm text-[#282728]">Location:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
-                        Hyatt Regency Denver at Colorado Convention Center
+                        {selectedEvent?.location}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
@@ -215,7 +266,7 @@ const Events = () => {
                         Registration Opens:
                       </p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
-                        10.02.2024
+                        {selectedEvent?.registration_date}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
@@ -230,7 +281,7 @@ const Events = () => {
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
                       <p className="text-sm text-[#282728]">Event Type:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
-                        On-Site
+                        {selectedEvent?.type}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
@@ -242,7 +293,7 @@ const Events = () => {
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
                       <p className="text-sm text-[#282728]">Status:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
-                        Active
+                        {selectedEvent?.status}
                       </p>
                     </div>
                   </div>
@@ -369,23 +420,33 @@ const Events = () => {
                             ? "bg-[#cdd5d4] text-[#282728]"
                             : event.status === "Inactive"
                             ? "bg-[#e0b3c9] text-[#282728]"
+                            : event.status === "Active"
+                            ? "bg-seamlessBlue-900 text-white"
                             : ""
                         }`}
                       >
                         {event.status}
                       </span>
                     </td>
+
                     <td className="px-2 py-2 text-[#282728] text-sm font-normal">
-                      {event.dates}
+                      {event.dates || "10.14.24 - 10.16.24"}
                     </td>
                     <td className="px-2 py-2 text-[#282728] text-sm font-normal">
-                      {event.registration}
+                      {event?.registration_title}
                     </td>
                     <td className="px-2 py-2 text-[#282728] text-sm font-normal">
                       {event.type}
                     </td>
                     <td className="px-2 py-2 text-left">
                       <PopUp
+                        onDelete={(e,close) => {
+                          e.preventDefault();
+                          setEvents((pre) =>
+                            pre?.filter((curEvnt) => curEvnt?.id !== event?.id)
+                          );
+                          close()
+                        }}
                         onEdit={() => setEventDetail(true)}
                         editName="getDetails"
                       />

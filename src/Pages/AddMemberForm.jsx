@@ -102,9 +102,11 @@ const AddMemberForm = ({
     e.preventDefault();
     const newMember = { ...formData, id: Math.random() };
     setNewMember(newMember);
-    handleCloseModal();
     const newMembers = [...memberList, newMember];
     setMemberList(newMembers);
+    console.log(newMembers,JSON.stringify(newMembers))
+    // localStorage.setItem("members", JSON.stringify(newMembers));
+    handleCloseModal();
   };
 
   return (
