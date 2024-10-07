@@ -8,7 +8,7 @@ const TextInput = ({ placeholder, value, required, className,onChange,...props }
       required={required}
       value={value}
       placeholder={placeholder}
-      className={`text-sm text-normal font-Montserrat rounded-full md:min-w-[322px] text-seamlessBlue-200 placeholder-seamlessBlue-200 px-6 py-3 ${className}`}
+      className={`text-sm text-normal font-Montserrat rounded-full w-full  text-seamlessBlue-200 placeholder-seamlessBlue-200 px-6 py-3 ${className}`}
     ></input>
   );
 };
