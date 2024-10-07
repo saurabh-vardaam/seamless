@@ -20,13 +20,13 @@ const SeamLessLogo = ({ className }) => {
           gradientTransform="translate(0 420) scale(1 -1)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#0fd" />
-          <stop offset=".2" stop-color="#2ac9e4" />
-          <stop offset=".4" stop-color="#6383ed" />
-          <stop offset=".6" stop-color="#904bf5" />
-          <stop offset=".8" stop-color="#b022fa" />
-          <stop offset=".9" stop-color="#c40afd" />
-          <stop offset="1" stop-color="#cc01ff" />
+          <stop offset="0" stopColor ="#0fd" />
+          <stop offset=".2" stopColor ="#2ac9e4" />
+          <stop offset=".4" stopColor ="#6383ed" />
+          <stop offset=".6" stopColor ="#904bf5" />
+          <stop offset=".8" stopColor ="#b022fa" />
+          <stop offset=".9" stopColor ="#c40afd" />
+          <stop offset="1" stopColor ="#cc01ff" />
         </linearGradient>
         <linearGradient
           id="linear-gradient-2"
@@ -37,13 +37,13 @@ const SeamLessLogo = ({ className }) => {
           gradientTransform="translate(0 420) scale(1 -1)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#0fd" />
-          <stop offset=".2" stop-color="#2ac9e4" />
-          <stop offset=".4" stop-color="#6383ed" />
-          <stop offset=".6" stop-color="#904bf5" />
-          <stop offset=".8" stop-color="#b022fa" />
-          <stop offset=".9" stop-color="#c40afd" />
-          <stop offset="1" stop-color="#cc01ff" />
+          <stop offset="0" stopColor ="#0fd" />
+          <stop offset=".2" stopColor ="#2ac9e4" />
+          <stop offset=".4" stopColor ="#6383ed" />
+          <stop offset=".6" stopColor ="#904bf5" />
+          <stop offset=".8" stopColor ="#b022fa" />
+          <stop offset=".9" stopColor ="#c40afd" />
+          <stop offset="1" stopColor ="#cc01ff" />
         </linearGradient>
         <linearGradient
           id="linear-gradient-3"
@@ -54,13 +54,13 @@ const SeamLessLogo = ({ className }) => {
           gradientTransform="translate(0 420) scale(1 -1)"
           gradientUnits="userSpaceOnUse"
         >
-          <stop offset="0" stop-color="#0fd" />
-          <stop offset=".2" stop-color="#2ac9e4" />
-          <stop offset=".4" stop-color="#6383ed" />
-          <stop offset=".6" stop-color="#904bf5" />
-          <stop offset=".8" stop-color="#b022fa" />
-          <stop offset=".9" stop-color="#c40afd" />
-          <stop offset="1" stop-color="#cc01ff" />
+          <stop offset="0" stopColor ="#0fd" />
+          <stop offset=".2" stopColor ="#2ac9e4" />
+          <stop offset=".4" stopColor ="#6383ed" />
+          <stop offset=".6" stopColor ="#904bf5" />
+          <stop offset=".8" stopColor ="#b022fa" />
+          <stop offset=".9" stopColor ="#c40afd" />
+          <stop offset="1" stopColor ="#cc01ff" />
         </linearGradient>
       </defs>
       <g>

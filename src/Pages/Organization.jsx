@@ -1,9 +1,7 @@
 import React from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 import DotIcons from "../Icons/DotIcon";
-import {
-  ViewColumnsIcon,
-} from "@heroicons/react/24/outline";
+import { ViewColumnsIcon } from "@heroicons/react/24/outline";
 import PopUp from "../Components/Popover";
 import { Tab } from "@headlessui/react";
 import { classNames } from "../provider";
@@ -50,7 +48,7 @@ const Organization = () => {
             </h3>
           </div>
           <div className="flex space-x-2">
-          <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+            <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
             <PopUp />
           </div>
         </div>
@@ -63,12 +61,11 @@ const Organization = () => {
       <h2 className="sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-9">
         Organization
       </h2>
-
       <Tab.Group>
         <Tab.List className="flex flex-col border-b-2 border-seamlessBlue-400 sm:flex-row sm:space-x-9">
           {["Organization Info", "Structure"].map((tab, index) => (
             <Tab
-              key={tab}
+              key={index}
               className={({ selected }) =>
                 classNames(
                   "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
