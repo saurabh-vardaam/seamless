@@ -465,17 +465,17 @@ const Events = () => {
 
             <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
               <button className="flex pr-2 space-x-2 items-center leading-[40px] sm:leading-[50px] lg:leading-[60px]">
-                <span className="text-sm font-medium text-seamlessGray-950 ">
+                <span className="text-base font-semibold text-seamlessGray-950 ">
                   Filter
                 </span>
-                <AdjustmentsHorizontalIcon className="w-5 h-5 text-seamlessGray-950 " />
+                <AdjustmentsHorizontalIcon className="h-6 w-7 text-seamlessGray-950 " />
               </button>
 
               <button className="flex items-center gap-2 pr-2 leading-[40px] sm:leading-[50px] lg:leading-[60px]">
-                <span className="text-sm font-medium text-seamlessGray-950 ">
+                <span className="text-base font-semibold text-seamlessGray-950 ">
                   Export List
                 </span>
-                <ArrowUpTrayIcon className="w-5 h-5 text-seamlessGray-950 " />
+                <ArrowUpTrayIcon className="h-6 w-7 text-seamlessGray-950 " />
               </button>
 
               <button
@@ -483,18 +483,18 @@ const Events = () => {
                   setSelectedEvent({});
                   setIsModelOpen(true);
                 }}
-                className="px-4 py-2 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-6 md:mt-0"
+                className="px-8 py-2 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-6 md:mt-0"
               >
                 ADD A NEW EVENT
               </button>
             </div>
           </div>
 
-          <div className="mt-10 mb-6 overflow-x-auto border border-seamlessGray-900 rounded-2xl">
+          <div className="mt-10 mb-6 overflow-x-auto border border-seamlessGray-900 rounded-3xl">
             <table className="min-w-full table-auto">
-              <thead className="text-left text-seamlessBlue-700">
+              <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
                 <tr className="border-b border-gray-300">
-                  <th className="px-6 py-3 text-sm font-medium">
+                  <th className="px-6 py-3 text-sm font-normal">
                     <Checkbox />
                   </th>
                   <th className="py-3 text-sm font-semibold">
@@ -532,7 +532,7 @@ const Events = () => {
                     <td className="px-6 py-2 text-sm font-medium">
                       <Checkbox />
                     </td>
-                    <td className="py-2 font-semibold text-seamlessBlue-700 text-se">
+                    <td className="py-2 text-sm font-semibold text-seamlessBlue-700">
                       {event.name}
                     </td>
                     <td className="py-3">

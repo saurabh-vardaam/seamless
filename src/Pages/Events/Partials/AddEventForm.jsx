@@ -137,12 +137,12 @@ const AddEventForm = ({
             value={formData.name}
             type="text"
             placeholder="Event Name"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 placeholder:font-normal"}
           />
           <TextInput
             required={true}
             type="text"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 placeholder:font-normal"}
             name="lastName"
             placeholder="Display Title"
             value={formData.display_title}
@@ -152,7 +152,7 @@ const AddEventForm = ({
           <TextInput
             required={true}
             type="text"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 placeholder:font-normal"}
             name="lastName"
             placeholder="Location"
             value={formData.location}
@@ -191,7 +191,7 @@ const AddEventForm = ({
           <TextInput
             required={true}
             type="text"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 placeholder:font-normal"}
             name="lastName"
             placeholder="Registration Title"
             value={formData.registration_title}
@@ -209,13 +209,13 @@ const AddEventForm = ({
             value={formData?.registration_date}
             disabled={false}
             placeholder="Registration Date"
-            className={`bg-seamlessGray-300 placeholder-seamlessBlue-200 text-sm text-seamlessBlue-200 w-full text-md py-3 px-6 rounded-3xl`}
+            className={`bg-seamlessGray-300  text-sm text-seamlessBlue-200 w-full text-md py-3 px-6 rounded-3xl placeholder:text-seamlessGray-950 placeholder:text-sm placeholder:font-normal`}
             transperent={true}
           />
           <TextInput
             required={true}
             type="text"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 placeholder:font-normal"}
             name="lastName"
             placeholder="Description"
             value={formData.description}
@@ -226,7 +226,7 @@ const AddEventForm = ({
             type="submit"
             className="w-full px-4 py-4 mt-2 text-white transition-colors duration-300 bg-seamlessBlue-700 rounded-[21px] text-sm font-semibold"
           >
-       CREATE INVITE
+          CREATE EVENT
           </button>
         </form>
       </div>
