@@ -83,7 +83,7 @@ const Membership = () => {
     <>
       {showMemberDetail ? (
         <PrimaryContainer>
-          <h2 className="flex justify-between w-full mb-4 text-2xl font-extrabold text-seamlessBlue-700">
+          <h2 className="flex justify-between w-full mb-5 text-2xl font-extrabold text-seamlessBlue-700">
             Membership
             <div
               onClick={() => setMemberDetails(false)}
@@ -129,26 +129,20 @@ const Membership = () => {
 
             <Tab.Panels>
               <Tab.Panel>
-                <div className="border border-seamlessGray-900 rounded-3xl mt-7">
-                  <div className="flex items-center justify-between mt-4 mr-5">
-                    <h2></h2>
-                    <button className="text-gray-400 hover:text-gray-600">
-                      <PencilIcon className="w-6 h-6" />
-                    </button>
-                  </div>
-                  <div className="flex flex-col items-center gap-8 p-4 border-b border-gray-400 md:flex-row">
+                <div className="mt-10 border border-seamlessGray-900 rounded-3xl">
+                  <div className="grid flex-col items-center gap-8 p-6 border-b border-gray-400 md:grid-cols-6 ">
                     <div className="relative mb-3">
                       <img
-                        className="w-24 h-24 rounded-full md:h-30 md:w-30"
+                        className="rounded-full w-44 h-44 md:h-30 md:w-30"
                         src={User}
                         alt="Profile"
                       />
-                      <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full left-12 top-8 max-w-[71px] text-center">
+                      <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full -right-5 top-8 max-w-[71px] text-center">
                         Invited
                       </span>
                     </div>
 
-                    <div className="space-y-2 text-center md:text-left">
+                    <div className="flex flex-col items-center col-span-2 space-y-2 text-center md:text-left">
                       <h2 className="text-2xl font-semibold text-seamlessBlue-700 ">
                         {newMember?.firstName}
                       </h2>
@@ -159,7 +153,7 @@ const Membership = () => {
                         Tuscon Arizona Chapter NACC
                       </p>
                     </div>
-                    <div className="space-y-2">
+                    <div className="col-span-2 space-y-2">
                       <a
                         href="#"
                         className="flex items-center space-x-4 hover:underline"
@@ -182,21 +176,26 @@ const Membership = () => {
                         </span>
                       </p>
                     </div>
+                    <div className="h-full col-span-1 text-right">
+                      <button className="text-gray-400 hover:text-gray-600">
+                        <PencilIcon className="w-6 h-6" />
+                      </button>
+                    </div>
                   </div>
 
-                  <div className="divide-y divide-gray-500">
-                    <div className="flex items-center justify-between px-6 py-5">
+                  <div className="divide-y divide-seamlessCyan-700">
+                    <div className="flex items-center justify-between px-6 py-4 leading-6">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span>Status:</span>
-                        <span className="py-2.5 px-4 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
+                        <span className="px-3 py-1.5 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl">
                           {newMember?.status}
                         </span>
                       </div>
                       <div className="space-x-2.5">
-                        <button className="px-4 py-2.5 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
+                        <button className="px-4 py-1.5 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl">
                           Resend Invite
                         </button>
-                        <button className="px-4 py-2.5 text-white bg-seamlessBlue-700 rounded-3xl text-sm">
+                        <button className="px-4 py-1.5 text-sm text-white bg-seamlessBlue-700 rounded-3xl">
                           Reset Password
                         </button>
                       </div>

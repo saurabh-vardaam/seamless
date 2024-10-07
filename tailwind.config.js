@@ -34,6 +34,7 @@ export default {
           50: "#DFDEDE"
         },
         seamlessCyan: {
+          700: "#c2c5d0",
           600: "#cdd5d4",
           500: "#d9e3e2",
         },

@@ -104,7 +104,7 @@ const EventDetails = () => {
                 </div>
               </div>
 
-              <div className="divide-y divide-gray-400">
+              <div className="divide-y divide-seamlessCyan-700">
                 <div className="flex px-6 py-4">
                   <p className="text-sm text-seamlessGray-950">Description:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
