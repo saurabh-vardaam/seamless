@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const options = {
     chartArea: { width: "95%", height: "90%" },
-    colors: [, "#A9C7EE"],
+    colors: ["#2E3E77", "#A9C7EE"],
     bar: { groupWidth: "20%" },
     isStacked: true,
     hAxis: {
