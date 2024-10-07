@@ -6,8 +6,8 @@ import TextInput from "../Components/TextInput";
 import PopUpModel from "../Components/PopUpModel";
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const roles = [
-  { value: "admin", label: "Admin" },
-  { value: "user", label: "User" },
+  { value: "Admin", label: "Admin" },
+  { value: "User", label: "User" },
 ];
 
 const statusOptions = [
@@ -16,8 +16,8 @@ const statusOptions = [
 ];
 
 const chapters = [
-  { value: "chapter1", label: "Chapter 1" },
-  { value: "chapter2", label: "Chapter 2" },
+  { value: "Chapter1", label: "Chapter 1" },
+  { value: "Chapter2", label: "Chapter 2" },
 ];
 
 const committees = [
@@ -191,12 +191,12 @@ const AddMemberForm = ({
             value={formData.firstName}
             type="text"
             placeholder="First Name"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 "}
           />
           <TextInput
             required={true}
             type="text"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 "}
             name="lastName"
             placeholder="Last Name"
             value={formData.lastName}
@@ -205,7 +205,7 @@ const AddMemberForm = ({
           <TextInput
             required={true}
             type="email"
-            className={"w-full bg-seamlessGray-300"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950"}
             name="email"
             placeholder="Email"
             value={formData.email}
@@ -270,6 +270,7 @@ const AddMemberForm = ({
               }
               onChange={(e) => handleInputChange("committee", e.value)}
               styles={customSelectStyles}
+              className=""
             />
           </div>
           <div className="mt-4">
@@ -279,7 +280,7 @@ const AddMemberForm = ({
               accept="image/jpeg, image/png"
               id="fileInput"
               onChange={handleFileChange}
-              className="block w-full mt-1 text-sm border border-gray-300 rounded-full file:text-sm text-seamlessBlue-200 file:mr-4 file:border-0 file:py-3 file:px-4 file:font-semibold file:bg-seamlessGray-500 hover:file:bg-seamlessBlue-800 focus:text-white focus:outline-none focus:ring-2 focus:ring-seamlessBlue-800 focus:border-seamlessBlue-800 file:rounded-full hover:file:text-white"
+              className="block w-full mt-1 text-sm border border-gray-300 rounded-full file:text-sm text-seamlessGray-950 file:mr-4 file:border-0 file:py-3 file:px-4 file:font-normal file:bg-seamlessGray-500 hover:file:bg-seamlessBlue-800 focus:text-white focus:outline-none focus:ring-2 focus:ring-seamlessBlue-800 focus:border-seamlessBlue-800 file:rounded-full hover:file:text-white"
             />
             <p className="mt-2 text-sm font-medium text-red-500">{fileError}</p>
           </div>

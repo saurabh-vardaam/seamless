@@ -11,7 +11,7 @@ export default function Checkbox({ name, value, handleChange, id, className }) {
       name={name}
       value={value}
       className={classNames(
-        ' border-[#6b6a6b] text-sky-700  focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50 ',
+        ' border-[#6b6a6b] text-sky-700  focus:border-sky-300 focus:ring focus:ring-sky-200 focus:ring-opacity-50',
         className
       )}
       onChange={e => handleChange(e)}

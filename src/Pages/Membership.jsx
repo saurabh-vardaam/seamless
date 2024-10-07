@@ -137,13 +137,13 @@ const Membership = () => {
                         src={User}
                         alt="Profile"
                       />
-                      <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full -right-5 top-8 max-w-[71px] text-center">
+                      <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full right-0 top-8 max-w-[71px] text-center">
                         Invited
                       </span>
                     </div>
 
-                    <div className="flex flex-col items-center col-span-2 space-y-2 text-center md:text-left">
-                      <h2 className="text-2xl font-semibold text-seamlessBlue-700 ">
+                    <div className="flex flex-col col-span-2 space-y-2 text-center md:text-left">
+                      <h2 className="text-2xl font-semibold text-left text-seamlessBlue-700 ">
                         {newMember?.firstName}
                       </h2>
                       <p className="text-lg font-medium text-seamlessGray-950">
@@ -327,7 +327,7 @@ const Membership = () => {
             </Tab.List>
 
             <Tab.Panels>
-              <Tab.Panel>
+            <Tab.Panel>
                 <div>
                   <div className="flex flex-col items-center justify-between mt-10 mb-10 space-y-4 md:flex-row md:space-y-0">
                     <div className="flex items-center w-full px-4 py-2 space-x-4 border rounded-full md:w-auto border-seamlessGray-50 bg-seamlessCyan-600">
@@ -338,17 +338,17 @@ const Membership = () => {
                       <MagnifyingGlassIcon className="w-4 h-4 text-seamlessGray-200" />
                     </div>
 
-                    <div className="flex items-center space-x-4">
-                      <button className="flex items-center space-x-2 text-base font-medium text-seamlessGray-950 ">
+                    <div className="flex items-center space-x-6">
+                      <button className="flex items-center space-x-2 text-base font-semibold text-seamlessGray-950 ">
                         <span>Filter</span>
-                        <AdjustmentsHorizontalIcon className="w-6 h-6" />
+                        <AdjustmentsHorizontalIcon className="h-6 w-7" />
                       </button>
-                      <button className="flex items-center space-x-2 text-base font-medium text-seamlessGray-950 ">
-                        <span>Export List</span>
-                        <ArrowUpTrayIcon className="w-6 h-6" />
+                      <button className="flex items-center space-x-2 text-base font-semibold text-seamlessGray-950 ">
+                        <span>Export</span>
+                        <ArrowUpTrayIcon className="h-6 w-7" />
                       </button>
                       <button
-                        className="px-6 py-2 text-sm font-semibold text-white bg-seamlessBlue-700 rounded-3xl"
+                        className="py-2 text-sm font-semibold text-white px-11 bg-seamlessBlue-700 rounded-3xl"
                         onClick={() => {
                           setNewMember({});
                           setIsModalOpen(true);
@@ -359,42 +359,42 @@ const Membership = () => {
                     </div>
                   </div>
                   {memberList?.length > 0 ? (
-                    <div className="border h-[40vh] border-seamlessGray-900 overflow-hidden rounded-2xl">
+                    <div className="border h-[40vh] border-seamlessGray-900 overflow-hidden rounded-3xl">
                       <table className="min-w-full table-auto ">
                         <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
-                          <tr className="border-b border-gray-300">
+                          <tr className="border-b border-seamlessGray-150">
                             <th className="p-6">
                               <Checkbox />
                             </th>
-                            <th className="text-sm font-semibold">
+                            <th className="px-4 py-6 text-sm font-semibold">
                               Member Name
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6 text-sm font-semibold">
+                            <th className="px-4 py-2 text-sm font-semibold">
                               Status
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6 text-sm font-semibold">
+                            <th className="px-4 text-sm font-semibold">
                               Role
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6 text-sm font-semibold">
+                            <th className="px-4 py-2 text-sm font-semibold">
                               Chapter
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6 text-sm font-semibold">
+                            <th className="px-4 py-2 text-sm font-semibold">
                               Committee
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6 text-sm font-semibold">
+                            <th className="px-4 text-sm font-semibold">
                               Subscription
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6 text-sm font-semibold">
+                            <th className="px-4 py-2 text-sm font-semibold">
                               Dues
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="p-6"></th>
+                            <th className="px-4 py-2"></th>
                           </tr>
                         </thead>
                         <tbody className="">
@@ -413,9 +413,9 @@ const Membership = () => {
                               <td className="px-6 ">
                                 <Checkbox />
                               </td>
-                              <td className="flex items-center gap-3 px-4 py-2">
+                              <td className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-seamlessBlue-700">
                                 <UserCircleIcon
-                                  className={`w-8 h-8 font-normal ${
+                                  className={`w-8 h-8 font-semibold ${
                                     member?.id === newMember?.id
                                       ? "text-seamlessBlue-900"
                                       : "text-seamlessGray-900 "
@@ -438,20 +438,20 @@ const Membership = () => {
                                   {member.status}
                                 </span>
                               </td>
-                              <td className="px-4 py-2">{member.role}</td>
-                              <td className="px-4 py-2">{member.chapter}</td>
-                              <td className="px-4 py-2">
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.role}</td>
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.chapter}</td>
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.committee}
                                 {member.extraCommittee && (
-                                  <span className="px-2 py-1 ml-2 text-sm rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
+                                  <span className="px-2 py-1 ml-2 text-sm font-normal rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
                                     +{member.extraCommittee}
                                   </span>
                                 )}
                               </td>
-                              <td className="px-4 py-2">
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.subscription || "Chapter Gold"}
                               </td>
-                              <td className="px-4 py-2">
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.dues || "NA"}
                               </td>
                               <td className="px-6 py-2 text-right">
