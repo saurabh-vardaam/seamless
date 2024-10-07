@@ -141,7 +141,7 @@ const Dashboard = () => {
               <span className="text-xl md:text-4xl font-extrabold text-[#283275]">
                 1,240
               </span>
-              <span className="text-sm md:text-base text-[#283275] font-semibold">
+              <span className="text-sm font-semibold md:text-base text-seamlessBlue-700">
                 Total Active
               </span>
             </div>
@@ -157,34 +157,34 @@ const Dashboard = () => {
 
           <div className="grid w-full grid-cols-3 gap-10 mt-8 xl:grid-cols-6 ">
             <div className="space-y-4 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+              <h3 className="text-sm font-extrabold md:text-lg text-seamlessBlue-700 ">
                 BOD
               </h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+              <p className="text-xl font-extrabold md:text-4xl text-seamlessBlue-700 ">
                 6
               </p>
             </div>
             <div className="space-y-4 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+              <h3 className="text-sm font-extrabold md:text-lg text-seamlessBlue-700 ">
                 STAFF
               </h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+              <p className="text-xl font-extrabold md:text-4xl text-seamlessBlue-700 ">
                 16
               </p>
             </div>
             <div className="col-span-2 space-y-4 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+              <h3 className="text-sm font-extrabold md:text-lg text-seamlessBlue-700 ">
                 CHAPTER MEMBERS
               </h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+              <p className="text-xl font-extrabold md:text-4xl text-seamlessBlue-700 ">
                 1,123
               </p>
             </div>
             <div className="col-span-2 space-y-4 text-left">
-              <h3 className="text-sm md:text-lg font-extrabold text-[#283275]">
+              <h3 className="text-sm font-extrabold md:text-lg text-seamlessBlue-700 ">
                 COMMITTEE MEMBERS
               </h3>
-              <p className="text-xl md:text-4xl font-extrabold text-[#283275]">
+              <p className="text-xl font-extrabold md:text-4xl text-seamlessBlue-700 ">
                 234
               </p>
             </div>
@@ -198,9 +198,9 @@ const Dashboard = () => {
       title: "NONMEMBERS",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 md:gap-8">
-          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessBlue-700 ">
             115{" "}
-            <span className="text-base font-semibold text-[#283275]">
+            <span className="text-base font-semibold text-seamlessBlue-700 ">
               Active
             </span>
           </p>
@@ -216,7 +216,7 @@ const Dashboard = () => {
   return (
     <PrimaryContainer>
       <div>
-        <h1 className="text-2xl  font-extrabold text-[#283275] mb-12">
+        <h1 className="mb-12 text-2xl font-extrabold text-seamlessBlue-700">
           Dashboard
         </h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 ">
@@ -228,7 +228,7 @@ const Dashboard = () => {
               >
                 <div className="px-8 py-6 grow">
                   <div className="flex items-center justify-between ">
-                    <h2 className="font-extrabold text-[#283275] text-lg">
+                    <h2 className="text-lg font-extrabold text-seamlessBlue-700">
                       {card.title}
                     </h2>
                     <PopUp />

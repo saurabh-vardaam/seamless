@@ -162,7 +162,7 @@ const Events = () => {
       />
       {showEventDetails ? (
         <PrimaryContainer>
-          <h2 className="sm:text-xl flex items-center justify-between w-full md:text-2xl font-extrabold text-[#283275] mb-9">
+          <h2 className="flex items-center justify-between w-full font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 mb-9">
             <div>
               Fall NACC Mini Conference{" "}
               <button className="px-3 py-1 text-xs sm:text-sm font-normal text-[#282728] bg-[#c2e0b3] rounded-full">
@@ -441,11 +441,11 @@ const Events = () => {
       ) : (
         <PrimaryContainer>
           <div className="mb-10">
-            <h2 className="text-xl md:text-2xl font-extrabold text-[#283275] mb-10 md:mb-9">
+            <h2 className="mb-10 text-xl font-extrabold md:text-2xl text-seamlessBlue-700 md:mb-9">
               Events
             </h2>
             <div className="flex border-b-2 border-gray-300">
-              <span className="text-[#283275] text-sm md:text-base relative pb-3 md:pb-4 font-semibold">
+              <span className="relative pb-3 text-sm font-semibold text-seamlessBlue-700 md:text-base md:pb-4">
                 Events
                 <p className="absolute bottom-0 left-0 w-full h-1 bg-gradient-to-r from-seamlessGradient-start to-seamlessGradient-end" />
               </span>
@@ -483,7 +483,7 @@ const Events = () => {
                   setSelectedEvent({});
                   setIsModelOpen(true);
                 }}
-                className="px-4 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-xs sm:text-sm lg:px-6 mt-2 md:mt-0"
+                className="px-4 py-2 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-6 md:mt-0"
               >
                 ADD A NEW EVENT
               </button>
@@ -492,7 +492,7 @@ const Events = () => {
 
           <div className="mt-10  mb-6 border border-[#6b6a6b] rounded-2xl overflow-x-auto">
             <table className="min-w-full table-auto">
-              <thead className="text-left text-[#283275]">
+              <thead className="text-left text-seamlessBlue-700">
                 <tr className="border-b border-gray-300">
                   <th className="px-6 py-3 text-sm font-medium">
                     <Checkbox />
@@ -532,7 +532,7 @@ const Events = () => {
                     <td className="px-6 py-2 text-sm font-medium">
                       <Checkbox />
                     </td>
-                    <td className="py-2 text-[#283275] text-sm font-semibold">
+                    <td className="py-2 font-semibold text-seamlessBlue-700 text-se">
                       {event.name}
                     </td>
                     <td className="py-3">

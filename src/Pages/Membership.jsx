@@ -82,7 +82,7 @@ const Membership = () => {
     <>
       {showMemberDetail ? (
         <PrimaryContainer>
-          <h2 className="text-2xl font-extrabold text-[#283275] w-full flex justify-between mb-4">
+          <h2 className="flex justify-between w-full mb-4 text-2xl font-extrabold text-seamlessBlue-700">
             Membership
             <div
               onClick={() => setMemberDetails(false)}
@@ -142,19 +142,19 @@ const Membership = () => {
                         src={User}
                         alt="Profile"
                       />
-                      <span className="absolute w-full px-2 py-1 text-sm text-[#282728] bg-seamlessCyan-600 rounded-full left-12 top-8 max-w-[71px] text-center">
+                      <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full left-12 top-8 max-w-[71px] text-center">
                         Invited
                       </span>
                     </div>
 
                     <div className="space-y-2 text-center md:text-left">
-                      <h2 className="text-2xl font-semibold text-[#283275]">
+                      <h2 className="text-2xl font-semibold text-seamlessBlue-700 ">
                         {newMember?.firstName}
                       </h2>
-                      <p className="text-[#282728] text-lg font-medium">
+                      <p className="text-lg font-medium text-seamlessGray-950">
                         Director of Communications
                       </p>
-                      <p className="text-[#282728] text-lg font-medium">
+                      <p className="text-lg font-medium text-seamlessGray-950">
                         Tuscon Arizona Chapter NACC
                       </p>
                     </div>
@@ -164,19 +164,19 @@ const Membership = () => {
                         className="flex items-center space-x-4 hover:underline"
                       >
                         <GlobeAltIcon className="w-5 h-5" />
-                        <span className="text-[#283275] text-lg font-medium">
+                        <span className="text-lg font-medium text-seamlessBlue-700">
                           www.NACC/TusconArizona
                         </span>
                       </a>
                       <p className="flex items-center space-x-4">
                         <EnvelopeIcon className="w-5 h-5" />
-                        <span className="text-[#283275] text-lg font-medium">
+                        <span className="text-lg font-medium text-seamlessBlue-700">
                           1.301.433.9928
                         </span>
                       </p>
                       <p className="flex items-center space-x-4">
                         <PhoneIcon className="w-5 h-5" />
-                        <span className="text-[#283275] text-lg font-medium">
+                        <span className="text-lg font-medium text-seamlessBlue-700">
                           vlopez@NACC.com
                         </span>
                       </p>
@@ -195,7 +195,7 @@ const Membership = () => {
                         <button className="px-4 py-2.5 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
                           Resend Invite
                         </button>
-                        <button className="px-4 py-2.5 text-[#ffffff] bg-[#283275] rounded-3xl text-sm">
+                        <button className="px-4 py-2.5 text-[#ffffff] bg-seamlessBlue-700 rounded-3xl text-sm">
                           Reset Password
                         </button>
                       </div>
@@ -203,7 +203,7 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Member ID: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
                           1032882
                         </span>
                       </div>
@@ -212,7 +212,7 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Role: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
                           {newMember?.role}
                         </span>
                       </div>
@@ -221,7 +221,7 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Chapter: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
                           {newMember?.chapter}
                         </span>
                       </div>
@@ -230,7 +230,7 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Committees: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
                           {newMember?.committee}
                         </span>
                       </div>
@@ -239,7 +239,7 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Subscription: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
                           Chapter Gold
                         </span>
                       </div>
@@ -248,11 +248,11 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Subscription: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
-                          <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
+                          <span className="text-seamlessBlue-700   text-sm font-semibold ml-0.5">
                             Chapter Gold
                           </span>{" "}
-                          <span className="px-2 py-1 text-sm text-seamlessGray-950 bg-[#c2e0b3] rounded-xl ml-2">
+                          <span className="px-2 py-1 ml-2 text-sm font-medium text-seamlessGray-950 bg-seamlessGreen-500 rounded-xl">
                             Current
                           </span>
                         </span>
@@ -262,11 +262,11 @@ const Membership = () => {
                     <div className="flex items-center justify-between px-6 py-5">
                       <div className="text-seamlessGray-950 flex items-center gap-x-2.5 text-sm font-normal">
                         <span> Renewal: </span>
-                        <span className="text-[#283275] text-sm font-semibold">
-                          <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                        <span className="text-sm font-semibold text-seamlessBlue-700">
+                          <span className="text-seamlessBlue-700   text-sm font-semibold ml-0.5">
                             01.15.2025
                           </span>{" "}
-                          <span className="px-2 py-1 text-sm text-seamlessGray-950 bg-[#c2e0b3] rounded-xl ml-2">
+                          <span className="px-2 py-1 ml-2 text-sm font-medium text-seamlessGray-950 bg-seamlessGreen-500 rounded-xl">
                             Auto
                           </span>
                         </span>
@@ -296,7 +296,7 @@ const Membership = () => {
         </PrimaryContainer>
       ) : (
         <PrimaryContainer>
-          <h2 className="sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-9">
+          <h2 className="font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 mb-9">
             Membership
           </h2>
 
@@ -330,25 +330,25 @@ const Membership = () => {
               <Tab.Panel>
                 <div>
                   <div className="flex flex-col items-center justify-between mt-10 mb-10 space-y-4 md:flex-row md:space-y-0">
-                    <div className="flex items-center w-full md:w-auto space-x-4 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4">
+                    <div className="flex items-center w-full px-4 py-2 space-x-4 border rounded-full md:w-auto border-seamlessGray-50 bg-seamlessCyan-600">
                       <input
-                        className="w-full bg-[#cdd5d4] text-sm text-gray-900 focus:outline-none"
+                        className="w-full text-sm text-gray-900 bg-seamlessCyan-600 focus:outline-none"
                         placeholder="Search..."
                       />
-                      <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
+                      <MagnifyingGlassIcon className="w-4 h-4 text-seamlessGray-200" />
                     </div>
 
                     <div className="flex items-center space-x-4">
-                      <button className="flex items-center space-x-2 text-base font-medium text-[#282728]">
+                      <button className="flex items-center space-x-2 text-base font-medium text-seamlessGray-950 ">
                         <span>Filter</span>
                         <AdjustmentsHorizontalIcon className="w-6 h-6" />
                       </button>
-                      <button className="flex items-center space-x-2 text-base font-medium text-[#282728]">
+                      <button className="flex items-center space-x-2 text-base font-medium text-seamlessGray-950 ">
                         <span>Export List</span>
                         <ArrowUpTrayIcon className="w-6 h-6" />
                       </button>
                       <button
-                        className="px-6 py-2 text-white bg-[#283275] rounded-3xl font-semibold text-sm"
+                        className="px-6 py-2 text-sm font-semibold text-white bg-seamlessBlue-700 rounded-3xl"
                         onClick={() => {
                           setNewMember({});
                           setIsModalOpen(true);
@@ -359,7 +359,7 @@ const Membership = () => {
                     </div>
                   </div>
                   {memberList?.length > 0 ? (
-                    <div className="border h-[40vh] border-[#6b6a6b] overflow-hidden rounded-2xl">
+                    <div className="border h-[40vh] border-seamlessGray-900 overflow-hidden rounded-2xl">
                       <table className="min-w-full table-auto ">
                         <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
                           <tr className="border-b border-gray-300">
@@ -427,11 +427,11 @@ const Membership = () => {
                                 <span
                                   className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
                                     member.status === "Active"
-                                      ? "bg-[#c2e0b3] text-[#282728]"
+                                      ? "bg-seamlessGreen-500 text-seamlessGray-950 "
                                       : member.status === "Invited"
-                                      ? "bg-[#cdd5d4] text-[#282728]"
+                                      ? "bg-seamlessCyan-600 text-seamlessGray-950 "
                                       : member.status === "Inactive"
-                                      ? "bg-[#e0b3c9] text-[#282728]"
+                                      ? "bg-seamlessPink-500 text-seamlessGray-950 "
                                       : ""
                                   }`}
                                 >
@@ -443,7 +443,7 @@ const Membership = () => {
                               <td className="px-4 py-2">
                                 {member.committee}
                                 {member.extraCommittee && (
-                                  <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
+                                  <span className="px-2 py-1 ml-2 text-sm rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
                                     +{member.extraCommittee}
                                   </span>
                                 )}
