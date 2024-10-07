@@ -463,7 +463,7 @@ const Events = () => {
               </div>
             </div>
 
-            <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
+            <div className="flex flex-wrap items-center justify-center space-x-6 md:justify-end">
               <button className="flex pr-2 space-x-2 items-center leading-[40px] sm:leading-[50px] lg:leading-[60px]">
                 <span className="text-base font-semibold text-seamlessGray-950 ">
                   Filter
@@ -483,7 +483,7 @@ const Events = () => {
                   setSelectedEvent({});
                   setIsModelOpen(true);
                 }}
-                className="px-8 py-2 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-6 md:mt-0"
+                className="py-2.5 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-11 md:mt-0 px-11"
               >
                 ADD A NEW EVENT
               </button>
