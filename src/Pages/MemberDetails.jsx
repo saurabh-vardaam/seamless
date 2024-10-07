@@ -17,7 +17,7 @@ const MemberDetails = () => {
 
   return (
     <PrimaryContainer>
-      <h2 className="text-2xl font-extrabold text-[#283275] mb-4">
+      <h2 className="mb-4 text-2xl font-extrabold text-seamlessBlue-700">
         Membership
       </h2>
 
@@ -70,19 +70,19 @@ const MemberDetails = () => {
                     src={User}
                     alt="Profile"
                   />
-                  <span className="absolute w-full px-2 py-1 text-sm text-[#282728] bg-seamlessCyan-600 rounded-full left-12 top-8 max-w-[71px] text-center">
+                  <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full left-12 top-8 max-w-[71px] text-center">
                     Invited
                   </span>
                 </div>
 
                 <div className="space-y-2 text-center md:text-left">
-                  <h2 className="text-2xl font-semibold text-[#283275]">
+                  <h2 className="text-2xl font-semibold text-seamlessBlue-700">
                     Vanessa Lopez
                   </h2>
-                  <p className="text-[#282728] text-lg font-medium">
+                  <p className="text-lg font-medium text-seamlessGray-950">
                     Director of Communications
                   </p>
-                  <p className="text-[#282728] text-lg font-medium">
+                  <p className="text-lg font-medium text-seamlessGray-950">
                     Tuscon Arizona Chapter NACC
                   </p>
                 </div>
@@ -92,19 +92,19 @@ const MemberDetails = () => {
                     className="flex items-center space-x-4 hover:underline"
                   >
                     <GlobeAltIcon className="w-5 h-5" />
-                    <span className="text-[#283275] text-lg font-medium">
+                    <span className="text-lg font-medium text-seamlessBlue-700">
                       www.NACC/TusconArizona
                     </span>
                   </a>
                   <p className="flex items-center space-x-4">
                     <EnvelopeIcon className="w-5 h-5" />
-                    <span className="text-[#283275] text-lg font-medium">
+                    <span className="text-lg font-medium text-seamlessBlue-700">
                       1.301.433.9928
                     </span>
                   </p>
                   <p className="flex items-center space-x-4">
                     <PhoneIcon className="w-5 h-5" />
-                    <span className="text-[#283275] text-lg font-medium">
+                    <span className="text-lg font-medium text-seamlessBlue-700">
                       vlopez@NACC.com
                     </span>
                   </p>
@@ -123,7 +123,7 @@ const MemberDetails = () => {
                     <button className="px-4 py-2.5 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
                       Resend Invite
                     </button>
-                    <button className="px-4 py-2.5 text-[#ffffff] bg-[#283275] rounded-3xl text-sm">
+                    <button className="px-4 py-2.5 text-white bg-seamlessBlue-700 rounded-3xl text-sm">
                       Reset Password
                     </button>
                   </div>
@@ -141,7 +141,7 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4 ">
                     <p>
                    
-                      <span className="text-[#283275] text-sm font-semibold">
+                      <span className="text-sm font-semibold text-seamlessBlue-700">
                         1032882
                       </span>
                     </p>
@@ -152,7 +152,7 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4">
                     <p>
                       Role:{" "}
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                      <span className="text-seamlessBlue-700 text-sm font-semibold ml-0.5">
                         Admin
                       </span>
                     </p>
@@ -163,7 +163,7 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4 ">
                     <p>
                       Chapter:
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                      <span className="text-seamlessBlue-700 text-sm font-semibold ml-0.5">
                         Tuscon Arizona Chapter NACC
                       </span>
                     </p>
@@ -174,7 +174,7 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4">
                     <p>
                       Committees:
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                      <span className="text-seamlessBlue-700 text-sm font-semibold ml-0.5">
                         South West, Events, Education
                       </span>
                     </p>
@@ -186,7 +186,7 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4">
                     <p>
                       Subscription:
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                      <span className="text-seamlessBlue-700 text-sm font-semibold ml-0.5">
                         Chapter Gold
                       </span>
                     </p>
@@ -197,10 +197,10 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4">
                     <p>
                       Subscription:{" "}
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                      <span className="text-seamlessBlue-700 text-sm font-semibold ml-0.5">
                         Chapter Gold
                       </span>{" "}
-                      <span className="px-2 py-1 text-sm text-seamlessGray-950 bg-[#c2e0b3] rounded-xl ml-2">
+                      <span className="px-2 py-1 ml-2 text-sm text-seamlessGray-950 bg-seamlessGreen-500 rounded-xl">
                         Current
                       </span>
                     </p>
@@ -211,10 +211,10 @@ const MemberDetails = () => {
                   <div className="flex justify-between mx-4">
                     <p>
                       Renewal:{" "}
-                      <span className="text-[#283275] text-sm font-semibold ml-0.5">
+                      <span className="text-seamlessBlue-700 text-sm font-semibold ml-0.5">
                         01.15.2025
                       </span>{" "}
-                      <span className="px-2 py-1 text-sm text-seamlessGray-950 bg-[#c2e0b3] rounded-xl ml-2">
+                      <span className="px-2 py-1 ml-2 text-sm text-seamlessGray-950 bg-seamlessGreen-500 rounded-xl">
                         Auto
                       </span>
                     </p>

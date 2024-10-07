@@ -43,12 +43,12 @@ const Organization = () => {
         >
           <div className="flex items-center space-x-2">
             <DotIcons />
-            <h3 className="text-sm capitalize sm:text-base md:text-lg font-semibold uppercase text-[#282728]">
+            <h3 className="text-sm  sm:text-base md:text-lg font-semibold uppercase text-[#282728]">
               {structure?.title}
             </h3>
           </div>
           <div className="flex space-x-2">
-            <ViewColumnsIcon className="w-5 sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+            <ViewColumnsIcon className="w-5 h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-seamlessGray-100" />
             <PopUp />
           </div>
         </div>
@@ -58,7 +58,7 @@ const Organization = () => {
   };
   return (
     <PrimaryContainer>
-      <h2 className="sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-9">
+      <h2 className="font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 mb-9">
         Organization
       </h2>
       <Tab.Group>
@@ -105,7 +105,7 @@ const Organization = () => {
             </div>
 
             <div className="flex justify-center border-t border-seamlessBlue-400 sm:justify-end">
-              <button className="py-2 mt-9 sm:py-1 px-6 sm:px-10 text-sm sm:text-base text-[#283275] border border-[#6b6a6b] rounded-full font-semibold">
+              <button className="px-6 py-2 text-sm font-semibold border rounded-full mt-9 sm:py-1 sm:px-10 sm:text-base text-seamlessBlue-700 border-seamlessGray-900">
                 SAVE
               </button>
             </div>
