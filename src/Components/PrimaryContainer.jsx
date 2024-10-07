@@ -90,14 +90,15 @@ export default function PrimaryContainer({ children }) {
                               "group flex gap-x-3 rounded-md p-4 text-sm font-semibold leading-6"
                             )}
                           >
-                            <item.icon
-                              aria-hidden="true"
+                            <img
                               className={classNames(
                                 location.pathname === item.path
                                   ? "text-seamlessGray-400"
                                   : "text-seamlessGray-400",
-                                "h-6 w-6 shrink-0"
+                                "h-6 w-6 shrink-0 opacity-50"
                               )}
+                              src={item?.image}
+                              aria-hidden="true"
                             />
                             {item.name}
                           </Link>
@@ -198,7 +199,7 @@ export default function PrimaryContainer({ children }) {
                             location.pathname === item.path
                               ? "bg-seamlessBlue-900 text-seamlessGray-400"
                               : "text-seamlessGray-400",
-                            "group items-center  flex gap-x-3  px-10 py-4 text-sm font-medium"
+                            "group items-center flex gap-x-3 px-10 py-4 text-sm font-medium"
                           )}
                         >
                           <img className="opacity-50" src={item?.image} />

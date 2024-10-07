@@ -103,10 +103,10 @@ const Membership = () => {
                 "Transactions",
                 "Documents",
                 "History",
-              ].map((tab) => (
+              ].map((tab,index) => (
                 <Tab
                   as="button"
-                  key={tab}
+                  key={index}
                   className={({ selected }) =>
                     classNames(
                       "text-base text-seamlessBlue-700 font-semibold leading-[60px]",
@@ -305,7 +305,7 @@ const Membership = () => {
               {["Member", "Member Roles", "Subscriptions", "Registration"].map(
                 (tab, index) => (
                   <Tab
-                    key={tab}
+                    key={index}
                     className={({ selected }) =>
                       classNames(
                         "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
@@ -400,7 +400,7 @@ const Membership = () => {
                         <tbody className="">
                           {memberList.map((member, index) => (
                             <tr
-                              key={index}
+                              key={member?.id}
                               className={`border-t w-fit  border-gray-300 cursor-pointer ${
                                 member?.id === newMember?.id
                                   ? "bg-[#ffffff] text-seamlessBlue-900 "

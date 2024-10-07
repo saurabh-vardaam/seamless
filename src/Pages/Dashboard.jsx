@@ -20,7 +20,7 @@ const Dashboard = () => {
 
   const options = {
     chartArea: { width: "95%", height: "90%" },
-    colors: ["#2E3E77", "#A9C7EE"],
+    colors: [, "#A9C7EE"],
     bar: { groupWidth: "20%" },
     isStacked: true,
     hAxis: {
@@ -39,6 +39,7 @@ const Dashboard = () => {
 
   const cardData = [
     {
+      id:"0",
       title: "ORGANIZATION",
       content: (
         <div className="py-10 mx-auto">
@@ -52,6 +53,7 @@ const Dashboard = () => {
       className: "col-span-1 md:col-span-1  ",
     },
     {
+      id:"1",
       title: "ENGAGEMENT",
       content: (
         <div className="relative w-full">
@@ -67,6 +69,7 @@ const Dashboard = () => {
       className: "col-span-1 md:col-span-2",
     },
     {
+      id:"2",
       title: "CHAPTERS",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 mx-1 md:gap-10">
@@ -87,6 +90,7 @@ const Dashboard = () => {
       className: "col-span-1",
     },
     {
+      id:"3",
       title: "COMMITTEES",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 md:gap-5">
@@ -107,6 +111,7 @@ const Dashboard = () => {
       className: "col-span-1",
     },
     {
+      id:"4",
       title: "SUBSCRIBERS",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 mx-1 md:gap-5">
@@ -127,6 +132,7 @@ const Dashboard = () => {
       className: "col-span-1",
     },
     {
+      id:"5",
       title: "MEMBERS",
       content: (
         <div className="w-full ">
@@ -188,6 +194,7 @@ const Dashboard = () => {
       className: "col-span-1 md:col-span-2",
     },
     {
+      id:"6",
       title: "NONMEMBERS",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 md:gap-8">
@@ -209,7 +216,7 @@ const Dashboard = () => {
   return (
     <PrimaryContainer>
       <div>
-        <h1 className="text-2xl  font-extrabold text-[#283275] mb-12 ">
+        <h1 className="text-2xl  font-extrabold text-[#283275] mb-12">
           Dashboard
         </h1>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 md:grid-cols-3 ">
