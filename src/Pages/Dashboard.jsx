@@ -73,15 +73,15 @@ const Dashboard = () => {
       title: "CHAPTERS",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 mx-1 md:gap-10">
-          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessBlue-700">
             78{" "}
-            <span className="text-base text-[#283275] font-semibold">
+            <span className="text-base font-semibold text-seamlessBlue-700">
               Active
             </span>
           </p>
-          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessGray-900">
             2{" "}
-            <span className="text-base text-[#6b6a6b] font-semibold">
+            <span className="text-base font-semibold text-seamlessGray-900">
               Inactive
             </span>
           </p>
@@ -94,15 +94,15 @@ const Dashboard = () => {
       title: "COMMITTEES",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 md:gap-5">
-          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessBlue-700">
             102{" "}
-            <span className="text-base text-[#283275] font-semibold">
+            <span className="text-base font-semibold text-seamlessBlue-700">
               Active
             </span>
           </p>
-          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessGray-900">
             23{" "}
-            <span className="text-base text-[#6b6a6b] font-semibold">
+            <span className="text-base font-semibold text-seamlessGray-900">
               Inactive
             </span>
           </p>
@@ -115,15 +115,15 @@ const Dashboard = () => {
       title: "SUBSCRIBERS",
       content: (
         <div className="grid items-baseline w-full grid-cols-2 gap-4 mx-1 md:gap-5">
-          <p className="text-2xl md:text-4xl font-extrabold text-[#283275]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessBlue-700">
             325{" "}
-            <span className="text-base text-[#283275] font-semibold">
+            <span className="text-base font-semibold text-seamlessBlue-700">
               Active
             </span>
           </p>
-          <p className="text-2xl md:text-4xl font-extrabold text-[#6b6a6b]">
+          <p className="text-2xl font-extrabold md:text-4xl text-seamlessGray-900">
             11{" "}
-            <span className="text-base text-[#6b6a6b] font-semibold">
+            <span className="text-base font-semibold text-seamlessGray-900">
               Inactive
             </span>
           </p>
@@ -138,7 +138,7 @@ const Dashboard = () => {
         <div className="w-full ">
           <div className="grid w-full grid-cols-2 gap-4 mt-4 xl:grid-cols-3">
             <div className="flex items-baseline gap-2">
-              <span className="text-xl md:text-4xl font-extrabold text-[#283275]">
+              <span className="text-xl font-extrabold md:text-4xl text-seamlessBlue-700">
                 1,240
               </span>
               <span className="text-sm font-semibold md:text-base text-seamlessBlue-700">
@@ -146,10 +146,10 @@ const Dashboard = () => {
               </span>
             </div>
             <div className="flex items-baseline gap-2">
-              <span className="text-xl md:text-4xl font-extrabold text-[#6b6a6b]">
+              <span className="text-xl font-extrabold md:text-4xl text-seamlessGray-900">
                 2
               </span>
-              <span className="text-sm md:text-base text-[#6b6a6b] font-semibold">
+              <span className="text-sm font-semibold md:text-base text-seamlessGray-900">
                 Total Inactive
               </span>
             </div>
@@ -204,8 +204,8 @@ const Dashboard = () => {
               Active
             </span>
           </p>
-          <p className="text-2xl md:text-4xl font-extrabold mt-4 md:mt-24 text-[#6b6a6b]">
-            12 <span className="text-sm text-[#6b6a6b]">Inactive</span>
+          <p className="mt-4 text-2xl font-extrabold md:text-4xl md:mt-24 text-seamlessGray-900">
+            12 <span className="text-sm text-seamlessGray-900">Inactive</span>
           </p>
         </div>
       ),

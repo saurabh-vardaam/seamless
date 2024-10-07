@@ -165,7 +165,7 @@ const Events = () => {
           <h2 className="flex items-center justify-between w-full font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 mb-9">
             <div>
               Fall NACC Mini Conference{" "}
-              <button className="px-3 py-1 text-xs sm:text-sm font-normal text-[#282728] bg-[#c2e0b3] rounded-full">
+              <button className="px-3 py-1 text-xs font-normal rounded-full sm:text-sm text-seamlessGray-950 bg-seamlessGreen-500">
                 Active
               </button>
             </div>
@@ -205,9 +205,9 @@ const Events = () => {
             <Tab.Panels>
               <Tab.Panel>
                 <div className="mt-10 bg-gray-100 border border-gray-600 rounded-3xl">
-                  <div className="bg-[#ffffff] rounded-t-3xl">
+                  <div className="bg-white rounded-t-3xl">
                     <div className="flex flex-col items-start justify-between border-b border-gray-400 sm:flex-row sm:items-center">
-                      <p className="text-[#282728] text-sm font-normal px-6 py-4">
+                      <p className="px-6 py-4 text-sm font-normal text-seamlessGray-950">
                         Display Title:
                         <span className="ml-2 text-base font-semibold text-seamlessBlue-700">
                           {selectedEvent?.name}
@@ -219,7 +219,7 @@ const Events = () => {
                     <div className="space-y-2 border-b border-gray-400">
                       <div className="py-10 px-9">
                         <span className="flex justify-between">
-                          <p className="text-[#282728] text-sm font-normal">
+                          <p className="text-sm font-normal text-seamlessGray-950">
                             Display Title:
                           </p>
                           <PencilIcon className="w-5 h-5" />
@@ -252,25 +252,25 @@ const Events = () => {
 
                   <div className="divide-y divide-gray-400">
                     <div className="flex items-center px-6 py-4">
-                      <p className="text-sm text-[#282728]">Description:</p>
+                      <p className="text-sm text-seamlessGray-950 ">Description:</p>
                       <p className="ml-2 text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.description}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">Dates:</p>
+                      <p className="text-sm text-seamlessGray-950 ">Dates:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         10.24.24 - 10.16.24
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">Location:</p>
+                      <p className="text-sm text-seamlessGray-950 ">Location:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.location}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">
+                      <p className="text-sm text-seamlessGray-950 ">
                         Registration Opens:
                       </p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
@@ -278,7 +278,7 @@ const Events = () => {
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">
+                      <p className="text-sm text-seamlessGray-950 ">
                         Membership Level Access:
                       </p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
@@ -287,19 +287,19 @@ const Events = () => {
                     </div>
 
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">Event Type:</p>
+                      <p className="text-sm text-seamlessGray-950 ">Event Type:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.type}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">Event Category:</p>
+                      <p className="text-sm text-seamlessGray-950 ">Event Category:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         Outreach
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-[#282728]">Status:</p>
+                      <p className="text-sm text-seamlessGray-950 ">Status:</p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.status}
                       </p>
@@ -310,7 +310,7 @@ const Events = () => {
               <Tab.Panel>
                 <div>
                   {members?.length > 0 ? (
-                    <div className="border max-h-[60vh] mt-10  border-[#6b6a6b] overflow-auto scrollbar-hide rounded-2xl">
+                    <div className="border max-h-[60vh] mt-10  border-seamlessGray-900 overflow-auto scrollbar-hide rounded-2xl">
                       <table className="min-w-full table-auto ">
                         <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
                           <tr className="border-b border-gray-300">
@@ -350,7 +350,7 @@ const Events = () => {
                               key={index}
                               className={`border-t w-fit border-b border-gray-300 cursor-pointer ${
                                 false
-                                  ? "bg-[#ffffff] text-seamlessBlue-900 "
+                                  ? "bg-white text-seamlessBlue-900 "
                                   : ""
                               }`}
                             
@@ -370,11 +370,11 @@ const Events = () => {
                                 <span
                                   className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
                                     member.status === "Active"
-                                      ? "bg-[#c2e0b3] text-[#282728]"
+                                      ? "bg-seamlessGreen-500 text-seamlessGray-950 "
                                       : member.status === "Invited"
-                                      ? "bg-[#cdd5d4] text-[#282728]"
+                                      ? "bg-seamlessCyan-600 text-seamlessGray-950 "
                                       : member.status === "Inactive"
-                                      ? "bg-[#e0b3c9] text-[#282728]"
+                                      ? "bg-seamlessPink-500 text-seamlessGray-950 "
                                       : ""
                                   }`}
                                 >
@@ -386,7 +386,7 @@ const Events = () => {
                               <td className="px-4 py-2">
                                 {member.committee}
                                 {member.extraCommittee && (
-                                  <span className="px-2 py-1 ml-2 text-sm bg-[#c2e0b3] text-[#282728] rounded-full">
+                                  <span className="px-2 py-1 ml-2 text-sm rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
                                     +{member.extraCommittee}
                                   </span>
                                 )}
@@ -453,29 +453,29 @@ const Events = () => {
           </div>
 
           <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
-            <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#cdd5d4] py-2 px-4 w-full md:w-auto mb-4 md:mb-0">
+            <div className="flex flex-col items-start gap-2.5 rounded-full border border-seamlessGray-50 bg-seamlessCyan-600 py-2 px-4 w-full md:w-auto mb-4 md:mb-0">
               <div className="flex items-center w-full gap-2">
                 <input
-                  className="w-full bg-[#cdd5d4] text-sm leading-normal text-gray-900 focus:outline-none focus:ring-0 md:w-40 lg:w-60"
+                  className="w-full text-sm leading-normal text-gray-900 bg-seamlessCyan-600 focus:outline-none focus:ring-0 md:w-40 lg:w-60"
                   placeholder="Search..."
                 />
-                <MagnifyingGlassIcon className="text-[#676b6a] w-4 h-4" />
+                <MagnifyingGlassIcon className="w-4 h-4 text-seamlessGray-200" />
               </div>
             </div>
 
             <div className="flex flex-wrap items-center justify-center gap-4 md:justify-end">
               <button className="flex pr-2 space-x-2 items-center leading-[40px] sm:leading-[50px] lg:leading-[60px]">
-                <span className="text-sm font-medium text-[#282728]">
+                <span className="text-sm font-medium text-seamlessGray-950 ">
                   Filter
                 </span>
-                <AdjustmentsHorizontalIcon className="w-5 h-5 text-[#282728]" />
+                <AdjustmentsHorizontalIcon className="w-5 h-5 text-seamlessGray-950 " />
               </button>
 
               <button className="flex items-center gap-2 pr-2 leading-[40px] sm:leading-[50px] lg:leading-[60px]">
-                <span className="text-sm font-medium text-[#282728]">
+                <span className="text-sm font-medium text-seamlessGray-950 ">
                   Export List
                 </span>
-                <ArrowUpTrayIcon className="w-5 h-5 text-[#282728]" />
+                <ArrowUpTrayIcon className="w-5 h-5 text-seamlessGray-950 " />
               </button>
 
               <button
@@ -490,7 +490,7 @@ const Events = () => {
             </div>
           </div>
 
-          <div className="mt-10  mb-6 border border-[#6b6a6b] rounded-2xl overflow-x-auto">
+          <div className="mt-10 mb-6 overflow-x-auto border border-seamlessGray-900 rounded-2xl">
             <table className="min-w-full table-auto">
               <thead className="text-left text-seamlessBlue-700">
                 <tr className="border-b border-gray-300">
@@ -539,11 +539,11 @@ const Events = () => {
                       <span
                         className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
                           event.status === "Live"
-                            ? "bg-[#c2e0b3] text-[#282728]"
+                            ? "bg-seamlessGreen-500 text-seamlessGray-950 "
                             : event.status === "Pause"
-                            ? "bg-[#cdd5d4] text-[#282728]"
+                            ? "bg-seamlessCyan-600 text-seamlessGray-950 "
                             : event.status === "InActive"
-                            ? "bg-[#e0b3c9] text-[#282728]"
+                            ? "bg-seamlessPink-500 text-seamlessGray-950 "
                             : event.status === "Active"
                             ? "bg-seamlessBlue-900 text-white"
                             : ""
@@ -553,13 +553,13 @@ const Events = () => {
                       </span>
                     </td>
 
-                    <td className="px-2 py-2 text-[#282728] text-sm font-normal">
+                    <td className="px-2 py-2 text-sm font-normal text-seamlessGray-950">
                       {event.dates || "10.14.24 - 10.16.24"}
                     </td>
-                    <td className="px-2 py-2 text-[#282728] text-sm font-normal">
+                    <td className="px-2 py-2 text-sm font-normal text-seamlessGray-950">
                       {event?.registration_title}
                     </td>
-                    <td className="px-2 py-2 text-[#282728] text-sm font-normal">
+                    <td className="px-2 py-2 text-sm font-normal text-seamlessGray-950">
                       {event.type}
                     </td>
                     <td className="px-2 py-2 text-left">

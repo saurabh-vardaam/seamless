@@ -195,7 +195,7 @@ const Membership = () => {
                         <button className="px-4 py-2.5 text-seamlessGray-950 bg-seamlessCyan-600 rounded-3xl text-sm">
                           Resend Invite
                         </button>
-                        <button className="px-4 py-2.5 text-[#ffffff] bg-seamlessBlue-700 rounded-3xl text-sm">
+                        <button className="px-4 py-2.5 text-white bg-seamlessBlue-700 rounded-3xl text-sm">
                           Reset Password
                         </button>
                       </div>
@@ -403,7 +403,7 @@ const Membership = () => {
                               key={member?.id}
                               className={`border-t w-fit  border-gray-300 cursor-pointer ${
                                 member?.id === newMember?.id
-                                  ? "bg-[#ffffff] text-seamlessBlue-900 "
+                                  ? "bg-white text-seamlessBlue-900 "
                                   : ""
                               }`}
                               onClick={() => {

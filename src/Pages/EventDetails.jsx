@@ -24,9 +24,9 @@ const EventDetails = () => {
 
   return (
     <PrimaryContainer>
-      <h2 className="sm:text-xl md:text-2xl font-extrabold text-[#283275] mb-9">
+      <h2 className="font-extrabold sm:text-xl md:text-2xl text-seamlessBlue-700 mb-9">
         Fall NACC Mini Conference{" "}
-        <button className="px-3 py-1 text-xs sm:text-sm font-normal text-[#282728] bg-[#c2e0b3] rounded-full">
+        <button className="px-3 py-1 text-xs font-normal rounded-full sm:text-sm text-seamlessGray-950 bg-seamlessGreen-500">
           Active
         </button>
       </h2>
@@ -58,9 +58,9 @@ const EventDetails = () => {
         <Tab.Panels>
           <Tab.Panel>
             <div className="mt-6 bg-gray-100 border border-gray-600 rounded-3xl">
-              <div className="bg-[#ffffff] rounded-t-3xl">
+              <div className="bg-white rounded-t-3xl">
                 <div className="flex flex-col items-start justify-between border-b border-gray-400 sm:flex-row sm:items-center">
-                  <p className="text-[#282728] text-sm font-normal px-6 py-4">
+                  <p className="px-6 py-4 text-sm font-normal text-seamlessGray-950">
                     Display Title:
                     <span className="ml-2 text-base font-semibold text-seamlessBlue-700">
                       Fall NACC Mini Conference
@@ -72,7 +72,7 @@ const EventDetails = () => {
                 <div className="space-y-2 border-b border-gray-400">
                   <div className="py-10 px-9">
                     <span className="flex justify-between">
-                      <p className="text-[#282728] text-sm font-normal">
+                      <p className="text-sm font-normal text-seamlessGray-950">
                         Display Title:
                       </p>
                       <PencilIcon className="w-5 h-5" />
@@ -106,32 +106,32 @@ const EventDetails = () => {
 
               <div className="divide-y divide-gray-400">
                 <div className="flex px-6 py-4">
-                  <p className="text-sm text-[#282728]">Description:</p>
+                  <p className="text-sm text-seamlessGray-950">Description:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     The Conference unites people from across sectors and
                     throughout the country who are connected...
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">Dates:</p>
+                  <p className="text-sm text-seamlessGray-950">Dates:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     10.24.24 - 10.16.24
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">Location:</p>
+                  <p className="text-sm text-seamlessGray-950">Location:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     Hyatt Regency Denver at Colorado Convention Center
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">Registration Opens:</p>
+                  <p className="text-sm text-seamlessGray-950">Registration Opens:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     10.02.2024
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">
+                  <p className="text-sm text-seamlessGray-950">
                     Membership Level Access:
                   </p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
@@ -140,19 +140,19 @@ const EventDetails = () => {
                 </div>
 
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">Event Type:</p>
+                  <p className="text-sm text-seamlessGray-950">Event Type:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     On-Site
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">Event Category:</p>
+                  <p className="text-sm text-seamlessGray-950">Event Category:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     Outreach
                   </p>
                 </div>
                 <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                  <p className="text-sm text-[#282728]">Status:</p>
+                  <p className="text-sm text-seamlessGray-950">Status:</p>
                   <p className="text-base font-semibold text-seamlessBlue-700">
                     Active
                   </p>
