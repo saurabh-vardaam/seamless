@@ -4,7 +4,7 @@ import Select from "react-select";
 import NaccLogo from "../Images/NaccLogo.png";
 import TextInput from "../Components/TextInput";
 import PopUpModel from "../Components/PopUpModel";
-
+const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const roles = [
   { value: "admin", label: "Admin" },
   { value: "user", label: "User" },
@@ -82,7 +82,6 @@ const AddMemberForm = ({
   selectedMember,
   IsEdit,
   setIsEdit,
-  
 }) => {
   const memberObject = {
     firstName: "",
@@ -91,32 +90,76 @@ const AddMemberForm = ({
     chapter: "",
     committee: "",
     status: "",
+    email: "",
   };
   const [formData, setFormData] = useState(memberObject);
-
+  const [emailError, setEmailError] = useState("");
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [fileError, setFileError] = useState("");
   const handleInputChange = (name, value) => {
     setFormData({ ...formData, [name]: value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    if (selectedFile) {
+      const reader = new FileReader();
+      reader.onloadend = () => {
+        const imageDataUrl = reader.result;
+        const updatedFormData = { ...formData, image: imageDataUrl };
+        handleMemberSave(updatedFormData);
+      };
+      reader.readAsDataURL(selectedFile);
+    } else {
+      handleMemberSave(formData);
+    }
+  };
+
+  const handleMemberSave = (updatedFormData) => {
+    const storedMembers = JSON.parse(localStorage.getItem("members")) || [];
+    const loggedInMember = storedMembers.find(
+      (member) => member.email === updatedFormData?.email
+    );
+
+    if (loggedInMember) {
+      setEmailError("This email already Exist please select different Email");
+      return;
+    }
     if (IsEdit) {
-      setNewMember(formData);
-      let newMembers = [...memberList];
-      newMembers = newMembers?.map((member) =>
-        member?.id === formData?.id ? formData : member
+      const newMembers = memberList.map((member) =>
+        member.id === updatedFormData.id ? updatedFormData : member
       );
       localStorage.setItem("members", JSON.stringify(newMembers));
       setMemberList(newMembers);
     } else {
-      const newMember = { ...formData, id: Math.random() };
-      setNewMember(newMember);
+      const newMember = { ...updatedFormData, id: Math.random() };
       const newMembers = [...memberList, newMember];
       localStorage.setItem("members", JSON.stringify(newMembers));
       setMemberList(newMembers);
     }
     handleCloseModal();
     setFormData(memberObject);
+    setEmailError("");
+  };
+  const handleFileChange = (e) => {
+    const file = e.target.files[0];
+
+    if (file) {
+      if (
+        (file.type === "image/jpeg" || file.type === "image/png") &&
+        file.size <= MAX_FILE_SIZE
+      ) {
+        setSelectedFile(file);
+        setFileError("");
+      } else {
+        setFileError(
+          `Please upload a JPG or PNG file smaller than ${
+            MAX_FILE_SIZE / (1024 * 1024)
+          }MB`
+        );
+        e.target.value = "";
+      }
+    }
   };
 
   useEffect(() => {
@@ -130,7 +173,9 @@ const AddMemberForm = ({
         handleCloseModal();
         setFormData(memberObject);
         setIsEdit(false);
-        setNewMember({})
+        setNewMember({});
+        setFileError("");
+        setEmailError("");
       }}
       open={isModalOpen}
     >
@@ -157,14 +202,24 @@ const AddMemberForm = ({
             value={formData.lastName}
             onChange={(e) => handleInputChange("lastName", e.target.value)}
           />
+          <TextInput
+            required={true}
+            type="email"
+            className={"w-full bg-seamlessGray-300"}
+            name="email"
+            placeholder="Email"
+            value={formData.email}
+            onChange={(e) => handleInputChange("email", e.target.value)}
+          />
+
+          <p className="text-sm font-medium text-red-500">{emailError}</p>
           <div className="mb-4">
             <Select
+              required={true}
               options={roles}
               placeholder="Role"
               value={
-                formData.role
-                  ? { label: formData.role, value: formData.role }
-                  : { label: "Role", value: "Role" }
+                formData.role && { label: formData.role, value: formData.role }
               }
               onChange={(e) => handleInputChange("role", e.value)}
               styles={customSelectStyles}
@@ -172,12 +227,14 @@ const AddMemberForm = ({
           </div>
           <div className="mb-4">
             <Select
+              required={true}
               options={statusOptions}
               placeholder="Status"
               value={
-                formData.status
-                  ? { label: formData.status, value: formData.status }
-                  : { label: "Status", value: "Status" }
+                formData.status && {
+                  label: formData.status,
+                  value: formData.status,
+                }
               }
               onChange={(e) => handleInputChange("status", e.value)}
               styles={customSelectStyles}
@@ -186,12 +243,14 @@ const AddMemberForm = ({
 
           <div className="mb-4">
             <Select
+              required={true}
               options={chapters}
               placeholder="Chapter"
               value={
-                formData.chapter
-                  ? { label: formData.chapter, value: formData.chapter }
-                  : { label: "Chapter", value: "Chapter" }
+                formData.chapter && {
+                  label: formData.chapter,
+                  value: formData.chapter,
+                }
               }
               onChange={(e) => handleInputChange("chapter", e.value)}
               styles={customSelectStyles}
@@ -200,16 +259,29 @@ const AddMemberForm = ({
 
           <div className="mb-4">
             <Select
+              required={true}
               options={committees}
               placeholder="Committee"
               value={
-                formData.committee
-                  ? { label: formData.committee, value: formData.committee }
-                  : { label: "Committee", value: "Committee" }
+                formData.committee && {
+                  label: formData.committee,
+                  value: formData.committee,
+                }
               }
               onChange={(e) => handleInputChange("committee", e.value)}
               styles={customSelectStyles}
             />
+          </div>
+          <div className="mt-4">
+            <input
+              required
+              type="file"
+              accept="image/jpeg, image/png"
+              id="fileInput"
+              onChange={handleFileChange}
+              className="block w-full mt-1 text-sm border border-gray-300 rounded-full file:text-sm text-seamlessBlue-200 file:mr-4 file:border-0 file:py-3 file:px-4 file:font-semibold file:bg-seamlessGray-500 hover:file:bg-seamlessBlue-800 focus:text-white focus:outline-none focus:ring-2 focus:ring-seamlessBlue-800 focus:border-seamlessBlue-800 file:rounded-full hover:file:text-white"
+            />
+            <p className="mt-2 text-sm font-medium text-red-500">{fileError}</p>
           </div>
 
           <button

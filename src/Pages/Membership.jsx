@@ -39,7 +39,7 @@ const Membership = () => {
       id: "lopez",
       profile: "",
       firstName: "Vanessa Lopez",
-
+      email: "vanessa@gmail.com",
       status: "Invited",
       role: "Admin",
       chapter: "NA",
@@ -49,8 +49,9 @@ const Membership = () => {
     },
     {
       id: "vanessa",
-      name: "Vanessa Lopez",
+      name: "jack",
       profile: "",
+      email: "jack@gmail.com",
       firstName: "Active",
       role: "Admin",
       chapter: "Tucson Arizona",
@@ -103,7 +104,7 @@ const Membership = () => {
                 "Transactions",
                 "Documents",
                 "History",
-              ].map((tab,index) => (
+              ].map((tab, index) => (
                 <Tab
                   as="button"
                   key={index}

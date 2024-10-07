@@ -5,15 +5,14 @@ import { useNavigate } from "react-router-dom";
 import WhiteSeamlessLogo from "../Icons/WhiteSeamlessLogo";
 const Login = () => {
   const navigate = useNavigate();
-
+  const [errors, setErrors] = useState({});
   const [data, setData] = useState({
     OrganizationName: "",
-    user_name: "",
+    user_name: "vanessa@gmail.com",
     password: "",
   });
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(data?.user_name);
     localStorage.setItem("user_name", data.user_name);
     setTimeout(() => {
       navigate("/dashboard");
@@ -44,6 +43,7 @@ const Login = () => {
           placeholder={"User"}
           className="border "
         />
+        <p className="ml-2 text-sm text-white">{errors["user_name"]}</p>
         <TextInput
           type="password"
           value={data?.password}

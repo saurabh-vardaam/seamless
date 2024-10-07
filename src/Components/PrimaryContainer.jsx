@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Dialog, DialogBackdrop, DialogPanel, Menu } from "@headlessui/react";
 import {
   Bars3Icon,
@@ -46,6 +46,7 @@ function classNames(...classes) {
 }
 
 export default function PrimaryContainer({ children }) {
+  const [ImageUrl, setImageurl] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const location = useLocation();
   const navigate = useNavigate();
@@ -54,6 +55,14 @@ export default function PrimaryContainer({ children }) {
       navigate("/");
     }, 100);
   };
+  useEffect(() => {
+    const userName = localStorage.getItem("user_name");
+    const storedMembers = JSON.parse(localStorage.getItem("members")) || [];
+    const loggedInMember = storedMembers.find(
+      (member) => member.email === userName
+    );
+    setImageurl(loggedInMember?.image);
+  }, []);
   return (
     <div className="font-Montserrat">
       <Dialog
@@ -145,16 +154,11 @@ export default function PrimaryContainer({ children }) {
                     <span className="sr-only">Open user menu</span>
                     <img
                       alt="Profile"
-                      src={UserProfile}
+                      src={ImageUrl || UserProfile}
                       className="w-8 h-8 rounded-full sm:w-9 sm:h-9 lg:w-10 lg:h-10 bg-gray-50"
                     />
-                    <span className="hidden md:flex md:items-center">
-                      <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
-                        {localStorage.getItem("user_name")}
-                      </span>
-                    </span>
                   </Menu.Button>
-                  <Menu.Items className="absolute right-0 z-10 mt-2.5 w-28 sm:w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
+                  <Menu.Items className="absolute -right-4 z-10 mt-2.5 w-28 sm:w-32 origin-top-right rounded-md bg-white py-2 shadow-lg ring-1 ring-gray-900/5 focus:outline-none">
                     {userNavigation.map((item, index) => (
                       <Menu.Item key={item.name}>
                         {({ active }) => (
@@ -176,7 +180,11 @@ export default function PrimaryContainer({ children }) {
                     ))}
                   </Menu.Items>
                 </Menu>
-
+                <div className="hidden -ml-4 md:flex md:items-center">
+                  <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
+                    {localStorage.getItem("user_name")}
+                  </span>
+                </div>
                 <div className="flex items-center gap-x-3 sm:gap-x-4 lg:gap-x-6">
                   <DotsIcon />
                 </div>
