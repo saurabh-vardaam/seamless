@@ -135,7 +135,7 @@ export default function PrimaryContainer({ children }) {
             <div>
               <SeamLessLogo className="mt-2 w-44" />
             </div>
-            <div className="flex items-center px-5 space-x-2 lg:mr-10 sm:space-x-3 md:space-x-5">
+            <div className="flex items-center px-5 space-x-2 lg:mr-5 sm:space-x-3 md:space-x-5">
               <div className="items-center hidden gap-2 sm:inline-flex sm:gap-3">
                 <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec]  px-3 sm:py-2 sm:px-4">
                   <div className="flex items-center gap-1.5 sm:gap-2">
