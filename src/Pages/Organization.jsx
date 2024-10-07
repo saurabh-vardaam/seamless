@@ -11,7 +11,7 @@ const Organization = () => {
     title: "NACC",
     children: [
       {
-        title: "Chapters",
+        title: "CHAPTERS",
       },
       {
         title: "COMMITTEES",
@@ -43,7 +43,7 @@ const Organization = () => {
         >
           <div className="flex items-center space-x-2">
             <DotIcons />
-            <h3 className="text-sm capitalize sm:text-base md:text-lg font-semibold text-[#282728]">
+            <h3 className="text-sm capitalize sm:text-base md:text-lg font-semibold uppercase text-[#282728]">
               {structure?.title}
             </h3>
           </div>

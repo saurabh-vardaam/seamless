@@ -198,7 +198,7 @@ export default function PrimaryContainer({ children }) {
               <nav className="flex flex-col flex-1">
                 <ul role="list" className="flex flex-col flex-1 ">
                   <li>
-                    <ul role="list" className="space-y-1 ">
+                    <ul role="list" className="space-y-2 ">
                       {navigation.map((item) => (
                         <Link
                           key={item.name}

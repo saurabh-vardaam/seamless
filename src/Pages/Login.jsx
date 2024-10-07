@@ -43,7 +43,6 @@ const Login = () => {
           placeholder={"User"}
           className="border "
         />
-        <p className="ml-2 text-sm text-white">{errors["user_name"]}</p>
         <TextInput
           type="password"
           value={data?.password}
