@@ -356,7 +356,7 @@ const Events = () => {
                             
                             >
                              
-                              <td className="flex items-center gap-3 px-6 py-4">
+                              <td className="flex items-center gap-3 px-6 py-4 text-sm font-semibold text-seamlessBlue-700">
                                 <UserCircleIcon
                                   className={`w-8 h-8 font-normal ${
                                  false
@@ -381,20 +381,20 @@ const Events = () => {
                                   {member.status}
                                 </span>
                               </td>
-                              <td className="px-4 py-2">{member.role}</td>
-                              <td className="px-4 py-2">{member.chapter}</td>
-                              <td className="px-4 py-2">
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.role}</td>
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.chapter}</td>
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.committee}
                                 {member.extraCommittee && (
-                                  <span className="px-2 py-1 ml-2 text-sm rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
+                                  <span className="px-2 py-1 ml-2 text-sm font-normal rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
                                     +{member.extraCommittee}
                                   </span>
                                 )}
                               </td>
-                              <td className="px-4 py-2">
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.subscription || "Chapter Gold"}
                               </td>
-                              <td className="px-4 py-2">
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.dues || "NA"}
                               </td>
                             
