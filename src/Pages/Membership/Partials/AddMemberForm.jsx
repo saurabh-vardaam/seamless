@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import Select from "react-select";
-import NaccLogo from "../Images/NaccLogo.png";
-import TextInput from "../Components/TextInput";
-import PopUpModel from "../Components/PopUpModel";
+import NaccLogo from "../../../Images/NaccLogo.png";
+import TextInput from "../../../Components/TextInput";
+import PopUpModel from "../../../Components/PopUpModel";
 const MAX_FILE_SIZE = 2 * 1024 * 1024; // 2MB
 const roles = [
   { value: "Admin", label: "Admin" },
@@ -191,12 +191,12 @@ const AddMemberForm = ({
             value={formData.firstName}
             type="text"
             placeholder="First Name"
-            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 "}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 text-seamlessGray-950 text-sm "}
           />
           <TextInput
             required={true}
             type="text"
-            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 "}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 text-seamlessGray-950 text-sm"}
             name="lastName"
             placeholder="Last Name"
             value={formData.lastName}
@@ -205,7 +205,7 @@ const AddMemberForm = ({
           <TextInput
             required={true}
             type="email"
-            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950"}
+            className={"w-full bg-seamlessGray-300 placeholder:text-sm placeholder:text-seamlessGray-950 text-seamlessGray-950 text-sm"}
             name="email"
             placeholder="Email"
             value={formData.email}

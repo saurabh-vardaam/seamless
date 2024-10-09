@@ -1,13 +1,13 @@
 import React, { useState } from "react";
-import PrimaryContainer from "../Components/PrimaryContainer";
+import PrimaryContainer from "../../../Components/PrimaryContainer";
 import { Tab } from "@headlessui/react";
 import {
   ChevronDownIcon,
   PencilIcon,
 } from "@heroicons/react/24/outline";
+import { classNames } from "../../../provider"
 
 const EventDetails = () => {
-  const classNames = (...classes) => classes.filter(Boolean).join(" ");
   const [isVisible, setIsVisible] = useState(true);
 
   const tabs = [

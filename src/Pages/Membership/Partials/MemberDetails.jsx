@@ -5,16 +5,12 @@ import {
   PencilIcon,
   PhoneIcon,
 } from "@heroicons/react/24/outline";
-import PrimaryContainer from "../Components/PrimaryContainer";
-import User from "../Images/User.png";
+import PrimaryContainer from "../../../Components/PrimaryContainer";
+import User from "../../../Images/User.png";
 import { Tab } from "@headlessui/react";
-import { Fragment } from "react";
+import { classNames } from "../../../provider"
 
 const MemberDetails = () => {
-  const classNames = (...classes) => classes.filter(Boolean).join(" ");
-
-
-
   return (
     <PrimaryContainer>
       <h2 className="mb-4 text-2xl font-extrabold text-seamlessBlue-700">

@@ -2,7 +2,6 @@ import React from "react";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Dashboard from "./Pages/Dashboard";
 import Organization from "./Pages/Organization";
-import Membership from "./Pages/Membership";
 import Financials from "./Pages/Financials";
 import Chapters from "./Pages/Chapters";
 import Committees from "./Pages/Committees";
@@ -10,10 +9,11 @@ import Education from "./Pages/Education";
 import Reports from "./Pages/Reports";
 import Settigns from "./Pages/Settigns";
 import Documents from "./Pages/Documents";
-import EventDetails from "./Pages/EventDetails";
-import MemberDetails from "./Pages/MemberDetails";
+import EventDetails from "./Pages/Events/Partials/EventDetails";
+import MemberDetails from "./Pages/Membership/Partials/MemberDetails";
 import Login from "./Pages/Login";
 import Events from "./Pages/Events/Events";
+import Membership from "./Pages/Membership/Membership";
 
 function App() {
   return (

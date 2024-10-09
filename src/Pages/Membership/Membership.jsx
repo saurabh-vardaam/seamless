@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import PrimaryContainer from "../Components/PrimaryContainer";
+import PrimaryContainer from "../../Components/PrimaryContainer";
 import {
   AdjustmentsHorizontalIcon,
   ArrowUpTrayIcon,
@@ -12,13 +12,13 @@ import {
   ArrowLeftIcon,
   UserCircleIcon,
 } from "@heroicons/react/24/outline";
-
-import Checkbox from "../Components/CheckBox";
-import BraIcon from "../Icons/BraIcon";
+import Checkbox from "../../Components/CheckBox";
+import BraIcon from "../../Icons/BraIcon";
 import { Tab } from "@headlessui/react";
-import AddMemberForm from "./AddMemberForm";
-import PopUp from "../Components/Popover";
-import User from "../Images/User.png";
+import AddMemberForm from "./Partials/AddMemberForm";
+import PopUp from "../../Components/Popover";
+import User from "../../Images/User.png";
+import { classNames } from "../../provider"
 const Membership = () => {
   const [IsEdit, setIsEdit] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -26,7 +26,6 @@ const Membership = () => {
     setIsModalOpen(false);
   };
  
-  const classNames = (...classes) => classes.filter(Boolean).join(" ");
   const members = [
     {
       id: "lopez",
@@ -337,11 +336,11 @@ const Membership = () => {
                     </div>
 
                     <div className="flex items-center space-x-6">
-                      <button className="flex items-center space-x-2 text-base font-semibold text-seamlessGray-950 ">
+                      <button className="flex items-center space-x-3 text-base font-semibold text-seamlessGray-950 ">
                         <span>Filter</span>
                         <AdjustmentsHorizontalIcon className="h-6 w-9" />
                       </button>
-                      <button className="flex items-center space-x-2 text-base font-semibold text-seamlessGray-950 ">
+                      <button className="flex items-center space-x-3 text-base font-semibold text-seamlessGray-950 ">
                         <span>Export</span>
                         <ArrowUpTrayIcon className="h-6 w-9" />
                       </button>

@@ -14,9 +14,9 @@ import BraIcon from "../../Icons/BraIcon";
 import PopUp from "../../Components/Popover";
 import { Tab } from "@headlessui/react";
 import AddEventForm from "./Partials/AddEventForm";
+import { classNames } from "../../provider"
 
 const Events = () => {
-  const classNames = (...classes) => classes.filter(Boolean).join(" ");
   const tabs = [
     "Event Details",
     "Registration",
@@ -478,7 +478,7 @@ const Events = () => {
 
               <button className="flex items-center gap-2 pr-2 leading-[40px] sm:leading-[50px] lg:leading-[60px]">
                 <span className="text-base font-semibold text-seamlessGray-950 ">
-                  Export List
+                  Export 
                 </span>
                 <ArrowUpTrayIcon className="h-6 w-7 text-seamlessGray-950 " />
               </button>
