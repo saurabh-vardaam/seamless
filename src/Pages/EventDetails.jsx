@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import PrimaryContainer from "../Components/PrimaryContainer";
 import { Tab } from "@headlessui/react";
 import {
-  CheckCircleIcon,
   ChevronDownIcon,
   PencilIcon,
 } from "@heroicons/react/24/outline";
@@ -38,8 +37,10 @@ const EventDetails = () => {
               key={tab}
               className={({ selected }) =>
                 classNames(
-                  "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
-                  selected ? "  font-semibold " : "font-semibold  mb-1"
+                  "focus:none leading-[60px]",
+                  selected 
+                  ? "font-semibold text-seamlessBlue-700 text-base" 
+                  : "font-semibold mb-1 text-seamlessGray-950"
                 )
               }
             >
@@ -77,7 +78,7 @@ const EventDetails = () => {
                       </p>
                       <PencilIcon className="w-5 h-5" />
                     </span>
-                    <h2 className="text-xl font-semibold sm:text-2xl text-seamlessBlue-700">
+                    <h2 className="text-3xl font-semibold sm:text-3xl text-seamlessBlue-700">
                       The 2024 North American Conservation Corps Annual
                       Conference
                     </h2>

@@ -5,6 +5,7 @@ import { ViewColumnsIcon } from "@heroicons/react/24/outline";
 import PopUp from "../Components/Popover";
 import { Tab } from "@headlessui/react";
 import { classNames } from "../provider";
+import Logo from "../Images/Organization.png"
 
 const Organization = () => {
   const structure = {
@@ -38,12 +39,12 @@ const Organization = () => {
             marginLeft: `${level * 40}px`,
           }}
           className={classNames(
-            "flex items-center justify-between grow p-5 bg-seamlessCyan-500"
+            "flex items-center justify-between grow px-5 py-3 bg-seamlessCyan-500"
           )}
         >
           <div className="flex items-center space-x-2">
             <DotIcons />
-            <h3 className="text-sm  sm:text-base md:text-lg font-semibold uppercase text-[#282728]">
+            <h3 className="text-sm font-semibold uppercase sm:text-base md:text-lg text-seamlessGray-950">
               {structure?.title}
             </h3>
           </div>
@@ -68,8 +69,10 @@ const Organization = () => {
               key={index}
               className={({ selected }) =>
                 classNames(
-                  "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
-                  selected ? "  font-semibold " : "font-semibold  mb-1"
+                  "focus:none leading-[60px]",
+                  selected 
+                  ? " font-semibold text-seamlessBlue-700 text-base " 
+                  : "font-semibold  mb-1 opacity-55 text-seamlessGray-950 text-base "
                 )
               }
             >

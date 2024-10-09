@@ -8,7 +8,7 @@ const PopUp = ({ onDelete, editName, onEdit, onChange }) => {
       {({ open, close }) => (
         <>
           <Popover.Button>
-            <EllipsisHorizontalCircleIcon className="sm:w-6 md:w-7 h-5 sm:h-6 md:h-7 text-[#6c7171]" />
+            <EllipsisHorizontalCircleIcon className="h-5 sm:w-6 md:w-7 sm:h-6 md:h-7 text-seamlessGray-100" />
           </Popover.Button>
           <Popover.Panel className="absolute right-0 z-10 mt-2 mr-4 border border-gray-300 rounded-lg shadow-lg bg-seamlessCyan-600 w-36">
             <div className="flex flex-col p-2 font-semibold">

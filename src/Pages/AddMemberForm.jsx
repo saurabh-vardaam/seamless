@@ -1,5 +1,4 @@
 import React, { useEffect, useState } from "react";
-import { ChevronDownIcon } from "@heroicons/react/24/outline";
 import Select from "react-select";
 import NaccLogo from "../Images/NaccLogo.png";
 import TextInput from "../Components/TextInput";
@@ -13,6 +12,7 @@ const roles = [
 const statusOptions = [
   { value: "Invited", label: "Invited" },
   { value: "Active", label: "Active" },
+  { value: "Inactive",label: "Inactive"},
 ];
 
 const chapters = [

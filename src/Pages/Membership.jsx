@@ -3,7 +3,6 @@ import PrimaryContainer from "../Components/PrimaryContainer";
 import {
   AdjustmentsHorizontalIcon,
   ArrowUpTrayIcon,
-  EllipsisHorizontalCircleIcon,
   MagnifyingGlassIcon,
   ChevronDownIcon,
   EnvelopeIcon,
@@ -16,23 +15,17 @@ import {
 
 import Checkbox from "../Components/CheckBox";
 import BraIcon from "../Icons/BraIcon";
-import Member from "../Images/Member.png";
 import { Tab } from "@headlessui/react";
-import Modal from "../Components/Modal";
 import AddMemberForm from "./AddMemberForm";
-import { Popover } from "@headlessui/react";
 import PopUp from "../Components/Popover";
 import User from "../Images/User.png";
 const Membership = () => {
-  const [selectedRow, setSelectedRow] = useState(null);
   const [IsEdit, setIsEdit] = useState(false);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const handleCloseModal = () => {
     setIsModalOpen(false);
   };
-  const handleRowClick = (index) => {
-    setSelectedRow(index);
-  };
+ 
   const classNames = (...classes) => classes.filter(Boolean).join(" ");
   const members = [
     {
@@ -110,8 +103,10 @@ const Membership = () => {
                   key={index}
                   className={({ selected }) =>
                     classNames(
-                      "text-base text-seamlessBlue-700 font-semibold leading-[60px]",
-                      selected ? "  font-semibold " : "font-semibold  mb-1"
+                      "leading-[60px]",
+                      selected
+                       ? "font-semibold text-seamlessBlue-700 text-base" 
+                       : "font-semibold mb-1 text-seamlessGray-950 text-base"
                     )
                   }
                 >
@@ -138,7 +133,7 @@ const Membership = () => {
                         alt="Profile"
                       />
                       <span className="absolute w-full px-2 py-1 text-sm text-seamlessGray-950 bg-seamlessCyan-600 rounded-full right-0 top-8 max-w-[71px] text-center">
-                        Invited
+                      {newMember?.status}
                       </span>
                     </div>
 
@@ -166,13 +161,13 @@ const Membership = () => {
                       <p className="flex items-center space-x-4">
                         <EnvelopeIcon className="w-5 h-5" />
                         <span className="text-lg font-medium text-seamlessBlue-700">
-                          1.301.433.9928
+                          {newMember?.email}
                         </span>
                       </p>
                       <p className="flex items-center space-x-4">
                         <PhoneIcon className="w-5 h-5" />
                         <span className="text-lg font-medium text-seamlessBlue-700">
-                          vlopez@NACC.com
+                         1.301.433.9928
                         </span>
                       </p>
                     </div>
@@ -302,16 +297,19 @@ const Membership = () => {
 
           <Tab.Group>
             <Tab.List className="flex flex-col border-b-2 border-seamlessBlue-400 sm:flex-row sm:space-x-9">
-              {["Member", "Member Roles", "Subscriptions", "Registration"].map(
+              {["Members", "Member Roles", "Subscriptions", "Registration"].map(
                 (tab, index) => (
                   <Tab
                     key={index}
                     className={({ selected }) =>
                       classNames(
-                        "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
-                        selected ? "  font-semibold " : "font-semibold  mb-1"
+                        "leading-[60px]",
+                        selected
+                         ? "font-semibold text-seamlessBlue-700 text-base" 
+                         : "font-semibold  mb-1 text-seamlessGray-950 text-base"
                       )
                     }
+                   
                   >
                     {({ hover, selected }) => (
                       <>
@@ -341,14 +339,14 @@ const Membership = () => {
                     <div className="flex items-center space-x-6">
                       <button className="flex items-center space-x-2 text-base font-semibold text-seamlessGray-950 ">
                         <span>Filter</span>
-                        <AdjustmentsHorizontalIcon className="h-6 w-7" />
+                        <AdjustmentsHorizontalIcon className="h-6 w-9" />
                       </button>
                       <button className="flex items-center space-x-2 text-base font-semibold text-seamlessGray-950 ">
                         <span>Export</span>
-                        <ArrowUpTrayIcon className="h-6 w-7" />
+                        <ArrowUpTrayIcon className="h-6 w-9" />
                       </button>
                       <button
-                        className="py-2 text-sm font-semibold text-white px-11 bg-seamlessBlue-700 rounded-3xl"
+                        className="py-2.5 text-sm font-semibold text-white px-11 bg-seamlessBlue-700 rounded-3xl  sm:text-sm lg:px-11 md:mt-0"
                         onClick={() => {
                           setNewMember({});
                           setIsModalOpen(true);
@@ -360,41 +358,41 @@ const Membership = () => {
                   </div>
                   {memberList?.length > 0 ? (
                     <div className="border h-[40vh] border-seamlessGray-900 overflow-hidden rounded-3xl">
-                      <table className="min-w-full table-auto ">
+                      <table className="min-w-full p-6 table-auto">
                         <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
                           <tr className="border-b border-seamlessGray-150">
-                            <th className="p-6">
+                            <th className="px-6 py-6">
                               <Checkbox />
                             </th>
                             <th className="px-4 py-6 text-sm font-semibold">
                               Member Name
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 py-2 text-sm font-semibold">
+                            <th className="px-6 py-6 text-sm font-semibold">
                               Status
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 text-sm font-semibold">
+                            <th className="px-6 py-6 text-sm font-semibold">
                               Role
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 py-2 text-sm font-semibold">
+                            <th className="px-4 py-6 text-sm font-semibold">
                               Chapter
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 py-2 text-sm font-semibold">
+                            <th className="px-4 py-6 text-sm font-semibold">
                               Committee
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 text-sm font-semibold">
+                            <th className="px-4 py-6 text-sm font-semibold">
                               Subscription
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 py-2 text-sm font-semibold">
+                            <th className="px-4 py-6 text-sm font-semibold">
                               Dues
                               <BraIcon className="inline-block ml-3" />
                             </th>
-                            <th className="px-4 py-2"></th>
+                            <th className="p-6"></th>
                           </tr>
                         </thead>
                         <tbody className="">
@@ -410,12 +408,12 @@ const Membership = () => {
                                 setNewMember(member);
                               }}
                             >
-                              <td className="px-6 ">
+                              <td className="px-6 py-5">
                                 <Checkbox />
                               </td>
-                              <td className="flex items-center gap-3 px-4 py-2 text-sm font-semibold text-seamlessBlue-700">
+                              <td className="flex items-center gap-3 px-4 py-5 text-sm font-semibold text-seamlessBlue-700">
                                 <UserCircleIcon
-                                  className={`w-8 h-8 font-semibold ${
+                                  className={`w-10 h-10 font-semibold ${
                                     member?.id === newMember?.id
                                       ? "text-seamlessBlue-900"
                                       : "text-seamlessGray-900 "
@@ -423,7 +421,7 @@ const Membership = () => {
                                 />
                                 {member.firstName}
                               </td>
-                              <td className="px-4 ">
+                              <td className="px-6 py-5">
                                 <span
                                   className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
                                     member.status === "Active"
@@ -438,9 +436,9 @@ const Membership = () => {
                                   {member.status}
                                 </span>
                               </td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.role}</td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.chapter}</td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
+                              <td className="px-6 py-5 text-sm font-normal text-seamlessGray-950">{member.role}</td>
+                              <td className="px-4 py-5 text-sm font-normal text-seamlessGray-950">{member.chapter}</td>
+                              <td className="px-4 py-5 text-sm font-normal text-seamlessGray-950">
                                 {member.committee}
                                 {member.extraCommittee && (
                                   <span className="px-2 py-1 ml-2 text-sm font-normal rounded-full bg-seamlessGreen-500 text-seamlessGray-950">
@@ -448,13 +446,13 @@ const Membership = () => {
                                   </span>
                                 )}
                               </td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
+                              <td className="px-4 py-5 text-sm font-normal text-seamlessGray-950">
                                 {member.subscription || "Chapter Gold"}
                               </td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
+                              <td className="px-4 py-5 text-sm font-normal text-seamlessGray-950">
                                 {member.dues || "NA"}
                               </td>
-                              <td className="px-6 py-2 text-right">
+                              <td className="px-6 py-5 text-right">
                                 <PopUp
                                   onChange={() => {
                                     setIsModalOpen(true);

@@ -185,8 +185,8 @@ const Events = () => {
                   key={tab}
                   className={({ selected }) =>
                     classNames(
-                      "text-base font-semibold text-seamlessBlue-700 focus:none leading-[60px]",
-                      selected ? "  font-semibold " : "font-semibold  mb-1"
+                      " focus:none leading-[60px]",
+                      selected ? "text-base font-semibold text-seamlessBlue-700" : "font-semibold  mb-1 text-base text-seamlessGray-950"
                     )
                   }
                 >
@@ -204,9 +204,9 @@ const Events = () => {
 
             <Tab.Panels>
               <Tab.Panel>
-                <div className="mt-10 bg-gray-100 border border-gray-600 rounded-3xl">
+                <div className="mt-10 bg-gray-100 border border-seamlessGray-900 rounded-3xl">
                   <div className="bg-white rounded-t-3xl">
-                    <div className="flex flex-col items-start justify-between border-b border-gray-400 sm:flex-row sm:items-center">
+                    <div className="flex flex-col items-start justify-between border-b border-seamlessGray-150 sm:flex-row sm:items-center">
                       <p className="px-6 py-4 text-sm font-normal text-seamlessGray-950">
                         Display Title:
                         <span className="ml-2 text-base font-semibold text-seamlessBlue-700">
@@ -216,7 +216,7 @@ const Events = () => {
                       <ChevronDownIcon className="w-5 h-5 text-gray-500 cursor-pointer m-3.5" />
                     </div>
 
-                    <div className="space-y-2 border-b border-gray-400">
+                    <div className="space-y-2 border-b border-seamlessGray-150">
                       <div className="py-10 px-9">
                         <span className="flex justify-between">
                           <p className="text-sm font-normal text-seamlessGray-950">
@@ -224,7 +224,7 @@ const Events = () => {
                           </p>
                           <PencilIcon className="w-5 h-5" />
                         </span>
-                        <h2 className="text-xl font-semibold sm:text-2xl text-seamlessBlue-700">
+                        <h2 className="text-xl font-semibold sm:text-3xl text-seamlessBlue-700">
                           {selectedEvent?.display_title}
                         </h2>
                         <span className="flex items-center mt-2 space-x-2">
@@ -242,7 +242,7 @@ const Events = () => {
                               />
                             </button>
                           </div>
-                          <p className="text-sm text-seamlessBlue-700">
+                          <p className="text-sm font-normal text-seamlessBlue-700">
                             Show On Public Site
                           </p>
                         </span>
@@ -250,9 +250,11 @@ const Events = () => {
                     </div>
                   </div>
 
-                  <div className="divide-y divide-gray-400">
+                  <div className="divide-y divide-seamlessGray-150">
                     <div className="flex items-center px-6 py-4">
-                      <p className="text-sm text-seamlessGray-950 ">Description:</p>
+                      <p className="text-sm text-seamlessGray-950 ">
+                        Description:
+                      </p>
                       <p className="ml-2 text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.description}
                       </p>
@@ -264,7 +266,9 @@ const Events = () => {
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-seamlessGray-950 ">Location:</p>
+                      <p className="text-sm text-seamlessGray-950 ">
+                        Location:
+                      </p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.location}
                       </p>
@@ -287,13 +291,17 @@ const Events = () => {
                     </div>
 
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-seamlessGray-950 ">Event Type:</p>
+                      <p className="text-sm text-seamlessGray-950 ">
+                        Event Type:
+                      </p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         {selectedEvent?.type}
                       </p>
                     </div>
                     <div className="flex flex-col items-start gap-1 px-6 py-4 sm:flex-row sm:items-center">
-                      <p className="text-sm text-seamlessGray-950 ">Event Category:</p>
+                      <p className="text-sm text-seamlessGray-950 ">
+                        Event Category:
+                      </p>
                       <p className="text-base font-semibold text-seamlessBlue-700">
                         Outreach
                       </p>
@@ -349,17 +357,13 @@ const Events = () => {
                             <tr
                               key={index}
                               className={`border-t w-fit border-b border-gray-300 cursor-pointer ${
-                                false
-                                  ? "bg-white text-seamlessBlue-900 "
-                                  : ""
+                                false ? "bg-white text-seamlessBlue-900 " : ""
                               }`}
-                            
                             >
-                             
                               <td className="flex items-center gap-3 px-6 py-4 text-sm font-semibold text-seamlessBlue-700">
                                 <UserCircleIcon
                                   className={`w-8 h-8 font-normal ${
-                                 false
+                                    false
                                       ? "text-seamlessBlue-900"
                                       : "text-seamlessGray-900 "
                                   } `}
@@ -381,8 +385,12 @@ const Events = () => {
                                   {member.status}
                                 </span>
                               </td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.role}</td>
-                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">{member.chapter}</td>
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
+                                {member.role}
+                              </td>
+                              <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
+                                {member.chapter}
+                              </td>
                               <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.committee}
                                 {member.extraCommittee && (
@@ -397,7 +405,6 @@ const Events = () => {
                               <td className="px-4 py-2 text-sm font-normal text-seamlessGray-950">
                                 {member.dues || "NA"}
                               </td>
-                            
                             </tr>
                           ))}
                         </tbody>
@@ -440,7 +447,7 @@ const Events = () => {
         </PrimaryContainer>
       ) : (
         <PrimaryContainer>
-          <div className="mb-10">
+          <div className="max-h-full mb-10 h-fit">
             <h2 className="mb-10 text-xl font-extrabold md:text-2xl text-seamlessBlue-700 md:mb-9">
               Events
             </h2>
@@ -453,14 +460,12 @@ const Events = () => {
           </div>
 
           <div className="flex flex-col items-center justify-between mb-6 md:flex-row">
-            <div className="flex flex-col items-start gap-2.5 rounded-full border border-seamlessGray-50 bg-seamlessCyan-600 py-2 px-4 w-full md:w-auto mb-4 md:mb-0">
-              <div className="flex items-center w-full gap-2">
-                <input
-                  className="w-full text-sm leading-normal text-gray-900 bg-seamlessCyan-600 focus:outline-none focus:ring-0 md:w-40 lg:w-60"
-                  placeholder="Search..."
-                />
-                <MagnifyingGlassIcon className="w-4 h-4 text-seamlessGray-200" />
-              </div>
+            <div className="flex items-center w-full px-4 py-2 space-x-4 border rounded-full md:w-auto border-seamlessGray-50 bg-seamlessCyan-600">
+              <input
+                className="w-full text-sm text-gray-900 bg-seamlessCyan-600 focus:outline-none"
+                placeholder="Search..."
+              />
+              <MagnifyingGlassIcon className="w-4 h-4 text-seamlessGray-200" />
             </div>
 
             <div className="flex flex-wrap items-center justify-center space-x-6 md:justify-end">
@@ -483,61 +488,60 @@ const Events = () => {
                   setSelectedEvent({});
                   setIsModelOpen(true);
                 }}
-                className="py-2.5 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-11 md:mt-0 px-11"
+                className="py-2.5 mt-2 text-xs font-semibold text-white bg-seamlessBlue-700 rounded-3xl sm:text-sm lg:px-9 md:mt-0 px-9"
               >
                 ADD A NEW EVENT
               </button>
             </div>
           </div>
-
-          <div className="mt-10 mb-6 overflow-x-auto border border-seamlessGray-900 rounded-3xl">
-            <table className="min-w-full table-auto">
+          <div className="mt-10 mb-6 overflow-auto border border-seamlessGray-900 rounded-3xl scrollbar-hide"> 
+            <table className="min-w-full table-auto ">
               <thead className="text-sm font-semibold text-left text-seamlessBlue-700">
                 <tr className="border-b border-gray-300">
-                  <th className="px-6 py-3 text-sm font-normal">
+                  <th className="px-6 py-4 text-sm font-normal">
                     <Checkbox />
                   </th>
-                  <th className="py-3 text-sm font-semibold">
+                  <th className="py-4 text-sm font-semibold">
                     Event Name
                     <BraIcon className="inline-block ml-3 " />
                   </th>
-                  <th className="py-3 text-sm font-semibold">
+                  <th className="py-4 text-sm font-semibold">
                     Status
                     <BraIcon className="inline-block ml-3 " />
                   </th>
-                  <th className="px-2 py-3 text-sm font-semibold">
+                  <th className="px-2 py-4 text-sm font-semibold">
                     Dates
                     <BraIcon className="inline-block ml-3" />
                   </th>
-                  <th className="px-2 py-3 text-sm font-semibold">
+                  <th className="px-2 py-4 text-sm font-semibold">
                     Registration
                     <BraIcon className="inline-block ml-3 " />
                   </th>
-                  <th className="px-2 py-3 text-sm font-semibold">
+                  <th className="px-2 py-4 text-sm font-semibold">
                     Type
                     <BraIcon className="inline-block ml-3 " />
                   </th>
-                  <th className="px-2 py-3"></th>
+                  <th className="px-2 py-4"></th>
                 </tr>
               </thead>
               <tbody className="">
                 {events.map((event, index) => (
                   <tr
                     key={index}
-                    className={`border-t  border-gray-300 ${
+                    className={`border-t border-gray-300 ${
                       selectedEvent?.id === event?.id ? "bg-white" : ""
                     }`}
                     onClick={() => setSelectedEvent(event)}
                   >
-                    <td className="px-6 py-2 text-sm font-medium">
+                    <td className="px-6 py-4 text-sm font-medium">
                       <Checkbox />
                     </td>
-                    <td className="py-2 text-sm font-semibold text-seamlessBlue-700">
+                    <td className="py-4 text-sm font-semibold text-seamlessBlue-700">
                       {event.name}
                     </td>
-                    <td className="py-3">
+                    <td className="py-4">
                       <span
-                        className={`px-4 py-1.5 rounded-xl text-sm font-normal ${
+                        className={`px-3 py-1.5 rounded-xl text-sm font-normal ${
                           event.status === "Live"
                             ? "bg-seamlessGreen-500 text-seamlessGray-950 "
                             : event.status === "Pause"
@@ -553,16 +557,16 @@ const Events = () => {
                       </span>
                     </td>
 
-                    <td className="px-2 py-2 text-sm font-normal text-seamlessGray-950">
+                    <td className="px-2 py-4 text-sm font-normal text-seamlessGray-950">
                       {event.dates || "10.14.24 - 10.16.24"}
                     </td>
-                    <td className="px-2 py-2 text-sm font-normal text-seamlessGray-950">
+                    <td className="px-2 py-4 text-sm font-normal text-seamlessGray-950">
                       {event?.registration_title}
                     </td>
-                    <td className="px-2 py-2 text-sm font-normal text-seamlessGray-950">
+                    <td className="px-2 py-4 text-sm font-normal text-seamlessGray-950">
                       {event.type}
                     </td>
-                    <td className="px-2 py-2 text-left">
+                    <td className="px-2 py-4 text-left">
                       <PopUp
                         onDelete={(e, close) => {
                           e.preventDefault();

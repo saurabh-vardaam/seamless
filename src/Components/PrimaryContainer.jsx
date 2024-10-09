@@ -83,7 +83,7 @@ export default function PrimaryContainer({ children }) {
                 <XMarkIcon className="w-6 h-6 text-white" />
               </button>
             </div>
-            <div className="flex grow flex-col gap-y-5 overflow-y-auto bg-[#273175]  pb-4">
+            <div className="flex flex-col pb-4 overflow-y-auto grow gap-y-5 bg-seamlessBlue-700">
               <nav className="flex flex-col flex-1">
                 <ul role="list" className="flex flex-col flex-1 gap-y-7">
                   <li>
@@ -94,7 +94,7 @@ export default function PrimaryContainer({ children }) {
                             to={item.path}
                             className={classNames(
                               location.pathname === item.path
-                                ? "bg-[#171f52] text-seamlessGray-400"
+                                ? "bg-seamlessBlue-900 text-seamlessGray-400"
                                 : "text-seamlessGray-400 ",
                               "group flex gap-x-3 rounded-md p-4 text-sm font-semibold leading-6"
                             )}
@@ -137,13 +137,13 @@ export default function PrimaryContainer({ children }) {
             </div>
             <div className="flex items-center px-5 space-x-2 lg:mr-5 sm:space-x-3 md:space-x-5">
               <div className="items-center hidden gap-2 sm:inline-flex sm:gap-3">
-                <div className="flex flex-col items-start gap-2.5 rounded-full border border-[#DFDEDE] bg-[#ebecec]  px-3 sm:py-2 sm:px-4">
+                <div className="flex flex-col items-start gap-2.5 rounded-full border border-seamlessGray-50 bg-seamlessGray-250 px-3 sm:py-2 sm:px-4">
                   <div className="flex items-center gap-1.5 sm:gap-2">
                     <input
-                      className="bg-[#ebecec] text-sm text-gray-900 focus:outline-none focus:ring-0 max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] w-full"
+                      className="bg-seamlessGray-250 text-sm text-gray-900 focus:outline-none focus:ring-0 max-w-[100px] sm:max-w-[150px] md:max-w-[200px] lg:max-w-[300px] w-full"
                       placeholder="Search..."
                     />
-                    <MagnifyingGlassIcon className="text-[#B6B6B6] w-4 h-4 sm:w-5 sm:h-5" />
+                    <MagnifyingGlassIcon className="w-4 h-4 text-seamlessGray-100 sm:w-5 sm:h-5" />
                   </div>
                 </div>
               </div>
@@ -170,7 +170,7 @@ export default function PrimaryContainer({ children }) {
                             }}
                             href={item.path}
                             className={`${
-                              active ? "bg-gray-50" : ""
+                              active ? "bg-seamlessBlue-300 text-white" : ""
                             } block px-2 py-1 text-sm cursor-pointer leading-6 text-gray-900`}
                           >
                             {item.name}
@@ -181,7 +181,7 @@ export default function PrimaryContainer({ children }) {
                   </Menu.Items>
                 </Menu>
                 <div className="hidden -ml-4 md:flex md:items-center">
-                  <span className="ml-2 sm:ml-3 lg:ml-4 text-sm sm:text-base lg:text-base font-semibold text-[#282728]">
+                  <span className="ml-2 text-sm font-semibold sm:ml-3 lg:ml-4 sm:text-base lg:text-base text-seamlessGray-950">
                     {localStorage.getItem("user_name")}
                   </span>
                 </div>
